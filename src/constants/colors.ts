@@ -26,5 +26,6 @@ export default {
     60: '#FF9466',
     40: '#FFB899',
     20: '#FFF1EB'
-  }
+  },
+  red: '#DC1B50'
 };

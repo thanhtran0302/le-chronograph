@@ -39,7 +39,7 @@ const Categories: FC<CategoriesProps> = ({ categories }) => {
             href={`/?category=${category.data.category}`}
           >
             <CategoryItem isSelected={selectedCategory === cat}>
-              {t(cat)}
+              {cat}
             </CategoryItem>
           </Link>
         );

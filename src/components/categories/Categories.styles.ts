@@ -20,6 +20,7 @@ export const CategoryItem = styled.div<CategoryItemProps>`
   padding: ${spaces[12]};
   height: ${spaces[40]};
   color: ${colors.dark[80]};
+  text-transform: capitalize;
 
   :hover {
     color: ${colors.dark[100]};
