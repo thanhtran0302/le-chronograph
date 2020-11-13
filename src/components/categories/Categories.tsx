@@ -3,6 +3,7 @@ import Link from 'next/link';
 import React, { FC } from 'react';
 import { useTranslation, UseTranslationResponse } from 'react-i18next';
 import { Layout, CategoryItem } from './Categories.styles';
+import { PrismicDocument } from '../../interfaces/prismic';
 
 enum CategoriesEnum {
   ALL = 'all',
@@ -12,7 +13,11 @@ enum CategoriesEnum {
   TUDOR = 'tudor'
 }
 
-const Categories: FC = () => {
+interface CategoriesProps {
+  categories: PrismicDocument[];
+}
+
+const Categories: FC<CategoriesProps> = ({ categories }) => {
   const { query }: NextRouter = useRouter();
   const { t }: UseTranslationResponse = useTranslation();
   const selectedCategory: string =
@@ -25,28 +30,20 @@ const Categories: FC = () => {
           {t(CategoriesEnum.ALL)}
         </CategoryItem>
       </Link>
-      <Link href={`/?category=${CategoriesEnum.BRANDING}`}>
-        <CategoryItem isSelected={selectedCategory === CategoriesEnum.BRANDING}>
-          {t(CategoriesEnum.BRANDING)}
-        </CategoryItem>
-      </Link>
-      <Link href={`/?category=${CategoriesEnum.MARKETING}`}>
-        <CategoryItem
-          isSelected={selectedCategory === CategoriesEnum.MARKETING}
-        >
-          {t(CategoriesEnum.MARKETING)}
-        </CategoryItem>
-      </Link>
-      <Link href={`/?category=${CategoriesEnum.ROLEX}`}>
-        <CategoryItem isSelected={selectedCategory === CategoriesEnum.ROLEX}>
-          {t(CategoriesEnum.ROLEX)}
-        </CategoryItem>
-      </Link>
-      <Link href={`/?category=${CategoriesEnum.TUDOR}`}>
-        <CategoryItem isSelected={selectedCategory === CategoriesEnum.TUDOR}>
-          {t(CategoriesEnum.TUDOR)}
-        </CategoryItem>
-      </Link>
+      {categories.map((category: PrismicDocument, key: number) => {
+        const cat: string = category.data.category;
+
+        return (
+          <Link
+            key={`category-${key}`}
+            href={`/?category=${category.data.category}`}
+          >
+            <CategoryItem isSelected={selectedCategory === cat}>
+              {t(cat)}
+            </CategoryItem>
+          </Link>
+        );
+      })}
     </Layout>
   );
 };

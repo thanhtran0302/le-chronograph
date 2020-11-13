@@ -11,12 +11,13 @@ import { Document } from 'prismic-javascript/types/documents';
 
 interface HomeProps {
   posts: PrismicDocument[];
+  categories: PrismicDocument[];
 }
 
-const Home: FC<HomeProps> = ({ posts }) => (
+const Home: FC<HomeProps> = ({ posts, categories }) => (
   <Fragment>
     <CatchPhrase />
-    <Categories />
+    <Categories categories={categories} />
     <CardWrapper posts={posts} />
   </Fragment>
 );
@@ -54,13 +55,15 @@ export const getServerSideProps: GetServerSideProps = async (
 
     return {
       props: {
-        posts: response.results
+        posts: response.results,
+        categories: responseCategories.results
       }
     };
   } catch {
     return {
       props: {
-        posts: []
+        posts: [],
+        categories: []
       }
     };
   }
