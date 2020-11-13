@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import React, { FC } from 'react';
 import { useTranslation, UseTranslationResponse } from 'react-i18next';
-import { BlogLabel, BlogName } from '../../constants/common';
+import { BlogLabel, BlogName, PODCAST_URL } from '../../constants/common';
 import Button, { ButtonAppearance, ButtonTypes } from '../button/Button';
 import {
   Layout,
@@ -28,11 +28,13 @@ const NavBar: FC = () => {
           appearance={ButtonAppearance.SECONDARY}
           label={t('newsletterSignUp')}
         />
-        <Button
-          type={ButtonTypes.BUTTON}
-          appearance={ButtonAppearance.PRIMARY}
-          label={t('listenToPodcast')}
-        />
+        <a target="_blank" href={PODCAST_URL}>
+          <Button
+            type={ButtonTypes.BUTTON}
+            appearance={ButtonAppearance.PRIMARY}
+            label={t('listenToPodcast')}
+          />
+        </a>
       </ButtonsContainer>
     </Layout>
   );

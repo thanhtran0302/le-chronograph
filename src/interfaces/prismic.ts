@@ -1,4 +1,7 @@
-import { AlternateLanguage } from 'prismic-javascript/types/documents';
+import {
+  AlternateLanguage,
+  Document
+} from 'prismic-javascript/types/documents';
 
 export enum PrismicBlogPostTitleEnum {
   HEADING1 = 'heading1',
@@ -11,7 +14,8 @@ export enum PrismicBlogPostTitleEnum {
 
 export enum PrimsicTypes {
   BLOG_POSTS = 'blog_posts',
-  AUTHORS = 'authors'
+  AUTHORS = 'authors',
+  CATEGORIES = 'categories'
 }
 
 export interface PrismicBlogPostCategory {
@@ -113,7 +117,8 @@ export interface PrismicDocument {
   alternate_languages: AlternateLanguage[];
   first_publication_date: string | null;
   last_publication_date: string | null;
-  data: PrismicBlogPost;
+  // tslint:disable-next-line: no-any
+  data: any;
 }
 
 export interface PrismicResponse {
@@ -124,7 +129,7 @@ export interface PrismicResponse {
   total_pages: number;
   next_page: string;
   prev_page: string;
-  results: PrismicDocument[];
+  results: Document[];
 }
 
 export interface PrismicBlogPost {

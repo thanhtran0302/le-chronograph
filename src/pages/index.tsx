@@ -5,32 +5,48 @@ import CatchPhrase from '../components/catchPhrase/CatchPhrase';
 import Categories from '../components/categories/Categories';
 import { PrismicClient } from '../utils/prismic';
 import Prismic from 'prismic-javascript';
-import {
-  PrimsicTypes,
-  PrismicDocument,
-  PrismicResponse
-} from '../interfaces/prismic';
+import { PrimsicTypes, PrismicDocument } from '../interfaces/prismic';
+import ApiSearchResponse from 'prismic-javascript/types/ApiSearchResponse';
+import { Document } from 'prismic-javascript/types/documents';
 
 interface HomeProps {
-  documents: PrismicDocument[];
+  posts: PrismicDocument[];
 }
 
-const Home: FC<HomeProps> = ({ documents }) =>
-  (
-    <Fragment>
-      <CatchPhrase />
-      <Categories />
-      <CardWrapper documents={documents} />
-    </Fragment>
-  );
+const Home: FC<HomeProps> = ({ posts }) => (
+  <Fragment>
+    <CatchPhrase />
+    <Categories />
+    <CardWrapper posts={posts} />
+  </Fragment>
+);
 
 export const getServerSideProps: GetServerSideProps = async (
   ctx: GetServerSidePropsContext
 ) => {
   try {
-    const { req }: GetServerSidePropsContext = ctx;
-    const response: PrismicResponse = await PrismicClient(req).query(
-      Prismic.Predicates.at('document.type', PrimsicTypes.BLOG_POSTS),
+    const { req, query }: GetServerSidePropsContext = ctx;
+    const queryCategory: string = (query.category as string) || 'all';
+    const prismicQuery: string[] = [
+      Prismic.Predicates.at('document.type', PrimsicTypes.BLOG_POSTS)
+    ];
+    const responseCategories: ApiSearchResponse = await PrismicClient(
+      req
+    ).query(Prismic.Predicates.at('document.type', PrimsicTypes.CATEGORIES));
+    const [category] = responseCategories.results.filter(
+      (docCategory: Document) => docCategory.data.category === queryCategory
+    );
+
+    if (category) {
+      prismicQuery.push(
+        Prismic.Predicates.at(
+          `my.${PrimsicTypes.BLOG_POSTS}.category`,
+          category.id
+        )
+      );
+    }
+    const response: ApiSearchResponse = await PrismicClient(req).query(
+      prismicQuery,
       {
         fetchLinks: ['authors.name', 'categories.category']
       }
@@ -38,13 +54,13 @@ export const getServerSideProps: GetServerSideProps = async (
 
     return {
       props: {
-        documents: response.results
+        posts: response.results
       }
     };
   } catch {
     return {
       props: {
-        documents: []
+        posts: []
       }
     };
   }
