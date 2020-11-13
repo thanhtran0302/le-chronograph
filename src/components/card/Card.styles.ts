@@ -7,6 +7,7 @@ import spaces from '../../constants/spaces';
 
 export const Layout = styled.div`
   background: white;
+  cursor: pointer;
   border-radius: ${radius[6]};
   box-shadow: ${shadows.level1};
 
@@ -33,7 +34,7 @@ export const CardTitle = styled.div`
 
 export const CardPostPreview = styled.div`
   ${paragraphs.body1};
-  color: ${colors.dark[60]};
+  color: ${colors.dark[80]};
   margin-bottom: ${spaces[16]};
 `;
 

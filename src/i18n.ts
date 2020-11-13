@@ -13,7 +13,7 @@ i18n.use(initReactI18next).init({
   },
   keySeparator: false,
   lng: 'fr',
-  debug: process.env.NODE_ENV !== 'production'
+  debug: false // process.env.NODE_ENV !== 'production'
 });
 
 export default i18n;

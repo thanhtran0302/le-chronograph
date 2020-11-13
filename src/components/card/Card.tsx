@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React, { FC } from 'react';
 import {
   Layout,
@@ -10,24 +11,36 @@ import {
   CardPostDate
 } from './Card.styles';
 
-const Card: FC = () =>
-  (
+interface CardProps {
+  title: string;
+  previewText: string;
+  image: string;
+  author: string;
+  date: string;
+  slug: string;
+}
+
+const Card: FC<CardProps> = ({
+  title,
+  previewText,
+  image,
+  author,
+  date,
+  slug
+}) => (
+  <Link href={`/${slug}`}>
     <Layout>
-      <Image src="https://i.picsum.photos/id/866/600/800.jpg?hmac=7MjLDCug0s7JWRVrJz0nn-YuyW4PezXyfryEaOTgJx0" />
+      <Image src={image} />
       <CardPostMetaData>
-        <CardTitle>Comment être efficace en télétravail ?</CardTitle>
-        <CardPostPreview>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-          condimentum finibus efficitur. Class aptent taciti sociosqu ad litora
-          torquent per conubia nostra, per inceptos himenaeos. Fusce a libero
-          nec diam pulvinar interdum.
-        </CardPostPreview>
+        <CardTitle>{title}</CardTitle>
+        <CardPostPreview>{previewText}</CardPostPreview>
         <CardPostCredit>
-          <CardPostAuthor>Thanh Tran</CardPostAuthor>
-          <CardPostDate>, 12 Novembre 2020</CardPostDate>
+          <CardPostAuthor>{author}</CardPostAuthor>
+          <CardPostDate>, {date}</CardPostDate>
         </CardPostCredit>
       </CardPostMetaData>
     </Layout>
-  );
+  </Link>
+);
 
 export default Card;
