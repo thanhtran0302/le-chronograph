@@ -68,6 +68,13 @@ const useModal = (): UseModalProps => {
 
   const toggleModal = (): void => setOpen(!isOpen);
 
+  useEffect(() => {
+    const body = document.getElementsByTagName('body');
+    if (body.length) {
+      body[0].style.overflow = isOpen ? 'hidden' : 'auto';
+    }
+  }, [isOpen]);
+
   const createModal = ({
     title,
     content,

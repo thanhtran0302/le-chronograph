@@ -27,5 +27,6 @@ export default {
     40: '#FFB899',
     20: '#FFF1EB'
   },
-  red: '#DC1B50'
+  red: '#DC1B50',
+  blue: '#2FBEEE'
 };

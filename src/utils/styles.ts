@@ -34,16 +34,31 @@ export const GlobalStyle = createGlobalStyle`
 
     *, input, label, textarea {
     }
-    h1, h2, h3, h4 {
+    h1, h2, h3, h4, h5, h6 {
       margin: 0;
+      padding: 0;
       * {
         font-family: inherit;
       }
     }
+
+    h1 {
+      ${paragraphs.h1}
+    }
+    h2 {
+      ${paragraphs.h2}
+    }
+    h3 {
+      ${paragraphs.h3}
+    }
+    h4 {
+      ${paragraphs.h4}
+    }
   }
 
   a {
-    color: inherit;
+    color: ${colors.blue};
+    font-weight: bold;
     text-decoration: none;
   }
 

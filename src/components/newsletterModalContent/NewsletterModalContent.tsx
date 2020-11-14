@@ -27,7 +27,6 @@ const NewsletterModalContent: FC = () => {
         await fetch(`/api/airtable/${email}`);
         setSuccess(true);
         setEmailError(false);
-        setEmail('');
       } catch (error) {
         setSuccess(false);
         setEmailError(true);

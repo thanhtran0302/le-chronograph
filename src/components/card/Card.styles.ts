@@ -28,7 +28,7 @@ export const CardPostMetaData = styled.div`
 `;
 
 export const CardTitle = styled.div`
-  ${paragraphs.h2};
+  ${paragraphs.h3};
   margin-bottom: ${spaces[16]};
 `;
 

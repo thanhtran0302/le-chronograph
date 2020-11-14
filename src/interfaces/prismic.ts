@@ -1,7 +1,4 @@
-import {
-  AlternateLanguage,
-  Document
-} from 'prismic-javascript/types/documents';
+import { RichTextBlock, RichTextSpan } from 'prismic-reactjs';
 
 export enum PrismicBlogPostTitleEnum {
   HEADING1 = 'heading1',
@@ -35,13 +32,7 @@ export interface PrismicBlogPostCategory {
 export interface PrismicBlogPostTitle {
   type: PrismicBlogPostTitleEnum;
   text: string;
-  spans: PrismicSpan[];
-}
-
-export interface PrismicSpan {
-  start: number;
-  end: number;
-  type: string;
+  spans: RichTextSpan[];
 }
 
 export interface PrismicEmbed {
@@ -70,7 +61,7 @@ export interface PrismicBlogPostContent {
     height: number;
   };
   text?: string;
-  spans?: PrismicSpan[];
+  spans?: RichTextSpan[];
   oembed?: {};
   url?: string;
 }
@@ -85,12 +76,6 @@ export interface PrismicImage {
   url: string;
 }
 
-export interface PrismicAuthorText {
-  type: string;
-  text: string;
-  spans: PrismicSpan[];
-}
-
 export interface PrismicBlogPostAuthor {
   id: string;
   type: PrimsicTypes;
@@ -101,42 +86,15 @@ export interface PrismicBlogPostAuthor {
   link_type: string;
   isBroken: boolean;
   data: {
-    name: PrismicAuthorText[];
+    name: RichTextBlock[];
   };
-}
-
-export interface PrismicDocument {
-  id: string;
-  uid?: string;
-  url?: string;
-  type: string;
-  href: string;
-  tags: string[];
-  slugs: string[];
-  lang?: string;
-  alternate_languages: AlternateLanguage[];
-  first_publication_date: string | null;
-  last_publication_date: string | null;
-  // tslint:disable-next-line: no-any
-  data: any;
-}
-
-export interface PrismicResponse {
-  page: number;
-  results_per_page: number;
-  results_size: number;
-  total_results_size: number;
-  total_pages: number;
-  next_page: string;
-  prev_page: string;
-  results: Document[];
 }
 
 export interface PrismicBlogPost {
   post_slug: string;
   post_preview: string;
-  post_title: PrismicBlogPostTitle[];
-  post_content: PrismicBlogPostContent;
+  post_title: RichTextBlock[];
+  post_content: RichTextBlock[];
   post_main_image: PrismicImage;
   creation_date: string;
   author: PrismicBlogPostAuthor;
