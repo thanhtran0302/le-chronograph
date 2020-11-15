@@ -3,7 +3,8 @@ import Link from 'next/link';
 import React, { FC } from 'react';
 import { useTranslation, UseTranslationResponse } from 'react-i18next';
 import { Layout, CategoryItem } from './Categories.styles';
-import { PrismicDocument } from '../../interfaces/prismic';
+import { Document } from 'prismic-javascript/types/documents';
+import { PrismicBlogPostCategory } from '../../interfaces/prismic';
 
 enum CategoriesEnum {
   ALL = 'all',
@@ -14,7 +15,7 @@ enum CategoriesEnum {
 }
 
 interface CategoriesProps {
-  categories: PrismicDocument[];
+  categories: Document[];
 }
 
 const Categories: FC<CategoriesProps> = ({ categories }) => {
@@ -30,8 +31,9 @@ const Categories: FC<CategoriesProps> = ({ categories }) => {
           {t(CategoriesEnum.ALL)}
         </CategoryItem>
       </Link>
-      {categories.map((category: PrismicDocument, key: number) => {
-        const cat: string = category.data.category;
+      {categories.map((category: Document, key: number) => {
+        const cat: string = ((category as unknown) as PrismicBlogPostCategory)
+          .data.category;
 
         return (
           <Link

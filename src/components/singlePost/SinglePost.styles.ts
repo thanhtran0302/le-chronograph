@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import colors from '../../constants/colors';
+import paragraphs from '../../constants/paragraphs';
 import radius from '../../constants/radius';
 import spaces from '../../constants/spaces';
 
@@ -83,4 +84,15 @@ export const PostContent = styled.div`
       height: 500px;
     }
   }
+`;
+
+export const NewsletterTitle = styled.div`
+  ${paragraphs.h3};
+  text-align: center;
+`;
+
+export const NewsletterContainer = styled.div`
+  margin-top: ${spaces[100]};
+  grid-column-start: 4;
+  grid-column-end: 10;
 `;

@@ -1,21 +1,23 @@
-import React, { FC } from 'react';
+import React, { FC, Fragment } from 'react';
 import {
   BackArrowContainer,
   Layout,
+  NewsletterContainer,
+  NewsletterTitle,
   PostAuthor,
   PostAuthorAndDateContainer,
-  PostContainer,
   PostContent,
   PostCoverImage,
   PostCoverImageContainer,
   PostCreationDate,
-  PostHeaderContainer,
   PostTitle
 } from './SinglePost.styles';
 import BackArrow from '../../assets/icons/back_arrow.svg';
 import { RichText } from 'prismic-reactjs';
 import Router from 'next/router';
 import { PrismicBlogPost } from '../../interfaces/prismic';
+import NewsletterModalContent from '../newsletterModalContent/NewsletterModalContent';
+import Head from 'next/head';
 
 interface SinglePostProps {
   post: PrismicBlogPost;
@@ -30,20 +32,32 @@ const SinglePost: FC<SinglePostProps> = ({ post }) => {
   const coverImageAlt: string = post.post_main_image.alt;
 
   return (
-    <Layout>
-      <BackArrowContainer onClick={() => Router.back()}>
-        <BackArrow />
-      </BackArrowContainer>
-      <PostTitle>{title}</PostTitle>
-      <PostAuthorAndDateContainer>
-        <PostAuthor>{author}</PostAuthor>
-        <PostCreationDate>, {creationDate}</PostCreationDate>
-      </PostAuthorAndDateContainer>
-      <PostCoverImageContainer>
-        <PostCoverImage src={coverImage} alt={coverImageAlt} />
-      </PostCoverImageContainer>
-      <PostContent>{content}</PostContent>
-    </Layout>
+    <Fragment>
+      <Head>
+        <title>{title}</title>
+      </Head>
+      <Layout>
+        <BackArrowContainer onClick={() => Router.back()}>
+          <BackArrow />
+        </BackArrowContainer>
+        <PostTitle>{title}</PostTitle>
+        <PostAuthorAndDateContainer>
+          <PostAuthor>{author}</PostAuthor>
+          <PostCreationDate>, {creationDate}</PostCreationDate>
+        </PostAuthorAndDateContainer>
+        <PostCoverImageContainer>
+          <PostCoverImage src={coverImage} alt={coverImageAlt} />
+        </PostCoverImageContainer>
+        <PostContent>{content}</PostContent>
+        <NewsletterContainer>
+          <NewsletterTitle>
+            Recevez chaque semaine des astuces pour créer une marque qui inspire
+            la confiance.
+          </NewsletterTitle>
+          <NewsletterModalContent />
+        </NewsletterContainer>
+      </Layout>
+    </Fragment>
   );
 };
 

@@ -2,6 +2,10 @@ import Link from 'next/link';
 import React, { FC } from 'react';
 import { useTranslation, UseTranslationResponse } from 'react-i18next';
 import { BlogLabel, BlogName, PODCAST_URL } from '../../constants/common';
+import {
+  useMobileDevice,
+  useSmartphoneDevice
+} from '../../constants/responsive';
 import Button, { ButtonAppearance, ButtonTypes } from '../button/Button';
 import {
   Layout,

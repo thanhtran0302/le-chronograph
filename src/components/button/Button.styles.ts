@@ -4,11 +4,11 @@ import shadows from '../../constants/shadows';
 import colors from '../../constants/colors';
 import spaces from '../../constants/spaces';
 
-import { IOwnProps, ButtonAppearance, ButtonIconPosition } from './Button';
+import { ButtonProps, ButtonAppearance, ButtonIconPosition } from './Button';
 import fonts from '../../constants/fonts';
 
 type ButtonLayoutProps = Pick<
-  IOwnProps,
+  ButtonProps,
   'appearance' | 'iconPosition' | 'width'
 >;
 

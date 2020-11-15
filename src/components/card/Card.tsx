@@ -28,7 +28,7 @@ const Card: FC<CardProps> = ({
   date,
   slug
 }) => (
-  <Link href={`/${slug}`}>
+  <Link href={`/post/${slug}`}>
     <Layout>
       <Image src={image} />
       <CardPostMetaData>

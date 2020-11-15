@@ -4,6 +4,7 @@ import React, {
   ButtonHTMLAttributes,
   ReactElement
 } from 'react';
+import Loader from '../loader/Loader';
 import { ButtonLayout } from './Button.styles';
 
 export enum ButtonTypes {
@@ -22,7 +23,7 @@ export enum ButtonIconPosition {
   RIGHT = 'right'
 }
 
-export interface IOwnProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   type: ButtonTypes;
   appearance: ButtonAppearance;
   onClick?(event: MouseEvent<HTMLButtonElement>): void;
@@ -32,7 +33,7 @@ export interface IOwnProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   width?: string;
 }
 
-const Button: FC<IOwnProps> = ({ icon, label, type, onClick, ...rest }) => (
+const Button: FC<ButtonProps> = ({ icon, label, type, onClick, ...rest }) => (
   <ButtonLayout
     data-test={`button-${rest.appearance}`}
     type={type}

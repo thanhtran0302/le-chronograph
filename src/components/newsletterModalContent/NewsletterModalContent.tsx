@@ -7,39 +7,52 @@ import {
   EmailError,
   EmailSuccess
 } from './NewsletterModalContent.styles';
-import isEmail from 'isemail';
+import Loader from '../loader/Loader';
+import { isEmail } from '../../utils/global';
+
+enum QuantumState {
+  TRUE,
+  FALSE,
+  BOTH
+}
 
 const NewsletterModalContent: FC = () => {
   const { t }: UseTranslationResponse = useTranslation();
   const [email, setEmail] = useState<string>('');
-  const [hasError, setEmailError] = useState<boolean>(false);
-  const [isSuccess, setSuccess] = useState<boolean>(false);
+  const [isLoading, setLoading] = useState<boolean>(false);
+  const [emailSubmit, setEmailSubmit] = useState<QuantumState>(
+    QuantumState.BOTH
+  );
+
   const onChange = (event: ChangeEvent<HTMLInputElement>) => {
     event.preventDefault();
     const { value } = event.target;
     setEmail(value);
   };
+
   const onSubmit = async (event: FormEvent<Element>) => {
     event.preventDefault();
+    setLoading(true);
 
-    if (isEmail.validate(email)) {
+    if (isEmail(email)) {
       try {
         await fetch(`/api/airtable/${email}`);
-        setSuccess(true);
-        setEmailError(false);
+        setLoading(false);
+        setEmailSubmit(QuantumState.TRUE);
       } catch (error) {
-        setSuccess(false);
-        setEmailError(true);
+        setLoading(false);
+        setEmailSubmit(QuantumState.FALSE);
         throw error;
       }
     } else {
-      setEmailError(true);
-      setSuccess(false);
+      setEmailSubmit(QuantumState.FALSE);
+      setLoading(false);
     }
   };
 
   return (
     <Fragment>
+      {isLoading && <Loader text={'Enregistrement en cours...'} />}
       <Layout onSubmit={onSubmit}>
         <Input
           type={InputTypes.EMAIL}
@@ -56,8 +69,12 @@ const NewsletterModalContent: FC = () => {
           label={t('newsletterSignUp')}
         />
       </Layout>
-      {hasError && <EmailError>{t('invalidEmail')}</EmailError>}
-      {isSuccess && <EmailSuccess>{t('successEmail')}</EmailSuccess>}
+      {emailSubmit === QuantumState.FALSE && (
+        <EmailError>{t('invalidEmail')}</EmailError>
+      )}
+      {emailSubmit === QuantumState.TRUE && (
+        <EmailSuccess>{t('successEmail')}</EmailSuccess>
+      )}
     </Fragment>
   );
 };

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-export const useMediaQuery = (query: string) => {
+export const useMediaQuery = (query: string): boolean => {
   const [matches, setMatches] = useState<boolean>(false);
 
   useEffect(() => {
@@ -20,9 +20,11 @@ export const useMediaQuery = (query: string) => {
   return matches;
 };
 
-export const useMobileDevice = () => useMediaQuery(`(max-width: 1023px)`);
+export const useMobileDevice = (): boolean =>
+  useMediaQuery(`(max-width: 1023px)`);
 
-export const useSmartphoneDevice = () => useMediaQuery(`(max-width: 479px)`);
+export const useSmartphoneDevice = (): boolean =>
+  useMediaQuery(`(max-width: 479px)`);
 
 export const isTouchDevice = () =>
   !!(typeof window !== 'undefined' && 'ontouchstart' in window) ||

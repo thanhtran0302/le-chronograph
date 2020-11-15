@@ -1,39 +1,47 @@
 import React, { FC } from 'react';
-import { PrismicBlogPost, PrismicDocument } from '../../interfaces/prismic';
-import { getTextInPrismicArray } from '../../utils/global';
+import { PrismicBlogPost } from '../../interfaces/prismic';
 import Card from '../card/Card';
 import { Layout } from './CardWrapper.styles';
+import { Document } from 'prismic-javascript/types/documents';
+import { RichText } from 'prismic-reactjs';
 
 interface CardWrapperProps {
-  posts: PrismicDocument[];
+  posts: Document[];
 }
 
-const CardWrapper: FC<CardWrapperProps> = ({ posts }) => (
-  <Layout>
-    {posts.map((post: PrismicDocument, key: number) => {
-      const { data }: PrismicDocument = post;
-      const {
-        post_title,
-        post_preview,
-        post_main_image,
-        post_slug,
-        author,
-        creation_date
-      } = data as PrismicBlogPost;
+export enum DeviceResolution {
+  DESKTOP,
+  TABLET,
+  SMARTPHONE
+}
 
-      return (
-        <Card
-          title={getTextInPrismicArray(post_title)}
-          previewText={post_preview}
-          image={post_main_image.url}
-          author={getTextInPrismicArray(author.data.name)}
-          date={creation_date}
-          slug={post_slug}
-          key={key}
-        />
-      );
-    })}
-  </Layout>
-);
+const CardWrapper: FC<CardWrapperProps> = ({ posts }) =>
+  (
+    <Layout>
+      {posts.map((post: Document, key: number) => {
+        const { data }: Document = post;
+        const {
+          post_title,
+          post_preview,
+          post_main_image,
+          post_slug,
+          author,
+          creation_date
+        } = data as PrismicBlogPost;
+
+        return (
+          <Card
+            title={RichText.asText(post_title)}
+            previewText={post_preview}
+            image={post_main_image.url}
+            author={RichText.asText(author.data.name)}
+            date={creation_date}
+            slug={post_slug}
+            key={key}
+          />
+        );
+      })}
+    </Layout>
+  );
 
 export default CardWrapper;

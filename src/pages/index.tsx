@@ -5,22 +5,23 @@ import CatchPhrase from '../components/catchPhrase/CatchPhrase';
 import Categories from '../components/categories/Categories';
 import { PrismicClient } from '../utils/prismic';
 import Prismic from 'prismic-javascript';
-import { PrimsicTypes, PrismicDocument } from '../interfaces/prismic';
+import { PrimsicTypes } from '../interfaces/prismic';
 import ApiSearchResponse from 'prismic-javascript/types/ApiSearchResponse';
 import { Document } from 'prismic-javascript/types/documents';
 
 interface HomeProps {
-  posts: PrismicDocument[];
-  categories: PrismicDocument[];
+  posts: Document[];
+  categories: Document[];
 }
 
-const Home: FC<HomeProps> = ({ posts, categories }) => (
-  <Fragment>
-    <CatchPhrase />
-    <Categories categories={categories} />
-    <CardWrapper posts={posts} />
-  </Fragment>
-);
+const Home: FC<HomeProps> = ({ posts, categories }) =>
+  (
+    <Fragment>
+      <CatchPhrase />
+      <Categories categories={categories} />
+      <CardWrapper posts={posts} />
+    </Fragment>
+  );
 
 export const getServerSideProps: GetServerSideProps = async (
   ctx: GetServerSidePropsContext

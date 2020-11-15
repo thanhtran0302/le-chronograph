@@ -1,6 +1,7 @@
 import '../i18n';
+import '../css/nprogress.css';
 import React, { FC, Fragment } from 'react';
-import App, { AppProps } from 'next/app';
+import { AppProps } from 'next/app';
 import { Container } from 'react-grid-system';
 import NavBar from '../components/navBar/NavBar';
 import spaces from '../constants/spaces';
@@ -9,6 +10,18 @@ import { BlogLabel, BlogName } from '../constants/common';
 import useModal, { UseModalProps } from '../components/modal/Modal';
 import NewsletterModalContent from '../components/newsletterModalContent/NewsletterModalContent';
 import { useTranslation, UseTranslationResponse } from 'react-i18next';
+import Router from 'next/router';
+import NProgress from 'nprogress';
+
+NProgress.configure({ showSpinner: false, trickleSpeed: 100, minimum: 0.2 });
+Router.events.on('routeChangeStart', () => NProgress.start());
+Router.events.on('routeChangeComplete', () => {
+  NProgress.done();
+  if (window.scrollTo) {
+    window.scrollTo(0, 0);
+  }
+});
+Router.events.on('routeChangeError', () => NProgress.done());
 
 const CustomApp: FC<AppProps> = ({ Component, pageProps }) => {
   const { t }: UseTranslationResponse = useTranslation();
@@ -25,7 +38,7 @@ const CustomApp: FC<AppProps> = ({ Component, pageProps }) => {
         subtitle: t('receiveTipsToBuildBrand'),
         content: <NewsletterModalContent />
       })}
-      <Container style={{ paddingTop: spaces[32] }}>
+      <Container style={{ paddingTop: spaces[32], paddingBottom: spaces[100] }}>
         <NavBar openModal={openModal} />
         <Component {...pageProps} />
       </Container>
