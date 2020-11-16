@@ -3,7 +3,6 @@ import {
   BackArrowContainer,
   Layout,
   NewsletterContainer,
-  NewsletterTitle,
   PostAuthor,
   PostAuthorAndDateContainer,
   PostContent,
@@ -50,10 +49,6 @@ const SinglePost: FC<SinglePostProps> = ({ post }) => {
         </PostCoverImageContainer>
         <PostContent>{content}</PostContent>
         <NewsletterContainer>
-          <NewsletterTitle>
-            Recevez chaque semaine des astuces pour créer une marque qui inspire
-            la confiance.
-          </NewsletterTitle>
           <NewsletterModalContent />
         </NewsletterContainer>
       </Layout>

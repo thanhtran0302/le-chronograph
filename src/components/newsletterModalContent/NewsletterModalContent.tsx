@@ -5,7 +5,8 @@ import Input, { InputTypes } from '../input/Input';
 import {
   Layout,
   EmailError,
-  EmailSuccess
+  EmailSuccess,
+  NewsletterTitle
 } from './NewsletterModalContent.styles';
 import Loader from '../loader/Loader';
 import { isEmail } from '../../utils/global';
@@ -53,6 +54,7 @@ const NewsletterModalContent: FC = () => {
   return (
     <Fragment>
       {isLoading && <Loader text={'Enregistrement en cours...'} />}
+      <NewsletterTitle>{t('receiveTipsToBuildBrand')}</NewsletterTitle>
       <Layout onSubmit={onSubmit}>
         <Input
           type={InputTypes.EMAIL}

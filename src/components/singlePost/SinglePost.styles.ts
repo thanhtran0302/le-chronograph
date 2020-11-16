@@ -86,11 +86,6 @@ export const PostContent = styled.div`
   }
 `;
 
-export const NewsletterTitle = styled.div`
-  ${paragraphs.h3};
-  text-align: center;
-`;
-
 export const NewsletterContainer = styled.div`
   margin-top: ${spaces[100]};
   grid-column-start: 4;

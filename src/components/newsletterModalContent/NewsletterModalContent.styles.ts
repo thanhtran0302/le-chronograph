@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import colors from '../../constants/colors';
+import paragraphs from '../../constants/paragraphs';
 import spaces from '../../constants/spaces';
 
 export const Layout = styled.form`
@@ -22,4 +23,9 @@ export const EmailSuccess = styled.div`
   margin-top: ${spaces[8]};
   color: ${colors.green[100]};
   font-weight: bold;
+`;
+
+export const NewsletterTitle = styled.div`
+  ${paragraphs.h3};
+  text-align: center;
 `;

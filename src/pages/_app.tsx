@@ -1,5 +1,6 @@
 import '../i18n';
 import '../css/nprogress.css';
+
 import React, { FC, Fragment } from 'react';
 import { AppProps } from 'next/app';
 import { Container } from 'react-grid-system';
@@ -12,6 +13,7 @@ import NewsletterModalContent from '../components/newsletterModalContent/Newslet
 import { useTranslation, UseTranslationResponse } from 'react-i18next';
 import Router from 'next/router';
 import NProgress from 'nprogress';
+import Footer from '../components/footer/Footer';
 
 NProgress.configure({ showSpinner: false, trickleSpeed: 100, minimum: 0.2 });
 Router.events.on('routeChangeStart', () => NProgress.start());
@@ -35,13 +37,13 @@ const CustomApp: FC<AppProps> = ({ Component, pageProps }) => {
       </Head>
       {createModal({
         title: t('createBrandThatPeopleLove'),
-        subtitle: t('receiveTipsToBuildBrand'),
         content: <NewsletterModalContent />
       })}
       <Container style={{ paddingTop: spaces[32], paddingBottom: spaces[100] }}>
         <NavBar openModal={openModal} />
         <Component {...pageProps} />
       </Container>
+      <Footer />
     </Fragment>
   );
 };
