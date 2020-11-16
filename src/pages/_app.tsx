@@ -39,7 +39,13 @@ const CustomApp: FC<AppProps> = ({ Component, pageProps }) => {
         title: t('createBrandThatPeopleLove'),
         content: <NewsletterModalContent />
       })}
-      <Container style={{ paddingTop: spaces[32], paddingBottom: spaces[100] }}>
+      <Container
+        style={{
+          paddingTop: spaces[32],
+          paddingBottom: spaces[100],
+          marginBottom: spaces[100]
+        }}
+      >
         <NavBar openModal={openModal} />
         <Component {...pageProps} />
       </Container>

@@ -4,6 +4,9 @@ import colors from '../../constants/colors';
 import spaces from '../../constants/spaces';
 
 export const Layout = styled.div`
+  position: fixed;
+  bottom: 0;
+  width: 100%;
   color: ${colors.grey[80]};
   padding: ${spaces[32]} 0;
   background: ${colors.dark[100]};

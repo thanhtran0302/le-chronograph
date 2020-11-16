@@ -14,14 +14,13 @@ interface HomeProps {
   categories: Document[];
 }
 
-const Home: FC<HomeProps> = ({ posts, categories }) =>
-  (
-    <Fragment>
-      <CatchPhrase />
-      <Categories categories={categories} />
-      <CardWrapper posts={posts} />
-    </Fragment>
-  );
+const Home: FC<HomeProps> = ({ posts, categories }) => (
+  <Fragment>
+    <CatchPhrase />
+    <Categories categories={categories} />
+    <CardWrapper posts={posts} />
+  </Fragment>
+);
 
 export const getServerSideProps: GetServerSideProps = async (
   ctx: GetServerSidePropsContext
