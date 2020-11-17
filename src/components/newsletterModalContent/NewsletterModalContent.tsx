@@ -53,8 +53,8 @@ const NewsletterModalContent: FC = () => {
 
   return (
     <Fragment>
-      {isLoading && <Loader text={'Enregistrement en cours...'} />}
-      <NewsletterTitle>{t('receiveTipsToBuildBrand')}</NewsletterTitle>
+      {isLoading && <Loader text={t('savingEmail')} />}
+      <NewsletterTitle>{t('receiveTips')}</NewsletterTitle>
       <Layout onSubmit={onSubmit}>
         <Input
           type={InputTypes.EMAIL}

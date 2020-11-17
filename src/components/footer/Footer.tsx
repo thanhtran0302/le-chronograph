@@ -2,7 +2,6 @@ import React, { FC } from 'react';
 import { Container } from 'react-grid-system';
 import {
   APPLE_PODCAST,
-  BlogLabel,
   BlogName,
   COPY_RIGHT,
   INSTAGRAM,
@@ -22,7 +21,7 @@ const Footer: FC = () => (
     <Container>
       <FooterColumn style={{ width: '100%', maxWidth: 'auto' }} sm={8}>
         <div>
-          {BlogName} {BlogLabel} {COPY_RIGHT}
+          {BlogName} {COPY_RIGHT}
         </div>
         <SocialNetworks>
           <SocialNetwork>

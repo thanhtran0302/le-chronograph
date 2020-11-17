@@ -1,4 +1,4 @@
-export const BlogName: string = 'UnitedFor';
+export const BlogName: string = 'Le Chronograph';
 export const BlogLabel: string = 'Blog';
 export const PRISMIC_ENDPOINT: string =
   (process.env.PRISMIC_ENDPOINT as string) || '';

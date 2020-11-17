@@ -4,7 +4,6 @@ import React, {
   ButtonHTMLAttributes,
   ReactElement
 } from 'react';
-import Loader from '../loader/Loader';
 import { ButtonLayout } from './Button.styles';
 
 export enum ButtonTypes {

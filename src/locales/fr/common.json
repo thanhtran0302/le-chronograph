@@ -1,13 +1,14 @@
 {
   "all": "Tout",
-  "catchPhrase": "Une marque forte nous réunit et changer le monde pour le meilleur.<br />Retrouvez les astuces pour mieux construire votre marque.",
-  "createBrandThatPeopleLove": "Créez une marque que les gens aiment.",
+  "catchPhrase": "Histoire, investissement, marketing. <br />Découvrez le monde de la haute horlogerie sous un autre regard.",
+  "chooseYourWatch": "Parce qu'une montre est le seul bijou qu'un homme peut porter.",
   "emailPlaceholder": "votre@email.com",
   "inputEmailLabel": "Votre e-mail",
   "invalidEmail": "Le format de l'e-mail est incorrect.",
   "listenToPodcast": "Écouter le podcast",
   "newsletterSignUp": "Je m'inscris à la newsletter",
   "noPosts": "Il n'y a pas d'article. Revenez plus tard.",
-  "receiveTipsToBuildBrand": "Recevez chaque semaine des astuces pour créer une marque qui inspire la confiance.",
+  "receiveTips": "Recevez chaque semaine des conseils en investissement et des histoires passionnantes concernant l'horlogerie.",
+  "savingEmail": "Enregistrement en cours...",
   "successEmail": "Merci de votre inscription !"
 }

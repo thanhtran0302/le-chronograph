@@ -17,6 +17,8 @@ import Router from 'next/router';
 import { PrismicBlogPost } from '../../interfaces/prismic';
 import NewsletterModalContent from '../newsletterModalContent/NewsletterModalContent';
 import Head from 'next/head';
+import { format } from 'date-fns';
+import { fr } from 'date-fns/locale';
 
 interface SinglePostProps {
   post: PrismicBlogPost;
@@ -26,7 +28,11 @@ const SinglePost: FC<SinglePostProps> = ({ post }) => {
   const content = RichText.render(post.post_content);
   const title: string = RichText.asText(post.post_title);
   const author: string = RichText.asText(post.author.data.name);
-  const creationDate: string = post.creation_date;
+  const creationDate: string = format(
+    new Date(post.creation_date),
+    'dd LLLL yyyy',
+    { locale: fr }
+  );
   const coverImage: string = post.post_main_image.url;
   const coverImageAlt: string = post.post_main_image.alt;
 
@@ -34,6 +40,7 @@ const SinglePost: FC<SinglePostProps> = ({ post }) => {
     <Fragment>
       <Head>
         <title>{title}</title>
+        <meta name="description" content={post.post_preview} />
       </Head>
       <Layout>
         <BackArrowContainer onClick={() => Router.back()}>
