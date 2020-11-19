@@ -1,10 +1,12 @@
-import { Col } from 'react-grid-system';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import colors from '../../constants/colors';
 import spaces from '../../constants/spaces';
 
+interface MobileProps {
+  isMobile: boolean;
+}
+
 export const Layout = styled.div`
-  position: fixed;
   bottom: 0;
   width: 100%;
   color: ${colors.grey[80]};
@@ -12,9 +14,24 @@ export const Layout = styled.div`
   background: ${colors.dark[100]};
 `;
 
-export const FooterColumn = styled(Col)`
+export const FooterColumn = styled.div<MobileProps>`
   display: flex;
   justify-content: space-between;
+
+  ${({ isMobile }: MobileProps) =>
+    isMobile &&
+    css`
+      align-items: center;
+      flex-direction: column;
+    `}
+`;
+
+export const FooterSitename = styled.div<MobileProps>`
+  ${({ isMobile }: MobileProps) =>
+    isMobile &&
+    css`
+      margin-bottom: ${spaces[12]};
+    `}
 `;
 
 export const SocialNetworks = styled.div`
