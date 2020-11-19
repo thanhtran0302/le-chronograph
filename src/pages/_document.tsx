@@ -58,6 +58,7 @@ export default class CustomDocument extends Document<Props> {
         <Head>
           <meta charSet="utf-8" />
           <link rel="preconnect" href="https://fonts.gstatic.com" />
+          <link rel="shortcut icon" href="/favicon.png" />
           <link
             href="https://fonts.googleapis.com/css2?family=Qwigley&family=Source+Sans+Pro:wght@300;400;600;700&display=swap"
             rel="stylesheet"

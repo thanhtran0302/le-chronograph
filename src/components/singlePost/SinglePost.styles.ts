@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import colors from '../../constants/colors';
-import paragraphs from '../../constants/paragraphs';
 import radius from '../../constants/radius';
 import spaces from '../../constants/spaces';
 
@@ -60,10 +59,10 @@ export const PostCoverImageContainer = styled.div`
   grid-column-end: 12;
 `;
 
-export const PostCoverImage = styled.img`
+export const PostCoverImage = styled.div`
   width: 100%;
   height: 500px;
-  object-fit: cover;
+  // object-fit: cover;
   margin-top: ${spaces[16]};
 `;
 
@@ -76,12 +75,15 @@ export const PostContent = styled.div`
     object-fit: cover;
   }
 
+  iframe {
+    display: block;
+    margin: auto;
+    width: 100%;
+  }
+
   [data-oembed-type='video'] {
     iframe {
-      display: block;
-      margin: auto;
-      width: 100%;
-      height: 500px;
+      height: 550px;
     }
   }
 `;

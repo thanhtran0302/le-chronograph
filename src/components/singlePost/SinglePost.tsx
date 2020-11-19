@@ -18,6 +18,7 @@ import { PrismicBlogPost } from '../../interfaces/prismic';
 import NewsletterModalContent from '../newsletterModalContent/NewsletterModalContent';
 import Head from 'next/head';
 import { format } from 'date-fns';
+import { Parallax } from 'react-parallax';
 import { fr } from 'date-fns/locale';
 
 interface SinglePostProps {
@@ -36,6 +37,8 @@ const SinglePost: FC<SinglePostProps> = ({ post }) => {
   const coverImage: string = post.post_main_image.url;
   const coverImageAlt: string = post.post_main_image.alt;
 
+  console.log(post.post_main_image);
+
   return (
     <Fragment>
       <Head>
@@ -52,7 +55,14 @@ const SinglePost: FC<SinglePostProps> = ({ post }) => {
           <PostCreationDate>, {creationDate}</PostCreationDate>
         </PostAuthorAndDateContainer>
         <PostCoverImageContainer>
-          <PostCoverImage src={coverImage} alt={coverImageAlt} />
+          <Parallax
+            bgImage={coverImage}
+            bgImageAlt={coverImageAlt}
+            strength={500}
+            blur={1}
+          >
+            <PostCoverImage />
+          </Parallax>
         </PostCoverImageContainer>
         <PostContent>{content}</PostContent>
         <NewsletterContainer>

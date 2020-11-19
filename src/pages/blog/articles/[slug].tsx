@@ -1,20 +1,16 @@
 import { GetServerSideProps, GetServerSidePropsContext } from 'next';
 import { Document } from 'prismic-javascript/types/documents';
-import React, { FC, Fragment } from 'react';
-import { PrismicClient } from '../../utils/prismic';
+import React, { FC } from 'react';
+import { PrismicClient } from '../../../utils/prismic';
 import Prismic from 'prismic-javascript';
-import { PrimsicTypes, PrismicBlogPost } from '../../interfaces/prismic';
-import SinglePost from '../../components/singlePost/SinglePost';
+import { PrimsicTypes, PrismicBlogPost } from '../../../interfaces/prismic';
+import SinglePost from '../../../components/singlePost/SinglePost';
 
 interface SlugProps {
   post: PrismicBlogPost;
 }
 
-const Slug: FC<SlugProps> = ({ post }) => (
-  <Fragment>
-    <SinglePost post={post} />
-  </Fragment>
-);
+const SinglePostPage: FC<SlugProps> = ({ post }) => <SinglePost post={post} />;
 
 export const getServerSideProps: GetServerSideProps = async (
   ctx: GetServerSidePropsContext
@@ -41,4 +37,4 @@ export const getServerSideProps: GetServerSideProps = async (
   }
 };
 
-export default Slug;
+export default SinglePostPage;
