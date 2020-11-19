@@ -1,12 +1,14 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import colors from '../../constants/colors';
 import paragraphs from '../../constants/paragraphs';
 import radius from '../../constants/radius';
+import { useMobileDevice } from '../../constants/responsive';
 import shadows from '../../constants/shadows';
 import spaces from '../../constants/spaces';
 
 interface CategoryItemProps {
   isSelected: boolean;
+  isMobile: boolean;
 }
 
 export const Layout = styled.div`
@@ -14,8 +16,7 @@ export const Layout = styled.div`
 `;
 
 export const CategoryItem = styled.div<CategoryItemProps>`
-  ${paragraphs.body1};
-  margin-right: ${spaces[48]};
+  ${paragraphs.body1}
   cursor: pointer;
   padding: ${spaces[12]};
   height: ${spaces[40]};
@@ -25,6 +26,15 @@ export const CategoryItem = styled.div<CategoryItemProps>`
   :hover {
     color: ${colors.dark[100]};
   }
+
+  ${({ isMobile }: CategoryItemProps) =>
+    isMobile
+      ? css`
+          margin-right: ${spaces[16]};
+        `
+      : css`
+          margin-right: ${spaces[48]};
+        `}
 
   ${({ isSelected }: CategoryItemProps) =>
     isSelected &&

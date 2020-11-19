@@ -1,5 +1,8 @@
 import styled from 'styled-components';
+import colors from '../../constants/colors';
 import fonts from '../../constants/fonts';
+import radius from '../../constants/radius';
+import shadows from '../../constants/shadows';
 import spaces from '../../constants/spaces';
 
 export const Layout = styled.div`
@@ -30,5 +33,34 @@ export const ButtonsContainer = styled.div`
 
   button:first-child {
     margin-right: ${spaces[4]};
+  }
+`;
+
+export const Logo = styled.img`
+  max-width: ${spaces[48]};
+  max-height: ${spaces[48]};
+`;
+
+export const MobileMeneContainer = styled.div`
+  background: white;
+  position: absolute;
+  right: 0;
+  width: 200px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  box-shadow: ${shadows.level2};
+  padding: ${spaces[12]};
+  border-radius: ${radius[6]};
+  color: ${colors.dark[100]};
+  font-weight: normal;
+`;
+
+export const MenuMobileItem = styled.div`
+  padding: ${spaces[12]};
+
+  a {
+    color: ${colors.dark[100]};
+    font-weight: normal;
   }
 `;
