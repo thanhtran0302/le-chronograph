@@ -42,8 +42,7 @@ const CustomApp: FC<AppProps> = ({ Component, pageProps }) => {
       <Container
         style={{
           paddingTop: spaces[32],
-          paddingBottom: spaces[100],
-          marginBottom: spaces[100]
+          paddingBottom: spaces[100]
         }}
       >
         <NavBar openModal={openModal} />

@@ -6,10 +6,12 @@ import {
   Layout,
   EmailError,
   EmailSuccess,
-  NewsletterTitle
+  NewsletterTitle,
+  ContentWrapper
 } from './NewsletterModalContent.styles';
 import Loader from '../loader/Loader';
 import { isEmail } from '../../utils/global';
+import { useMobileDevice } from '../../constants/responsive';
 
 enum QuantumState {
   TRUE,
@@ -19,6 +21,7 @@ enum QuantumState {
 
 const NewsletterModalContent: FC = () => {
   const { t }: UseTranslationResponse = useTranslation();
+  const isMobile: boolean = useMobileDevice();
   const [email, setEmail] = useState<string>('');
   const [isLoading, setLoading] = useState<boolean>(false);
   const [emailSubmit, setEmailSubmit] = useState<QuantumState>(
@@ -56,20 +59,22 @@ const NewsletterModalContent: FC = () => {
       {isLoading && <Loader text={t('savingEmail')} />}
       <NewsletterTitle>{t('receiveTips')}</NewsletterTitle>
       <Layout onSubmit={onSubmit}>
-        <Input
-          type={InputTypes.EMAIL}
-          id={'email'}
-          label={t('inputEmailLabel')}
-          value={email}
-          placeholder={t('emailPlaceholder')}
-          onChange={onChange}
-          required
-        />
-        <Button
-          type={ButtonTypes.SUBMIT}
-          appearance={ButtonAppearance.PRIMARY}
-          label={t('newsletterSignUp')}
-        />
+        <ContentWrapper>
+          <Input
+            type={InputTypes.EMAIL}
+            id={'email'}
+            label={t('inputEmailLabel')}
+            value={email}
+            placeholder={t('emailPlaceholder')}
+            onChange={onChange}
+            required
+          />
+          <Button
+            type={ButtonTypes.SUBMIT}
+            appearance={ButtonAppearance.PRIMARY}
+            label={t('newsletterSignUp')}
+          />
+        </ContentWrapper>
       </Layout>
       {emailSubmit === QuantumState.FALSE && (
         <EmailError>{t('invalidEmail')}</EmailError>

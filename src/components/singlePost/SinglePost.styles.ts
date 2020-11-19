@@ -1,11 +1,22 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+import breakpoints from '../../constants/breakpoints';
 import colors from '../../constants/colors';
+import paragraphs from '../../constants/paragraphs';
 import radius from '../../constants/radius';
 import spaces from '../../constants/spaces';
 
-export const Layout = styled.div`
+interface MobileProps {
+  isMobile: boolean;
+}
+
+export const Layout = styled.div<MobileProps>`
   display: grid;
   grid-template-columns: repeat(12, 1fr);
+
+  @media (max-width: ${breakpoints[480]}) {
+    display: flex;
+    flex-direction: column;
+  }
 `;
 
 export const PostContainer = styled.div`
@@ -35,6 +46,10 @@ export const BackArrowContainer = styled.div`
 export const PostTitle = styled.h1`
   grid-column-start: 3;
   grid-column-end: 11;
+
+  @media (max-width: ${breakpoints[480]}) {
+    ${paragraphs.h3}
+  }
 `;
 
 export const PostAuthorAndDateContainer = styled.div`
@@ -59,11 +74,16 @@ export const PostCoverImageContainer = styled.div`
   grid-column-end: 12;
 `;
 
-export const PostCoverImage = styled.div`
+export const PostCoverImage = styled.img`
   width: 100%;
   height: 500px;
-  // object-fit: cover;
+  object-fit: cover;
   margin-top: ${spaces[16]};
+  border-radius: ${radius[6]};
+
+  @media (max-width: ${breakpoints[480]}) {
+    height: 200px;
+  }
 `;
 
 export const PostContent = styled.div`
@@ -84,6 +104,10 @@ export const PostContent = styled.div`
   [data-oembed-type='video'] {
     iframe {
       height: 550px;
+
+      @media (max-width: ${breakpoints[480]}) {
+        height: 250px;
+      }
     }
   }
 `;
