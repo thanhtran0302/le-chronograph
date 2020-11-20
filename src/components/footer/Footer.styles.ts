@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+import breakpoints from '../../constants/breakpoints';
 import colors from '../../constants/colors';
 import spaces from '../../constants/spaces';
 
@@ -7,6 +8,7 @@ interface MobileProps {
 }
 
 export const Layout = styled.div`
+  position: fixed;
   bottom: 0;
   width: 100%;
   color: ${colors.grey[80]};
