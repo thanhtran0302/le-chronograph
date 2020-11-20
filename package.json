@@ -2,15 +2,15 @@
   "name": "blog",
   "version": "0.1.0",
   "engines": {
-    "node": "15.x",
+    "node": "12.x",
     "yarn": "1.x"
   },
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
-    "heroku-postbuild": "yarn install && yarn build",
+    "start": "next start -p $PORT",
+    "heroku-postbuild": "yarn build",
     "lint": "tslint -c tslint.json 'src/**/*.{ts,tsx}'"
   },
   "dependencies": {

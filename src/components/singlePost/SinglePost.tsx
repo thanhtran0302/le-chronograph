@@ -18,7 +18,6 @@ import { PrismicBlogPost } from '../../interfaces/prismic';
 import NewsletterModalContent from '../newsletterModalContent/NewsletterModalContent';
 import Head from 'next/head';
 import { format } from 'date-fns';
-import { Parallax } from 'react-parallax';
 import { fr } from 'date-fns/locale';
 import { useMobileDevice } from '../../constants/responsive';
 
@@ -28,22 +27,21 @@ interface SinglePostProps {
 
 const SinglePost: FC<SinglePostProps> = ({ post }) => {
   const isMobile: boolean = useMobileDevice();
-  const content = RichText.render(post.post_content);
-  const title: string = RichText.asText(post.post_title);
-  const author: string = RichText.asText(post.author.data.name);
+  const content = RichText.render(post.content);
+  const title: string = RichText.asText(post.title);
+  const author: string = post.author.data.name;
   const creationDate: string = format(
     new Date(post.creation_date),
     'dd LLLL yyyy',
     { locale: fr }
   );
-  const coverImage: string = post.post_main_image.url;
-  const coverImageAlt: string = post.post_main_image.alt;
+  const { url, alt } = post.cover_image;
 
   return (
     <Fragment>
       <Head>
         <title>{title}</title>
-        <meta name="description" content={post.post_preview} />
+        <meta name="description" content={post.preview} />
       </Head>
       <Layout isMobile={isMobile}>
         <BackArrowContainer onClick={() => Router.back()}>
@@ -55,7 +53,7 @@ const SinglePost: FC<SinglePostProps> = ({ post }) => {
           <PostCreationDate>, {creationDate}</PostCreationDate>
         </PostAuthorAndDateContainer>
         <PostCoverImageContainer>
-          <PostCoverImage src={coverImage} alt={coverImageAlt} />
+          <PostCoverImage src={url} alt={alt} />
         </PostCoverImageContainer>
         <PostContent>{content}</PostContent>
         <NewsletterContainer>

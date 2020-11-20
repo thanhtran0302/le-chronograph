@@ -25,22 +25,23 @@ const CardWrapper: FC<CardWrapperProps> = ({ posts }) => {
         posts.map((post: Document, key: number) => {
           const { data }: Document = post;
           const {
-            post_title,
-            post_preview,
-            post_main_image,
-            post_slug,
+            title,
+            preview,
+            cover_image,
+            slug,
             author,
             creation_date
           } = data as PrismicBlogPost;
 
+          console.log(data);
           return (
             <Card
-              title={RichText.asText(post_title)}
-              previewText={post_preview}
-              image={post_main_image.url}
-              author={RichText.asText(author.data.name)}
+              title={RichText.asText(title)}
+              previewText={preview}
+              image={cover_image.url}
+              author={author.data.name}
               date={creation_date}
-              slug={post_slug}
+              slug={slug}
               key={key}
             />
           );

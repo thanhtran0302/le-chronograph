@@ -28,6 +28,10 @@ export const EmailSuccess = styled.div`
 
 export const NewsletterTitle = styled.div`
   ${paragraphs.h3};
+
+  @media (max-width: ${breakpoints[960]}) {
+    ${paragraphs.body2};
+  }
   text-align: center;
 `;
 

@@ -1,6 +1,8 @@
 import { transparentize } from 'polished';
 import styled, { keyframes, Keyframes } from 'styled-components';
+import breakpoints from '../../constants/breakpoints';
 import colors from '../../constants/colors';
+import paragraphs from '../../constants/paragraphs';
 import radius from '../../constants/radius';
 import shadows from '../../constants/shadows';
 import spaces from '../../constants/spaces';
@@ -47,6 +49,8 @@ export const Layout = styled.div`
 
 export const ChildrenContainer = styled.div`
   padding: ${spaces[48]} ${spaces[56]} ${spaces[56]} ${spaces[56]};
+  width: 100%;
+  height: 100%;
 `;
 
 export const Background = styled.div`
