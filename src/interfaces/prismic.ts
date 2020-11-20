@@ -86,16 +86,17 @@ export interface PrismicBlogPostAuthor {
   link_type: string;
   isBroken: boolean;
   data: {
-    name: RichTextBlock[];
+    name: string;
+    description: string;
   };
 }
 
 export interface PrismicBlogPost {
-  post_slug: string;
-  post_preview: string;
-  post_title: RichTextBlock[];
-  post_content: RichTextBlock[];
-  post_main_image: PrismicImage;
+  slug: string;
+  preview: string;
+  title: RichTextBlock[];
+  content: RichTextBlock[];
+  cover_image: PrismicImage;
   creation_date: string;
   author: PrismicBlogPostAuthor;
   category: PrismicBlogPostCategory;
