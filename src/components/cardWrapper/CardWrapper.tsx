@@ -33,7 +33,6 @@ const CardWrapper: FC<CardWrapperProps> = ({ posts }) => {
             creation_date
           } = data as PrismicBlogPost;
 
-          console.log(data);
           return (
             <Card
               title={RichText.asText(title)}

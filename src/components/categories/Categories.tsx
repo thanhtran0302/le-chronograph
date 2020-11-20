@@ -38,12 +38,12 @@ const Categories: FC<CategoriesProps> = ({ categories }) => {
       </Link>
       {categories.map((category: Document, key: number) => {
         const cat: string = ((category as unknown) as PrismicBlogPostCategory)
-          .data.category;
+          .data.name;
 
         return (
           <Link
             key={`category-${key}`}
-            href={`/?category=${category.data.category}`}
+            href={`/?category=${category.data.name}`}
           >
             <CategoryItem
               isSelected={selectedCategory === cat}

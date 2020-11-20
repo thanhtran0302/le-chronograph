@@ -49,7 +49,7 @@ export const getServerSideProps: GetServerSideProps = async (
     const response: ApiSearchResponse = await PrismicClient(req).query(
       prismicQuery,
       {
-        fetchLinks: ['authors.name', 'categories.category']
+        fetchLinks: ['authors.name', 'categories.name']
       }
     );
 
