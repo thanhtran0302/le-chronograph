@@ -15,3 +15,4 @@ export const INSTAGRAM: string = 'https://instagram.com/lechronograph';
 export const YOUTUBE: string =
   'https://www.youtube.com/channel/UCsz8i9x-xK0ruQw3SKj2A6A';
 export const COPY_RIGHT: string = '© 2020';
+export const GA_TRACKING_ID: string = 'G-PQD9T40RBB';
