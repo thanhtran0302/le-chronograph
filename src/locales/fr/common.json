@@ -1,10 +1,8 @@
 {
   "acceptCookies": "Accepter les cookies",
-  "siteUseCookies": "Nous utilisons et stockons des informations non sensibles par le dépôt de cookies ou équivalent sur votre appareil. Le traitement de vos données personnelles, comme votre adresse IP, nous permettent de mesurer notre audience et de vous proposer, par exemple, des fonctionnalités et contenus personnalisés.",
-  "clickOnAccept": "Cliquez sur \"Accepter les cookies\" pour consentir votre choix.",
   "all": "Tout",
   "catchPhrase": "Histoire, investissement, marketing. <br />Découvrez le monde de la haute horlogerie sous un autre regard.",
-  "chooseYourWatch": "Parce qu'une montre est le seul bijou qu'un homme peut porter.",
+  "clickOnAccept": "Cliquez sur \"Accepter les cookies\" pour consentir votre choix.",
   "emailPlaceholder": "votre@email.com",
   "inputEmailLabel": "Votre e-mail",
   "invalidEmail": "Le format de l'e-mail est incorrect.",
@@ -13,5 +11,7 @@
   "noPosts": "Il n'y a pas d'article. Revenez plus tard.",
   "receiveTips": "Recevez chaque semaine des conseils en investissement et des histoires passionnantes concernant l'horlogerie.",
   "savingEmail": "Enregistrement en cours...",
+  "siteUseCookies": "Nous utilisons et stockons des informations non sensibles par le dépôt de cookies ou équivalent sur votre appareil. Le traitement de vos données personnelles, comme votre adresse IP, nous permettent de mesurer notre audience et de vous proposer, par exemple, des fonctionnalités et contenus personnalisés.",
+  "subscribeNewsletter": "Inscrivez vous à notre newsletter",
   "successEmail": "Merci de votre inscription !"
 }

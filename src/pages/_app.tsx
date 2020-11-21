@@ -44,7 +44,7 @@ const CustomApp: FC<AppProps> = ({ Component, pageProps }) => {
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
       {createModal({
-        title: !isMobile ? t('chooseYourWatch') : '',
+        title: !isMobile ? t('subscribeNewsletter') : '',
         content: <NewsletterModalContent />
       })}
       <Container
