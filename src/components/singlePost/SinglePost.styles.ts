@@ -1,7 +1,6 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import breakpoints from '../../constants/breakpoints';
 import colors from '../../constants/colors';
-import paragraphs from '../../constants/paragraphs';
 import radius from '../../constants/radius';
 import spaces from '../../constants/spaces';
 
@@ -46,10 +45,6 @@ export const BackArrowContainer = styled.div`
 export const PostTitle = styled.h1`
   grid-column-start: 3;
   grid-column-end: 11;
-
-  @media (max-width: ${breakpoints[480]}) {
-    ${paragraphs.h3}
-  }
 `;
 
 export const PostAuthorAndDateContainer = styled.div`
@@ -113,7 +108,7 @@ export const PostContent = styled.div`
 `;
 
 export const NewsletterContainer = styled.div`
-  margin-top: ${spaces[100]};
+  margin-top: ${spaces[56]};
   grid-column-start: 4;
   grid-column-end: 10;
 `;

@@ -20,6 +20,7 @@ import Head from 'next/head';
 import { format } from 'date-fns';
 import { fr } from 'date-fns/locale';
 import { useMobileDevice } from '../../constants/responsive';
+import fonts from '../../constants/fonts';
 
 interface SinglePostProps {
   post: PrismicBlogPost;
@@ -47,7 +48,9 @@ const SinglePost: FC<SinglePostProps> = ({ post }) => {
         <BackArrowContainer onClick={() => Router.back()}>
           <BackArrow />
         </BackArrowContainer>
-        <PostTitle>{title}</PostTitle>
+        <PostTitle style={isMobile ? { fontSize: fonts[24] } : {}}>
+          {title}
+        </PostTitle>
         <PostAuthorAndDateContainer>
           <PostAuthor>{author}</PostAuthor>
           <PostCreationDate>, {creationDate}</PostCreationDate>
