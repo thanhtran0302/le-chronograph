@@ -54,7 +54,7 @@ export const getServerSideProps: GetServerSideProps = async (
       req
     ).query(Prismic.Predicates.at('document.type', PrimsicTypes.CATEGORIES));
     const [category] = responseCategories.results.filter(
-      (docCategory: Document) => docCategory.data.category === queryCategory
+      (docCategory: Document) => docCategory.data.name === queryCategory
     );
 
     if (category) {
