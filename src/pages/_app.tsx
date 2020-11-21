@@ -11,10 +11,15 @@ import { BlogLabel, BlogName } from '../constants/common';
 import useModal, { UseModalProps } from '../components/modal/Modal';
 import NewsletterModalContent from '../components/newsletterModalContent/NewsletterModalContent';
 import { useTranslation, UseTranslationResponse } from 'react-i18next';
-import Router from 'next/router';
+import Router, { NextRouter, useRouter } from 'next/router';
 import NProgress from 'nprogress';
 import Footer from '../components/footer/Footer';
 import { useMobileDevice } from '../constants/responsive';
+import CookieConsent from 'react-cookie-consent';
+import colors from '../constants/colors';
+import fonts from '../constants/fonts';
+import radius from '../constants/radius';
+import * as gtag from '../utils/ga';
 
 NProgress.configure({ showSpinner: false, trickleSpeed: 100, minimum: 0.2 });
 Router.events.on('routeChangeStart', () => NProgress.start());
@@ -30,6 +35,7 @@ const CustomApp: FC<AppProps> = ({ Component, pageProps }) => {
   const { t }: UseTranslationResponse = useTranslation();
   const { createModal, openModal }: UseModalProps = useModal();
   const isMobile: boolean = useMobileDevice();
+  const router: NextRouter = useRouter();
 
   return (
     <Fragment>
@@ -51,6 +57,35 @@ const CustomApp: FC<AppProps> = ({ Component, pageProps }) => {
         <NavBar openModal={openModal} />
         <Component {...pageProps} />
       </Container>
+      <CookieConsent
+        location="bottom"
+        buttonText={t('acceptCookies')}
+        cookieName={'cookie'}
+        style={{
+          background: colors.dark[100],
+          fontSize: fonts[20]
+        }}
+        buttonStyle={{
+          background: 'white',
+          height: spaces[48],
+          borderRadius: radius[6],
+          color: colors.dark[100],
+          fontSize: fonts[16],
+          fontWeight: 600
+        }}
+        expires={150}
+        onAccept={() => {
+          gtag.event({
+            action: 'CLICK_ACCEPT_COOKIES',
+            category: 'COOKIES',
+            label: router.asPath,
+            value: 3
+          });
+        }}
+      >
+        <p>{t('siteUseCookies')}</p>
+        <p>{t('clickOnAccept')}</p>
+      </CookieConsent>
       <Footer />
     </Fragment>
   );
