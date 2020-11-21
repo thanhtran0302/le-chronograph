@@ -2,7 +2,6 @@ import styled, { css } from 'styled-components';
 import colors from '../../constants/colors';
 import paragraphs from '../../constants/paragraphs';
 import radius from '../../constants/radius';
-import { useMobileDevice } from '../../constants/responsive';
 import shadows from '../../constants/shadows';
 import spaces from '../../constants/spaces';
 
@@ -16,7 +15,7 @@ export const Layout = styled.div`
 `;
 
 export const CategoryItem = styled.div<CategoryItemProps>`
-  ${paragraphs.body1}
+  ${paragraphs.body1};
   cursor: pointer;
   padding: ${spaces[12]};
   height: ${spaces[40]};

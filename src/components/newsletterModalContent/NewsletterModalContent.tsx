@@ -1,4 +1,11 @@
-import React, { ChangeEvent, FC, FormEvent, Fragment, useState } from 'react';
+import React, {
+  ChangeEvent,
+  FC,
+  FormEvent,
+  Fragment,
+  useState,
+  MouseEvent
+} from 'react';
 import { useTranslation, UseTranslationResponse } from 'react-i18next';
 import Button, { ButtonTypes, ButtonAppearance } from '../button/Button';
 import Input, { InputTypes } from '../input/Input';
@@ -11,7 +18,7 @@ import {
 } from './NewsletterModalContent.styles';
 import Loader from '../loader/Loader';
 import { isEmail } from '../../utils/global';
-import { useMobileDevice } from '../../constants/responsive';
+import * as gtag from '../../utils/ga';
 
 enum QuantumState {
   TRUE,
@@ -21,7 +28,6 @@ enum QuantumState {
 
 const NewsletterModalContent: FC = () => {
   const { t }: UseTranslationResponse = useTranslation();
-  const isMobile: boolean = useMobileDevice();
   const [email, setEmail] = useState<string>('');
   const [isLoading, setLoading] = useState<boolean>(false);
   const [emailSubmit, setEmailSubmit] = useState<QuantumState>(
@@ -32,6 +38,15 @@ const NewsletterModalContent: FC = () => {
     event.preventDefault();
     const { value } = event.target;
     setEmail(value);
+  };
+
+  const onClick = (event: MouseEvent<HTMLButtonElement>) => {
+    gtag.event({
+      action: 'NEWSLETTER_SIGN_UP',
+      category: 'CLICK',
+      label: email,
+      value: 2
+    });
   };
 
   const onSubmit = async (event: FormEvent<Element>) => {
@@ -70,6 +85,7 @@ const NewsletterModalContent: FC = () => {
             required
           />
           <Button
+            onClick={onClick}
             type={ButtonTypes.SUBMIT}
             appearance={ButtonAppearance.PRIMARY}
             label={t('newsletterSignUp')}

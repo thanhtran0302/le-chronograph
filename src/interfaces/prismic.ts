@@ -25,7 +25,7 @@ export interface PrismicBlogPostCategory {
   link_type: string;
   isBroken: boolean;
   data: {
-    category: string;
+    name: string;
   };
 }
 

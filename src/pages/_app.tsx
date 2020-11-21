@@ -14,6 +14,7 @@ import { useTranslation, UseTranslationResponse } from 'react-i18next';
 import Router from 'next/router';
 import NProgress from 'nprogress';
 import Footer from '../components/footer/Footer';
+import { useMobileDevice } from '../constants/responsive';
 
 NProgress.configure({ showSpinner: false, trickleSpeed: 100, minimum: 0.2 });
 Router.events.on('routeChangeStart', () => NProgress.start());
@@ -28,6 +29,7 @@ Router.events.on('routeChangeError', () => NProgress.done());
 const CustomApp: FC<AppProps> = ({ Component, pageProps }) => {
   const { t }: UseTranslationResponse = useTranslation();
   const { createModal, openModal }: UseModalProps = useModal();
+  const isMobile: boolean = useMobileDevice();
 
   return (
     <Fragment>
@@ -36,13 +38,14 @@ const CustomApp: FC<AppProps> = ({ Component, pageProps }) => {
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
       {createModal({
-        title: t('chooseYourWatch'),
+        title: !isMobile ? t('chooseYourWatch') : '',
         content: <NewsletterModalContent />
       })}
       <Container
         style={{
           paddingTop: spaces[32],
-          paddingBottom: spaces[100]
+          paddingBottom: spaces[100],
+          marginBottom: spaces[100]
         }}
       >
         <NavBar openModal={openModal} />
