@@ -52,7 +52,7 @@ export default class CustomDocument extends Document<Props> {
   }
 
   componentDidMount() {
-    if (process.env.NODE_ENV === 'production') {
+    if (process.env.NEXT_PUBLIC_ENV === 'production') {
       const scriptGtag = document.createElement('script');
       const scriptDatalayer = document.createElement('script');
 
