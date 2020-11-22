@@ -17,6 +17,7 @@ import {
   SocialNetworks,
   FooterSitename
 } from './Footer.styles';
+import * as gtag from '../../utils/ga';
 
 const Footer: FC = () => {
   const isMobile: boolean = useMobileDevice();
@@ -30,16 +31,52 @@ const Footer: FC = () => {
               {BlogName} {COPY_RIGHT}
             </FooterSitename>
             <SocialNetworks>
-              <SocialNetwork>
+              <SocialNetwork
+                onClick={() => {
+                  gtag.event({
+                    action: 'CLICK_APPLE_PODCAST',
+                    category: 'SOCIAL_MEDIA_CLICK',
+                    label: 'APPLE_PODCAST',
+                    value: 4
+                  });
+                }}
+              >
                 <AHref link={APPLE_PODCAST} label={'Apple Podcast'} target />
               </SocialNetwork>
-              <SocialNetwork>
+              <SocialNetwork
+                onClick={() => {
+                  gtag.event({
+                    action: 'CLICK_SPOTIFY',
+                    category: 'SOCIAL_MEDIA_CLICK',
+                    label: 'SPOTIFY',
+                    value: 4
+                  });
+                }}
+              >
                 <AHref link={SPOTIFY_PODCAST} label="Spotify" target />
               </SocialNetwork>
-              <SocialNetwork>
+              <SocialNetwork
+                onClick={() =>
+                  gtag.event({
+                    action: 'CLICK_INSTAGRAM',
+                    category: 'SOCIAL_MEDIA_CLICK',
+                    label: 'INSTAGRAM',
+                    value: 4
+                  })
+                }
+              >
                 <AHref link={INSTAGRAM} label="Instagram" target />
               </SocialNetwork>
-              <SocialNetwork>
+              <SocialNetwork
+                onClick={() =>
+                  gtag.event({
+                    action: 'CLICK_YOUTUBE',
+                    category: 'SOCIAL_MEDIA_CLICK',
+                    label: 'YOUTUBE',
+                    value: 4
+                  })
+                }
+              >
                 <AHref link={YOUTUBE} label="Youtube" target />
               </SocialNetwork>
             </SocialNetworks>
