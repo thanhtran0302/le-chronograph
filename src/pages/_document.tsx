@@ -80,6 +80,11 @@ export default class CustomDocument extends Document<Props> {
           `
             }}
           />
+          <script
+            data-ad-client="ca-pub-9082771858471741"
+            async
+            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+          ></script>
           {styleTags}
         </Head>
         <body>
