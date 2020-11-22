@@ -66,6 +66,8 @@ export default class CustomDocument extends Document<Props> {
         page_path: window.location.pathname,
       });
       `;
+      document.body.appendChild(scriptGtag);
+      document.body.appendChild(scriptDatalayer);
     }
   }
 
