@@ -86,7 +86,9 @@ export const PostContent = styled.div`
   grid-column-end: 11;
 
   img {
-    width: 100%;
+    display: block;
+    margin: auto;
+    max-width: 100%;
     object-fit: cover;
   }
 
