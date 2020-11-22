@@ -51,26 +51,6 @@ export default class CustomDocument extends Document<Props> {
     }
   }
 
-  componentDidMount() {
-    if (process.env.NEXT_PUBLIC_ENV === 'production') {
-      const scriptGtag = document.createElement('script');
-      const scriptDatalayer = document.createElement('script');
-
-      scriptGtag.src = `https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`;
-      scriptGtag.async = true;
-      scriptDatalayer.innerHTML = `
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', '${GA_TRACKING_ID}', {
-        page_path: window.location.pathname,
-      });
-      `;
-      document.body.appendChild(scriptGtag);
-      document.body.appendChild(scriptDatalayer);
-    }
-  }
-
   render() {
     const { styleTags } = this.props;
 
@@ -84,7 +64,7 @@ export default class CustomDocument extends Document<Props> {
             href="https://fonts.googleapis.com/css2?family=Qwigley&family=Source+Sans+Pro:wght@300;400;600;700&display=swap"
             rel="stylesheet"
           />
-          {/* <script
+          <script
             async
             src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
           />
@@ -99,7 +79,7 @@ export default class CustomDocument extends Document<Props> {
               });
           `
             }}
-          /> */}
+          />
           {styleTags}
         </Head>
         <body>
