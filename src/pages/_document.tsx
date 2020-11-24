@@ -58,6 +58,10 @@ export default class CustomDocument extends Document<Props> {
       <Html lang="fr">
         <Head>
           <meta charSet="utf-8" />
+          <meta
+            name="description"
+            content="Actualité sur le monde de l'horlogerie, histoire, marketing, investissement, et bien d'autres."
+          />
           <link rel="preconnect" href="https://fonts.gstatic.com" />
           <link rel="shortcut icon" href="/favicon.png" />
           <link

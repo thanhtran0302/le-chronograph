@@ -15,6 +15,7 @@ interface CardProps {
   title: string;
   previewText: string;
   image: string;
+  imageAlt: string;
   author: string;
   date: string;
   slug: string;
@@ -24,13 +25,14 @@ const Card: FC<CardProps> = ({
   title,
   previewText,
   image,
+  imageAlt,
   author,
   date,
   slug
 }) => (
   <Link href={`/blog/articles/${slug}`}>
     <Layout>
-      <Image src={image} />
+      <Image src={image} alt={imageAlt} />
       <CardPostMetaData>
         <CardTitle>{title}</CardTitle>
         <CardPostPreview>{previewText}</CardPostPreview>

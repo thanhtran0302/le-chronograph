@@ -38,6 +38,7 @@ const CardWrapper: FC<CardWrapperProps> = ({ posts }) => {
               title={RichText.asText(title)}
               previewText={preview}
               image={cover_image.url}
+              imageAlt={cover_image.alt}
               author={author.data.name}
               date={creation_date}
               slug={slug}
