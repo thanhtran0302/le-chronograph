@@ -1,5 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 import colors from '../constants/colors';
+import fonts from '../constants/fonts';
 import paragraphs from '../constants/paragraphs';
 
 export const GlobalStyle = createGlobalStyle`
@@ -9,7 +10,8 @@ export const GlobalStyle = createGlobalStyle`
     margin: 0;
     font-family: Source Sans Pro, Qwigley, Roboto, sans-serif;
     color: ${colors.dark[100]};
-    ${paragraphs.body1};
+    font-size: ${fonts[20]};
+    line-height: ${fonts[32]};
   }
 
   html {
