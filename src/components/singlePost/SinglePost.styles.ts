@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import breakpoints from '../../constants/breakpoints';
 import colors from '../../constants/colors';
+import fonts from '../../constants/fonts';
 import radius from '../../constants/radius';
 import spaces from '../../constants/spaces';
 
@@ -82,6 +83,8 @@ export const PostCoverImage = styled.img`
 `;
 
 export const PostContent = styled.div`
+  font-size: ${fonts[20]};
+  line-height: ${fonts[32]};
   grid-column-start: 3;
   grid-column-end: 11;
 

@@ -48,7 +48,9 @@ const SinglePost: FC<SinglePostProps> = ({ post }) => {
         <BackArrowContainer onClick={() => Router.back()}>
           <BackArrow />
         </BackArrowContainer>
-        <PostTitle style={isMobile ? { fontSize: fonts[24] } : {}}>
+        <PostTitle
+          style={isMobile ? { fontSize: fonts[24], lineHeight: fonts[32] } : {}}
+        >
           {title}
         </PostTitle>
         <PostAuthorAndDateContainer>

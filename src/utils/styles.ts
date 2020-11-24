@@ -10,8 +10,7 @@ export const GlobalStyle = createGlobalStyle`
     margin: 0;
     font-family: Source Sans Pro, Qwigley, Roboto, sans-serif;
     color: ${colors.dark[100]};
-    font-size: ${fonts[20]};
-    line-height: ${fonts[32]};
+    font-size: ${fonts[16]};
   }
 
   html {
@@ -45,16 +44,16 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     h1 {
-      ${paragraphs.h1}
+      ${paragraphs.h1};
     }
     h2 {
-      ${paragraphs.h2}
+      ${paragraphs.h2};
     }
     h3 {
-      ${paragraphs.h3}
+      ${paragraphs.h3};
     }
     h4 {
-      ${paragraphs.h4}
+      ${paragraphs.h4};
     }
   }
 
