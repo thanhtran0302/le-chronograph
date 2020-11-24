@@ -15,7 +15,7 @@ export const Layout = styled.div`
 `;
 
 export const CategoryItem = styled.div<CategoryItemProps>`
-  ${paragraphs.body1};
+  ${paragraphs.body2};
   cursor: pointer;
   padding: ${spaces[12]};
   height: ${spaces[40]};

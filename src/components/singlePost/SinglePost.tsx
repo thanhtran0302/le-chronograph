@@ -45,9 +45,11 @@ const SinglePost: FC<SinglePostProps> = ({ post }) => {
         <meta name="description" content={post.preview} />
       </Head>
       <Layout isMobile={isMobile}>
-        <BackArrowContainer onClick={() => Router.back()}>
-          <BackArrow />
-        </BackArrowContainer>
+        {!isMobile && (
+          <BackArrowContainer onClick={() => Router.back()}>
+            <BackArrow />
+          </BackArrowContainer>
+        )}
         <PostTitle
           style={isMobile ? { fontSize: fonts[24], lineHeight: fonts[32] } : {}}
         >
