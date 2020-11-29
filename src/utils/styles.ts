@@ -8,7 +8,7 @@ export const GlobalStyle = createGlobalStyle`
   body {
     padding: 0;
     margin: 0;
-    font-family: Source Sans Pro, Qwigley, Roboto, sans-serif;
+    font-family: Source Sans Pro, Anton, Roboto, sans-serif;
     color: ${colors.dark[100]};
     font-size: ${fonts[16]};
   }
@@ -24,7 +24,7 @@ export const GlobalStyle = createGlobalStyle`
     min-height: 100%;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background-color: white;
+    background-color: ${colors.mainLight};
   }
   a {
     text-decoration: none;
@@ -39,7 +39,7 @@ export const GlobalStyle = createGlobalStyle`
       margin: 0;
       padding: 0;
       * {
-        font-family: inherit;
+        font-family: Anton;
       }
     }
 

@@ -3,6 +3,7 @@ const generateFontSize = (ratio: number): string =>
   `${(1 / base) * (base * ratio)}rem`;
 
 export default {
+  64: generateFontSize(4),
   56: generateFontSize(3.5),
   48: generateFontSize(3),
   36: generateFontSize(2.25),

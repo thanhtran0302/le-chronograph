@@ -1,66 +1,54 @@
 import styled from 'styled-components';
+import breakpoints from '../../constants/breakpoints';
 import colors from '../../constants/colors';
-import fonts from '../../constants/fonts';
+import paragraphs from '../../constants/paragraphs';
 import radius from '../../constants/radius';
 import shadows from '../../constants/shadows';
 import spaces from '../../constants/spaces';
 
+export const MasterLayout = styled.div``;
+
 export const Layout = styled.div`
+  color: ${colors.mainDark};
+  background: ${colors.mainLight};
   display: flex;
+  flex-direction: row;
   align-items: center;
-  justify-content: space-between;
-  margin-bottom: ${spaces[32]};
+
+  @media (min-width: ${breakpoints[1200]}) {
+    position: fixed;
+    justify-content: space-between;
+    top: ${spaces[32]};
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: ${shadows.level1};
+    width: ${breakpoints[1200]};
+    max-width: ${breakpoints[1200]};
+    padding: ${spaces[24]};
+    border-radius: ${radius[6]};
+  }
+
+  @media (max-width: ${breakpoints[1200]}) {
+    padding: ${spaces[16]} ${spaces[16]};
+    justify-content: space-between;
+  }
 `;
 
-export const BlogTitle = styled.div`
-  display: flex;
-  font-size: ${fonts[48]};
-  align-items: center;
-  cursor: pointer;
+export const WebsiteName = styled.div`
+  ${paragraphs.h3};
 `;
 
-export const UnitedFor = styled.div`
+export const NavigationContainer = styled.div`
+  @media (min-width: ${breakpoints[1200]}) {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+`;
+
+export const NavigationItem = styled.div`
+  ${paragraphs.subtitle};
   font-weight: 700;
-`;
-
-export const Blog = styled.div`
-  margin-left: ${spaces[4]};
-  font-family: Qwigley;
-`;
-
-export const ButtonsContainer = styled.div`
-  display: flex;
-
-  button:first-child {
-    margin-right: ${spaces[4]};
-  }
-`;
-
-export const Logo = styled.img`
-  max-width: ${spaces[48]};
-  max-height: ${spaces[48]};
-`;
-
-export const MobileMeneContainer = styled.div`
-  background: white;
-  position: absolute;
-  right: 0;
-  width: 200px;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  box-shadow: ${shadows.level2};
-  padding: ${spaces[12]};
-  border-radius: ${radius[6]};
-  color: ${colors.dark[100]};
-  font-weight: normal;
-`;
-
-export const MenuMobileItem = styled.div`
-  padding: ${spaces[12]};
-
-  a {
-    color: ${colors.dark[100]};
-    font-weight: normal;
-  }
+  margin-left: ${spaces[12]};
+  cursor: pointer;
 `;

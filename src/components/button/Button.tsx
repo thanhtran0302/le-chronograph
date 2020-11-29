@@ -40,7 +40,7 @@ const Button: FC<ButtonProps> = ({ icon, label, type, onClick, ...rest }) => (
     {...rest}
   >
     {icon && icon}
-    {label && label}
+    {label && <span>{label}</span>}
   </ButtonLayout>
 );
 

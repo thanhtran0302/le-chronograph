@@ -15,42 +15,51 @@ type ButtonLayoutProps = Pick<
 export const commonStyle: FlattenSimpleInterpolation = css`
   transition: background-color 0.2s ease-in, border 0.2s ease-in,
     color 0.2s ease-in;
-
-  :disabled {
-    color: ${colors.dark[60]};
-    background: ${colors.grey[60]};
-    border: 2px solid ${colors.grey[40]};
-    cursor: not-allowed;
-  }
 `;
 
 export const secondaryStyle: FlattenSimpleInterpolation = css`
   ${commonStyle};
-  border: 2px solid ${colors.dark[100]};
-  color: ${colors.dark[100]};
-  background: transparent;
+  border: 2px solid ${colors.mainLight};
+  color: ${colors.mainDark};
+  background: ${colors.mainLight};
+
+  :hover {
+    border: 2px solid ${colors.mainDark};
+    color: ${colors.mainLight};
+    background: ${colors.mainDark};
+
+    path {
+      fill: ${colors.mainLight};
+    }
+  }
 
   svg {
     path {
-      fill: ${colors.dark[100]};
+      fill: ${colors.mainDark};
     }
   }
 `;
 
 export const primaryStyle: FlattenSimpleInterpolation = css`
   ${commonStyle};
-  color: white;
-  background: ${colors.dark[100]};
-  border: 2px solid ${colors.dark[100]};
+  color: ${colors.mainLight};
+  background: ${colors.mainDark};
+  border: 2px solid ${colors.mainLight};
 
-  svg {
+  :hover {
+    background: ${colors.mainLight};
+    border: 2px solid ${colors.mainDark};
+    color: ${colors.mainDark};
+
     path {
-      fill: ${colors.dark[60]};
+      fill: ${colors.mainDark};
     }
   }
 
-  :active {
-    border: 2px solid ${colors.dark[60]};
+  svg {
+    path {
+      fill: ${colors.mainLight};
+    }
   }
 `;
 
