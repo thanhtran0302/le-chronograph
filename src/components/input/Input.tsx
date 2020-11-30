@@ -1,5 +1,5 @@
 import React, { FC, InputHTMLAttributes, ChangeEvent } from 'react';
-import { Layout, InputLayout, Label } from './Input.styles';
+import { Layout, InputLayout } from './Input.styles';
 
 export enum InputTypes {
   TEXT = 'text',
@@ -9,20 +9,37 @@ export enum InputTypes {
   EMAIL = 'email'
 }
 
+export enum InputAppearance {
+  PRIMARY = 'primary',
+  SECONDARY = 'secondary'
+}
+
 export interface OwnProps extends InputHTMLAttributes<HTMLInputElement> {
   label: string;
   id: string;
   type: InputTypes;
+  appearance: InputAppearance;
   value?: string;
   onChange?(event: ChangeEvent<HTMLInputElement>): void;
   hasError?: boolean;
   dataTest?: string;
 }
 
-const Input: FC<OwnProps> = ({ value, label, id, dataTest, ...rest }) => (
+const Input: FC<OwnProps> = ({
+  value,
+  label,
+  id,
+  dataTest,
+  appearance,
+  ...rest
+}) => (
   <Layout data-test={dataTest ? dataTest : `input-${id}`}>
-    <Label htmlFor={id}>{label}</Label>
-    <InputLayout id={id} {...rest} />
+    <InputLayout
+      id={id}
+      {...rest}
+      placeholder={label}
+      appearance={appearance}
+    />
   </Layout>
 );
 

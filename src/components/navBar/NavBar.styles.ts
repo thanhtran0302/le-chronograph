@@ -15,20 +15,14 @@ export const Layout = styled.div`
   flex-direction: row;
   align-items: center;
 
-  @media (min-width: ${breakpoints[1200]}) {
-    position: fixed;
+  @media (min-width: ${breakpoints[960]}) {
     justify-content: space-between;
-    top: ${spaces[32]};
-    left: 50%;
-    transform: translateX(-50%);
-    box-shadow: ${shadows.level1};
-    width: ${breakpoints[1200]};
-    max-width: ${breakpoints[1200]};
+    margin: auto;
+    width: 100%;
     padding: ${spaces[24]};
-    border-radius: ${radius[6]};
   }
 
-  @media (max-width: ${breakpoints[1200]}) {
+  @media (max-width: ${breakpoints[960]}) {
     padding: ${spaces[16]} ${spaces[16]};
     justify-content: space-between;
   }
@@ -39,7 +33,7 @@ export const WebsiteName = styled.div`
 `;
 
 export const NavigationContainer = styled.div`
-  @media (min-width: ${breakpoints[1200]}) {
+  @media (min-width: ${breakpoints[960]}) {
     display: flex;
     flex-direction: row;
     align-items: center;

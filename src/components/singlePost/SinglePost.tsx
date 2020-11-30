@@ -15,7 +15,7 @@ import BackArrow from '../../assets/icons/back_arrow.svg';
 import { RichText } from 'prismic-reactjs';
 import Router from 'next/router';
 import { PrismicBlogPost } from '../../interfaces/prismic';
-import NewsletterModalContent from '../newsletterModalContent/NewsletterModalContent';
+import NewsletterModalContent from '../newsletterContent/NewsletterContent';
 import Head from 'next/head';
 import { format } from 'date-fns';
 import { fr } from 'date-fns/locale';

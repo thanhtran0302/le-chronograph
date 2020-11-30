@@ -1,9 +1,9 @@
-import styled, { css } from 'styled-components';
+import styled, { css, FlattenSimpleInterpolation } from 'styled-components';
 import colors from '../../constants/colors';
 import radius from '../../constants/radius';
 import spaces from '../../constants/spaces';
 import shadows from '../../constants/shadows';
-import { OwnProps } from './Input';
+import { InputAppearance, OwnProps } from './Input';
 import fonts from '../../constants/fonts';
 
 export const Layout = styled.div`
@@ -11,6 +11,39 @@ export const Layout = styled.div`
   flex-direction: column;
   flex: 1;
 `;
+
+export const primaryStyle: FlattenSimpleInterpolation = css`
+  background: ${colors.mainDark};
+  color: ${colors.mainLight};
+  border: 2px solid ${colors.mainLight};
+
+  ::placeholder {
+    color: ${colors.mainLight};
+  }
+`;
+
+export const secondaryStyle: FlattenSimpleInterpolation = css`
+  background: ${colors.mainLight};
+  color: ${colors.mainDark};
+  border: 2px solid ${colors.mainDark};
+
+  ::placeholder {
+    color: ${colors.mainDark};
+  }
+`;
+
+const pickInputAppearance = (
+  appearance: InputAppearance
+): FlattenSimpleInterpolation => {
+  switch (appearance) {
+    case InputAppearance.PRIMARY:
+      return primaryStyle;
+    case InputAppearance.SECONDARY:
+      return secondaryStyle;
+    default:
+      return primaryStyle;
+  }
+};
 
 export const InputLayout = styled.input<Partial<OwnProps>>`
   outline: none;
@@ -20,34 +53,10 @@ export const InputLayout = styled.input<Partial<OwnProps>>`
   border-radius: ${radius[6]};
   box-shadow: ${shadows.level1};
   box-sizing: border-box;
-  background: white;
-  color: ${colors.dark[100]};
   padding: 0px ${spaces[16]};
+  transition: 0.5s;
 
-  ${({ hasError }: Partial<OwnProps>) =>
-    hasError
-      ? css`
-          border: 1px solid ${colors.red};
-        `
-      : css`
-          border: 1px solid ${colors.dark[40]};
-        `}
-
-  ::placeholder {
-    color: ${colors.dark[60]};
-  }
-
-  :focus {
-    ${({ hasError }: Partial<OwnProps>) =>
-      hasError
-        ? css`
-            border: 1px solid ${colors.red};
-          `
-        : css`
-            border: 1px solid ${colors.dark[100]};
-          `}
-    transition: 0.5s;
-  }
+  ${({ appearance }: Partial<OwnProps>) => pickInputAppearance(appearance)}
 `;
 
 export const Label = styled.label`

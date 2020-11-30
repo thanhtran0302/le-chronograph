@@ -5,7 +5,7 @@ import paragraphs from '../../constants/paragraphs';
 import spaces from '../../constants/spaces';
 
 export const Layout = styled.div`
-  @media (min-width: ${breakpoints[1200]}) {
+  @media (min-width: ${breakpoints[960]}) {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -17,11 +17,11 @@ export const NavigationItem = styled.div`
   font-weight: 700;
   cursor: pointer;
 
-  @media (min-width: ${breakpoints[1200]}) {
+  @media (min-width: ${breakpoints[960]}) {
     margin-left: ${spaces[12]};
   }
 
-  @media (max-width: ${breakpoints[1200]}) {
+  @media (max-width: ${breakpoints[960]}) {
     padding: ${spaces[12]};
     border-top: 2px solid ${colors.mainDark};
   }

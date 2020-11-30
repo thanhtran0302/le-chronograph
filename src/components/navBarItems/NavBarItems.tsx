@@ -12,7 +12,7 @@ import { useMediaQuery } from '../../constants/responsive';
 
 const NavBarItems: FC = () => {
   const { t }: UseTranslationResponse = useTranslation();
-  const isMobile: boolean = useMediaQuery(`(max-width: ${breakpoints[1200]})`);
+  const isMobile: boolean = useMediaQuery(`(max-width: ${breakpoints[960]})`);
 
   return (
     <Layout>

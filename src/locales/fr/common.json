@@ -1,4 +1,5 @@
 {
+  "history": "Histoire",
   "about": "À propos",
   "acceptCookies": "Accepter les cookies",
   "all": "Tout",
@@ -9,6 +10,7 @@
   "inputEmailLabel": "Votre e-mail",
   "invalidEmail": "Le format de l'e-mail est incorrect.",
   "investment": "Investissement",
+  "knowMore": "En savoir plus",
   "listenToPodcast": "Écouter le podcast",
   "newsletter": "Newsletter",
   "newsletterSignUp": "Je m'inscris à la newsletter",
@@ -17,5 +19,6 @@
   "savingEmail": "Enregistrement en cours...",
   "siteUseCookies": "Nous utilisons et stockons des informations non sensibles par le dépôt de cookies ou équivalent sur votre appareil. Le traitement de vos données personnelles, comme votre adresse IP, nous permettent de mesurer notre audience et de vous proposer, par exemple, des fonctionnalités et contenus personnalisés.",
   "subscribeNewsletter": "Inscrivez vous à notre newsletter",
-  "successEmail": "Merci de votre inscription !"
+  "successEmail": "Merci de votre inscription !",
+  "tagline": "Histoire, marketing, investissement"
 }
