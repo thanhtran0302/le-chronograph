@@ -1,21 +1,21 @@
 import React, { FC } from 'react';
-import Section from '../section/Section';
-import OmegaSpeedmaster from '../../assets/images/omega-speedmaster.png';
-import CommonSection from '../commonSection/CommonSection';
 import { useTranslation, UseTranslationResponse } from 'react-i18next';
+import CommonSection from '../commonSection/CommonSection';
+import Section from '../section/Section';
+import MarketingRolex from '../../assets/images/marketing-rolex.png';
 
-const HistorySection: FC = () => {
+const MarketingSection: FC = () => {
   const { t }: UseTranslationResponse = useTranslation();
 
   return (
     <Section
-      image={OmegaSpeedmaster}
-      backgroundColor={'light'}
-      backgroundPosition={'right'}
+      image={MarketingRolex}
+      backgroundColor={'dark'}
+      backgroundPosition={'left'}
       title={t('history')}
     >
       <CommonSection
-        sectionBgColor={'light'}
+        sectionBgColor={'dark'}
         text={`Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
     tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
     veniam Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -30,4 +30,4 @@ const HistorySection: FC = () => {
   );
 };
 
-export default HistorySection;
+export default MarketingSection;
