@@ -12,7 +12,7 @@ const MarketingSection: FC = () => {
       image={MarketingRolex}
       backgroundColor={'dark'}
       backgroundPosition={'left'}
-      title={t('marketing')}
+      subtitle={t('marketing')}
     >
       <CommonSection
         sectionColor={'dark'}

@@ -24,6 +24,14 @@ export const Layout = styled.div`
   }
 `;
 
+export const Image = styled.img`
+  object-fit: cover;
+`;
+
+export const Subtitle = styled.div`
+  ${paragraphs.h1};
+`;
+
 export const Title = styled.div`
   ${paragraphs.big_title};
 

@@ -4,7 +4,9 @@ import {
   ImageContainer,
   Layout,
   Title,
-  Content
+  Subtitle,
+  Content,
+  Image
 } from './Section.styles';
 
 export type sectionBgColor = 'dark' | 'light';
@@ -13,17 +15,19 @@ interface SectionProps {
   backgroundColor: sectionBgColor;
   backgroundPosition: 'left' | 'right';
   image: string;
-  title: string;
   hasImageOnMobile?: boolean;
+  title?: string;
+  subtitle?: string;
 }
 
 const Section: FC<SectionProps> = ({
   image,
   backgroundColor,
   backgroundPosition,
-  title,
   children,
-  hasImageOnMobile = true
+  hasImageOnMobile = true,
+  title,
+  subtitle
 }) => {
   const isBgLeft: boolean = backgroundPosition === 'left';
 
@@ -31,16 +35,18 @@ const Section: FC<SectionProps> = ({
     <Layout>
       {isBgLeft && (
         <ElementsContainer backgroundColor={backgroundColor}>
-          <Title>{title}</Title>
+          {title && <Title>{title}</Title>}
+          {subtitle && <Subtitle>{subtitle}</Subtitle>}
           <Content>{children}</Content>
         </ElementsContainer>
       )}
       <ImageContainer hasImageOnMobile={hasImageOnMobile}>
-        <img src={image} />
+        <Image src={image} />
       </ImageContainer>
       {!isBgLeft && (
         <ElementsContainer backgroundColor={backgroundColor}>
-          <Title>{title}</Title>
+          {title && <Title>{title}</Title>}
+          {subtitle && <Subtitle>{subtitle}</Subtitle>}
           <Content>{children}</Content>
         </ElementsContainer>
       )}

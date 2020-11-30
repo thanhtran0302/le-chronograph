@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import { useTranslation, UseTranslationResponse } from 'react-i18next';
-import { KnowMore, Layout } from './CommonSection.styles';
+import { KnowMore, Layout, Text } from './CommonSection.styles';
 import ArrowRight from '../../assets/icons/arrow-right.svg';
 import { sectionBgColor } from '../section/Section';
 
@@ -14,7 +14,7 @@ const CommonSection: FC<CommonSectionProps> = ({ text, sectionColor }) => {
 
   return (
     <Layout>
-      <span>{text}</span>
+      <Text>{text}</Text>
       <KnowMore sectionColor={sectionColor}>
         {t('knowMore')} <ArrowRight />
       </KnowMore>

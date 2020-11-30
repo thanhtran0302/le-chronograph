@@ -43,7 +43,7 @@ export default {
     font-family: Source Sans Pro;
     font-size: ${fonts[20]};
     font-weight: 300;
-    line-height: ${fonts[32]};
+    line-height: ${fonts[30]};
   `,
   body2: `
     font-family: Source Sans Pro;

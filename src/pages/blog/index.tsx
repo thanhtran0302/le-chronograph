@@ -1,6 +1,5 @@
 import { GetServerSideProps, GetServerSidePropsContext } from 'next';
 import React, { FC, Fragment, useEffect } from 'react';
-import CardWrapper from '../../components/cardWrapper/CardWrapper';
 import CatchPhrase from '../../components/catchPhrase/CatchPhrase';
 import Categories from '../../components/categories/Categories';
 import { PrismicClient } from '../../utils/prismic';
@@ -36,7 +35,6 @@ const Home: FC<HomeProps> = ({ posts, categories }) => {
     <Fragment>
       <CatchPhrase />
       <Categories categories={categories} />
-      <CardWrapper posts={posts} />
     </Fragment>
   );
 };

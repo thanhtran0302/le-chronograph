@@ -12,7 +12,7 @@ const HistorySection: FC = () => {
       image={OmegaSpeedmaster}
       backgroundColor={'light'}
       backgroundPosition={'right'}
-      title={t('history')}
+      subtitle={t('history')}
     >
       <CommonSection
         sectionColor={'light'}

@@ -4,13 +4,15 @@ import HeaderSection from '../components/headerSection/HeaderSection';
 import HistorySection from '../components/historySection/HistorySection';
 import InvestmentSection from '../components/investmentSection/InvestmentSection';
 import MarketingSection from '../components/marketingSection/MarketingSection';
+import RecentPostsSection from '../components/recentPostsSection/RecentPostsSection';
 
 const Home: FC = () => (
   <Fragment>
     <HeaderSection />
-    <HistorySection />
-    <MarketingSection />
     <InvestmentSection />
+    <MarketingSection />
+    <HistorySection />
+    <RecentPostsSection />
   </Fragment>
 );
 

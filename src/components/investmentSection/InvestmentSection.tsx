@@ -12,7 +12,7 @@ const InvestmentSection: FC = () => {
       image={PatekPhilippe}
       backgroundColor={'light'}
       backgroundPosition={'right'}
-      title={t('investment')}
+      subtitle={t('investment')}
     >
       <CommonSection
         sectionColor={'light'}
