@@ -21,6 +21,7 @@ import { format } from 'date-fns';
 import { fr } from 'date-fns/locale';
 import { useMobileDevice } from '../../constants/responsive';
 import fonts from '../../constants/fonts';
+import { ComponentAppearance } from '../button/Button';
 
 interface SinglePostProps {
   post: PrismicBlogPost;
@@ -64,7 +65,7 @@ const SinglePost: FC<SinglePostProps> = ({ post }) => {
         </PostCoverImageContainer>
         <PostContent>{content}</PostContent>
         <NewsletterContainer>
-          <NewsletterModalContent />
+          <NewsletterModalContent appearance={ComponentAppearance.PRIMARY} />
         </NewsletterContainer>
       </Layout>
     </Fragment>

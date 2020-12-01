@@ -8,10 +8,10 @@ import React, {
 } from 'react';
 import { useTranslation, UseTranslationResponse } from 'react-i18next';
 import Button, { ButtonTypes, ComponentAppearance } from '../button/Button';
-import Input, { InputAppearance, InputTypes } from '../input/Input';
+import Input, { InputTypes } from '../input/Input';
 import { isEmail } from '../../utils/global';
 import * as gtag from '../../utils/ga';
-import Checkbox, { CheckboxAppearance } from '../checkbox/Checkbox';
+import Checkbox from '../checkbox/Checkbox';
 import {
   ButtonWrapper,
   CheckboxesWrapper,
