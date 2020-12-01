@@ -12,7 +12,7 @@ export enum ButtonTypes {
   BUTTON = 'button'
 }
 
-export enum ButtonAppearance {
+export enum ComponentAppearance {
   PRIMARY = 'primary',
   SECONDARY = 'secondary'
 }
@@ -24,7 +24,7 @@ export enum ButtonIconPosition {
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   type: ButtonTypes;
-  appearance: ButtonAppearance;
+  appearance: ComponentAppearance;
   onClick?(event: MouseEvent<HTMLButtonElement>): void;
   label?: string;
   icon?: ReactElement<Element>;

@@ -4,7 +4,8 @@ import colors from '../../constants/colors';
 import paragraphs from '../../constants/paragraphs';
 import radius from '../../constants/radius';
 import spaces from '../../constants/spaces';
-import { CheckboxAppearance, CheckboxProps } from './Checkbox';
+import { ComponentAppearance } from '../button/Button';
+import { CheckboxProps } from './Checkbox';
 
 export const Layout = styled.div`
   display: flex;
@@ -24,12 +25,12 @@ export const secondaryStyle: FlattenSimpleInterpolation = css`
 `;
 
 const pickCheckboxStyle = (
-  appearance: CheckboxAppearance
+  appearance: ComponentAppearance
 ): FlattenSimpleInterpolation => {
   switch (appearance) {
-    case CheckboxAppearance.PRIMARY:
+    case ComponentAppearance.PRIMARY:
       return primaryStyle;
-    case CheckboxAppearance.SECONDARY:
+    case ComponentAppearance.SECONDARY:
       return secondaryStyle;
     default:
       return primaryStyle;

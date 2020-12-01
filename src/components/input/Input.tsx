@@ -1,4 +1,5 @@
 import React, { FC, InputHTMLAttributes, ChangeEvent } from 'react';
+import { ComponentAppearance } from '../button/Button';
 import { Layout, InputLayout } from './Input.styles';
 
 export enum InputTypes {
@@ -9,16 +10,11 @@ export enum InputTypes {
   EMAIL = 'email'
 }
 
-export enum InputAppearance {
-  PRIMARY = 'primary',
-  SECONDARY = 'secondary'
-}
-
 export interface OwnProps extends InputHTMLAttributes<HTMLInputElement> {
   label: string;
   id: string;
   type: InputTypes;
-  appearance: InputAppearance;
+  appearance: ComponentAppearance;
   value?: string;
   onChange?(event: ChangeEvent<HTMLInputElement>): void;
   hasError?: boolean;

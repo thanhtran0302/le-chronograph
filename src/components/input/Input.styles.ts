@@ -3,8 +3,9 @@ import colors from '../../constants/colors';
 import radius from '../../constants/radius';
 import spaces from '../../constants/spaces';
 import shadows from '../../constants/shadows';
-import { InputAppearance, OwnProps } from './Input';
+import { OwnProps } from './Input';
 import fonts from '../../constants/fonts';
+import { ComponentAppearance } from '../button/Button';
 
 export const Layout = styled.div`
   display: flex;
@@ -33,12 +34,12 @@ export const secondaryStyle: FlattenSimpleInterpolation = css`
 `;
 
 const pickInputAppearance = (
-  appearance: InputAppearance
+  appearance: ComponentAppearance
 ): FlattenSimpleInterpolation => {
   switch (appearance) {
-    case InputAppearance.PRIMARY:
+    case ComponentAppearance.PRIMARY:
       return primaryStyle;
-    case InputAppearance.SECONDARY:
+    case ComponentAppearance.SECONDARY:
       return secondaryStyle;
     default:
       return primaryStyle;

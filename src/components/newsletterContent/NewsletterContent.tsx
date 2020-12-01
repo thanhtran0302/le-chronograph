@@ -1,6 +1,13 @@
-import React, { ChangeEvent, FC, FormEvent, useState } from 'react';
+import React, {
+  ChangeEvent,
+  FC,
+  FormEvent,
+  useEffect,
+  useRef,
+  useState
+} from 'react';
 import { useTranslation, UseTranslationResponse } from 'react-i18next';
-import Button, { ButtonTypes, ButtonAppearance } from '../button/Button';
+import Button, { ButtonTypes, ComponentAppearance } from '../button/Button';
 import Input, { InputAppearance, InputTypes } from '../input/Input';
 import { isEmail } from '../../utils/global';
 import * as gtag from '../../utils/ga';
@@ -11,8 +18,6 @@ import {
   InputButtonWrapper,
   Layout
 } from './NewsletterContent.styles';
-import { useMediaQuery } from '../../constants/responsive';
-import breakpoints from '../../constants/breakpoints';
 
 enum QuantumState {
   TRUE,
@@ -20,16 +25,21 @@ enum QuantumState {
   BOTH
 }
 
-const NewsletterContent: FC = () => {
+interface NewsletterContentProps {
+  appearance: ComponentAppearance;
+}
+
+const NewsletterContent: FC<NewsletterContentProps> = ({ appearance }) => {
   const { t }: UseTranslationResponse = useTranslation();
-  const isMobile: boolean = useMediaQuery(`(max-width: ${breakpoints[1024]})`);
+  const [isEnougWidth, setEnougWidth] = useState<boolean>(false);
   const [email, setEmail] = useState<string>('');
   const [isLoading, setLoading] = useState<boolean>(false);
   const [isNewsletterChecked, setNewsletterCheck] = useState<boolean>(true);
   const [isInvestmentChecked, setInvestmentCheck] = useState<boolean>(true);
-  const [_emailSubmit, setEmailSubmit] = useState<QuantumState>(
+  const [emailSubmit, setEmailSubmit] = useState<QuantumState>(
     QuantumState.BOTH
   );
+  const currentRef = useRef<HTMLFormElement | null>(null);
 
   const onChange = (event: ChangeEvent<HTMLInputElement>) => {
     event.preventDefault();
@@ -63,8 +73,12 @@ const NewsletterContent: FC = () => {
     }
   };
 
+  useEffect(() => {
+    setEnougWidth(currentRef.current.offsetWidth < 414);
+  }, []);
+
   return (
-    <Layout onSubmit={onSubmit}>
+    <Layout onSubmit={onSubmit} ref={currentRef}>
       <InputButtonWrapper>
         <Input
           label={t('inputEmailLabel')}
@@ -72,21 +86,21 @@ const NewsletterContent: FC = () => {
           type={InputTypes.EMAIL}
           value={email}
           onChange={onChange}
-          appearance={InputAppearance.PRIMARY}
+          appearance={appearance}
           required
         />
-        {!isMobile && (
+        {!isEnougWidth && (
           <Button
-            appearance={ButtonAppearance.PRIMARY}
+            appearance={appearance}
             type={ButtonTypes.BUTTON}
             label={t('newsletterSignUp')}
           />
         )}
       </InputButtonWrapper>
-      {isMobile && (
+      {isEnougWidth && (
         <ButtonWrapper>
           <Button
-            appearance={ButtonAppearance.PRIMARY}
+            appearance={appearance}
             type={ButtonTypes.BUTTON}
             label={t('newsletterSignUp')}
           />
@@ -96,13 +110,13 @@ const NewsletterContent: FC = () => {
         <Checkbox
           label={t('newsletter')}
           onClick={check => setNewsletterCheck(check)}
-          appearance={CheckboxAppearance.PRIMARY}
+          appearance={appearance}
           check={isNewsletterChecked}
         />
         <Checkbox
           label={t('investment')}
           onClick={check => setInvestmentCheck(check)}
-          appearance={CheckboxAppearance.PRIMARY}
+          appearance={appearance}
           check={isInvestmentChecked}
         />
       </CheckboxesWrapper>

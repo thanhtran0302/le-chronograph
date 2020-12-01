@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import { useTranslation, UseTranslationResponse } from 'react-i18next';
 import Button, {
   ButtonTypes,
-  ButtonAppearance,
+  ComponentAppearance,
   ButtonIconPosition
 } from '../button/Button';
 import { Layout, NavigationItem } from './NavBarItems.styles';
@@ -25,7 +25,7 @@ const NavBarItems: FC = () => {
           <Button
             label={t('listenToPodcast')}
             type={ButtonTypes.BUTTON}
-            appearance={ButtonAppearance.PRIMARY}
+            appearance={ComponentAppearance.PRIMARY}
             icon={<Micro />}
             iconPosition={ButtonIconPosition.LEFT}
           />

@@ -4,7 +4,7 @@ import shadows from '../../constants/shadows';
 import colors from '../../constants/colors';
 import spaces from '../../constants/spaces';
 
-import { ButtonProps, ButtonAppearance, ButtonIconPosition } from './Button';
+import { ButtonProps, ComponentAppearance, ButtonIconPosition } from './Button';
 import fonts from '../../constants/fonts';
 
 type ButtonLayoutProps = Pick<
@@ -19,7 +19,7 @@ export const commonStyle: FlattenSimpleInterpolation = css`
 
 export const secondaryStyle: FlattenSimpleInterpolation = css`
   ${commonStyle};
-  border: 2px solid ${colors.mainLight};
+  border: 2px solid ${colors.mainDark};
   color: ${colors.mainDark};
   background: ${colors.mainLight};
 
@@ -64,12 +64,12 @@ export const primaryStyle: FlattenSimpleInterpolation = css`
 `;
 
 const pickButtonStyle = (
-  appearance: ButtonAppearance
+  appearance: ComponentAppearance
 ): FlattenSimpleInterpolation => {
   switch (appearance) {
-    case ButtonAppearance.PRIMARY:
+    case ComponentAppearance.PRIMARY:
       return primaryStyle;
-    case ButtonAppearance.SECONDARY:
+    case ComponentAppearance.SECONDARY:
       return secondaryStyle;
     default:
       return primaryStyle;

@@ -4,6 +4,7 @@ import RolexSubmariner from '../../assets/images/rolex-submariner.png';
 import { useTranslation, UseTranslationResponse } from 'react-i18next';
 import { Layout } from './HeaderSection.styles';
 import NewsletterContent from '../newsletterContent/NewsletterContent';
+import { ComponentAppearance } from '../button/Button';
 
 const HeaderSection: FC = () => {
   const { t }: UseTranslationResponse = useTranslation();
@@ -21,7 +22,7 @@ const HeaderSection: FC = () => {
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua.
         </p>
-        <NewsletterContent />
+        <NewsletterContent appearance={ComponentAppearance.PRIMARY} />
       </Layout>
     </Section>
   );

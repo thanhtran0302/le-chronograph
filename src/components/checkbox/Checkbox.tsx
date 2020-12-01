@@ -3,16 +3,12 @@ import React, { FC, useState } from 'react';
 import { Layout, CheckboxLayout, LabelLayout } from './Checkbox.styles';
 import CheckLight from '../../assets/icons/check_light.svg';
 import CheckDark from '../../assets/icons/check_dark.svg';
-
-export enum CheckboxAppearance {
-  PRIMARY = 'primary',
-  SECONDARY = 'secondary'
-}
+import { ComponentAppearance } from '../button/Button';
 
 export interface CheckboxProps {
   label: string;
   onClick(checked: boolean): void;
-  appearance: CheckboxAppearance;
+  appearance: ComponentAppearance;
   check: boolean;
 }
 
@@ -28,7 +24,7 @@ const Checkbox: FC<CheckboxProps> = ({ label, onClick, appearance, check }) => {
     >
       <CheckboxLayout appearance={appearance}>
         {check &&
-          (appearance === CheckboxAppearance.PRIMARY ? (
+          (appearance === ComponentAppearance.PRIMARY ? (
             <CheckLight />
           ) : (
             <CheckDark />

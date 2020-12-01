@@ -1,52 +1,38 @@
-import styled, { css } from 'styled-components';
-import colors from '../../constants/colors';
+import styled from 'styled-components';
+import breakpoints from '../../constants/breakpoints';
+import paragraphs from '../../constants/paragraphs';
 import spaces from '../../constants/spaces';
 
-interface MobileProps {
-  isMobile: boolean;
-}
-
 export const Layout = styled.div`
-  bottom: 0;
-  width: 100%;
-  color: ${colors.grey[80]};
-  padding: ${spaces[32]} 0;
-  background: ${colors.dark[100]};
-`;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-column-gap: ${spaces[40]};
+  max-width: ${breakpoints.desktop.macBookPro};
+  margin: auto;
+  padding: ${spaces[72]} ${spaces[24]};
 
-export const FooterColumn = styled.div<MobileProps>`
-  display: flex;
-  justify-content: space-between;
-
-  ${({ isMobile }: MobileProps) =>
-    isMobile &&
-    css`
-      align-items: center;
-      flex-direction: column;
-    `}
-`;
-
-export const FooterSitename = styled.div<MobileProps>`
-  ${({ isMobile }: MobileProps) =>
-    isMobile &&
-    css`
-      margin-bottom: ${spaces[12]};
-    `}
-`;
-
-export const SocialNetworks = styled.div`
-  display: flex;
-`;
-
-export const SocialNetwork = styled.div`
-  margin-left: ${spaces[8]};
-  font-weight: bold;
-
-  a {
-    color: ${colors.grey[80]};
-
-    :hover {
-      color: ${colors.grey[100]};
-    }
+  @media (max-width: ${breakpoints[1024]}) {
+    display: flex;
+    flex-direction: column-reverse;
   }
+`;
+
+export const FooterColumn = styled.div`
+  @media (max-width: ${breakpoints[1024]}) {
+    margin-bottom: ${spaces[20]};
+  }
+`;
+
+export const FooterContent = styled.div``;
+
+export const FooterItem = styled.div`
+  ${paragraphs.body1};
+  display: flex;
+  align-items: center;
+  margin: ${spaces[4]} 0;
+`;
+
+export const Title = styled.div`
+  ${paragraphs.h3};
+  margin-bottom: ${spaces[12]};
 `;
