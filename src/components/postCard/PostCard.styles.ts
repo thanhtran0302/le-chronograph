@@ -97,6 +97,7 @@ export const Layout = styled.div<Partial<PostCardProps>>`
   transition: background-color 0.2s ease-in, border 0.2s ease-in,
     color 0.2s ease-in;
   border-radius: ${radius[3]};
+  cursor: pointer;
 
   @media (min-width: ${breakpoints.tablet.iPadPro11}) {
     max-width: 300px;

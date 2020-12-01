@@ -1,17 +1,16 @@
 import { GetServerSideProps, GetServerSidePropsContext } from 'next';
 import React, { FC, Fragment, useEffect } from 'react';
-import CatchPhrase from '../../components/catchPhrase/CatchPhrase';
-import Categories from '../../components/categories/Categories';
 import { PrismicClient } from '../../utils/prismic';
 import Prismic from 'prismic-javascript';
-import { PrimsicTypes } from '../../interfaces/prismic';
+import { PrimsicTypes, PrismicBlogPost } from '../../interfaces/prismic';
 import ApiSearchResponse from 'prismic-javascript/types/ApiSearchResponse';
 import { Document } from 'prismic-javascript/types/documents';
 import { useRouter } from 'next/router';
 import * as gtag from '../../utils/ga';
+import Blog from '../../components/blog/Blog';
 
 interface HomeProps {
-  posts: Document[];
+  posts: PrismicBlogPost[];
   categories: Document[];
 }
 
@@ -31,10 +30,10 @@ const Home: FC<HomeProps> = ({ posts, categories }) => {
     router.events.on('routeChangeComplete', handleRouteChange);
   }, [router.events]);
 
+  console.log(posts);
   return (
     <Fragment>
-      <CatchPhrase />
-      <Categories categories={categories} />
+      <Blog posts={posts} />
     </Fragment>
   );
 };
@@ -69,11 +68,17 @@ export const getServerSideProps: GetServerSideProps = async (
         fetchLinks: ['authors.name', 'categories.name']
       }
     );
+    const postsResults = response.results.map(
+      (result: Document) => result.data
+    );
+    const categoriesResults = responseCategories.results.map(
+      (result: Document) => result.data
+    );
 
     return {
       props: {
-        posts: response.results,
-        categories: responseCategories.results
+        posts: postsResults,
+        categories: categoriesResults
       }
     };
   } catch {

@@ -30,6 +30,7 @@ export const FooterItem = styled.div`
   display: flex;
   align-items: center;
   margin: ${spaces[4]} 0;
+  cursor: pointer;
 `;
 
 export const Title = styled.div`

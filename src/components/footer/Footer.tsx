@@ -13,6 +13,7 @@ import Instagram from '../../assets/icons/instagram.svg';
 import Youtube from '../../assets/icons/youtube.svg';
 import NewsletterContent from '../newsletterContent/NewsletterContent';
 import { ComponentAppearance } from '../button/Button';
+import Link from 'next/link';
 
 const Footer: FC = () => {
   const { t }: UseTranslationResponse = useTranslation();
@@ -41,7 +42,9 @@ const Footer: FC = () => {
         <FooterContent>
           <FooterItem>{t('about')}</FooterItem>
           <FooterItem>{t('investment')}</FooterItem>
-          <FooterItem>{t('blog')}</FooterItem>
+          <Link href={'/blog'}>
+            <FooterItem>{t('blog')}</FooterItem>
+          </Link>
           <FooterItem>{t('legalMentions')}</FooterItem>
           <FooterItem>{t('personalData')}</FooterItem>
           <FooterItem>{t('leChronographInside')}</FooterItem>

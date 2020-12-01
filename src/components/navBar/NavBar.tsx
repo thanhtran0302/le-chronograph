@@ -4,8 +4,9 @@ import { Layout, MasterLayout, WebsiteName } from './NavBar.styles';
 import BurgerMenu from '../../assets/icons/menu.svg';
 import { useMediaQuery } from '../../constants/responsive';
 import breakpoints from '../../constants/breakpoints';
-import NavBarItems from '../navBarItems/NavBarItems';
+import NavBarItems from './navBarItems/NavBarItems';
 import Close from '../../assets/icons/close.svg';
+import Link from 'next/link';
 
 const NavBar: FC = () => {
   const isMobile: boolean = useMediaQuery(`(max-width: ${breakpoints[960]})`);
@@ -14,7 +15,9 @@ const NavBar: FC = () => {
   return (
     <MasterLayout>
       <Layout>
-        <WebsiteName>{BlogName}</WebsiteName>
+        <Link href={'/'}>
+          <WebsiteName>{BlogName}</WebsiteName>
+        </Link>
         {isMobile &&
           (isOpen ? (
             <Close onClick={() => setOpen(!isOpen)} />

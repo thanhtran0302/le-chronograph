@@ -1,8 +1,8 @@
 import styled from 'styled-components';
-import breakpoints from '../../constants/breakpoints';
-import colors from '../../constants/colors';
-import paragraphs from '../../constants/paragraphs';
-import spaces from '../../constants/spaces';
+import breakpoints from '../../../constants/breakpoints';
+import colors from '../../../constants/colors';
+import paragraphs from '../../../constants/paragraphs';
+import spaces from '../../../constants/spaces';
 
 export const Layout = styled.div`
   @media (min-width: ${breakpoints[960]}) {

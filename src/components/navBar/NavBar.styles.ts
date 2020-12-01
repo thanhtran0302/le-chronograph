@@ -30,6 +30,7 @@ export const Layout = styled.div`
 
 export const WebsiteName = styled.div`
   ${paragraphs.h3};
+  cursor: pointer;
 `;
 
 export const NavigationContainer = styled.div`

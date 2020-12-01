@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import React, { FC } from 'react';
 import breakpoints from '../../constants/breakpoints';
 import { useMediaQuery } from '../../constants/responsive';
@@ -18,6 +19,7 @@ export interface PostCardProps {
   image: string;
   author: string;
   date: string;
+  slug: string;
 }
 
 const PostCard: FC<PostCardProps> = ({
@@ -25,24 +27,27 @@ const PostCard: FC<PostCardProps> = ({
   title,
   image,
   author,
-  date
+  date,
+  slug
 }) => {
   const isMobile: boolean = useMediaQuery(
     `(max-width: ${breakpoints.tablet.iPadPro11})`
   );
   return (
-    <Layout appearance={appearance}>
-      {!isMobile && (
-        <ImageContainer>
-          <Image src={image} />
-        </ImageContainer>
-      )}
-      <Title>{title}</Title>
-      <MetaDataContainer>
-        <Author>{author}</Author>
-        <PublishDate>{date}</PublishDate>
-      </MetaDataContainer>
-    </Layout>
+    <Link href={`/blog/articles/${slug}`}>
+      <Layout appearance={appearance}>
+        {!isMobile && (
+          <ImageContainer>
+            <Image src={image} />
+          </ImageContainer>
+        )}
+        <Title>{title}</Title>
+        <MetaDataContainer>
+          <Author>{author}</Author>
+          <PublishDate>{date}</PublishDate>
+        </MetaDataContainer>
+      </Layout>
+    </Link>
   );
 };
 

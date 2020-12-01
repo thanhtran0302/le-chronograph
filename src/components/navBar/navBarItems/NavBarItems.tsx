@@ -4,11 +4,12 @@ import Button, {
   ButtonTypes,
   ComponentAppearance,
   ButtonIconPosition
-} from '../button/Button';
+} from '../../button/Button';
 import { Layout, NavigationItem } from './NavBarItems.styles';
-import Micro from '../../assets/icons/micro.svg';
-import breakpoints from '../../constants/breakpoints';
-import { useMediaQuery } from '../../constants/responsive';
+import Micro from '../../../assets/icons/micro.svg';
+import breakpoints from '../../../constants/breakpoints';
+import { useMediaQuery } from '../../../constants/responsive';
+import Link from 'next/link';
 
 const NavBarItems: FC = () => {
   const { t }: UseTranslationResponse = useTranslation();
@@ -18,7 +19,9 @@ const NavBarItems: FC = () => {
     <Layout>
       <NavigationItem>{t('newsletter')}</NavigationItem>
       <NavigationItem>{t('investment')}</NavigationItem>
-      <NavigationItem>{t('blog')}</NavigationItem>
+      <Link href={'/blog'}>
+        <NavigationItem>{t('blog')}</NavigationItem>
+      </Link>
       <NavigationItem>{t('about')}</NavigationItem>
       <NavigationItem>
         {!isMobile ? (

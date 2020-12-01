@@ -24,6 +24,7 @@ const RecentPostsSection: FC = () => {
           image={RolexSubmariner}
           author={'Thanh Tran'}
           date={', 20 Novembre 2020'}
+          slug={''}
         />
         <PostCard
           appearance={ComponentAppearance.PRIMARY}
@@ -31,6 +32,7 @@ const RecentPostsSection: FC = () => {
           image={RolexSubmariner}
           author={'Thanh Tran'}
           date={', 20 Novembre 2020'}
+          slug={''}
         />
         <PostCard
           appearance={ComponentAppearance.PRIMARY}
@@ -38,6 +40,7 @@ const RecentPostsSection: FC = () => {
           image={RolexSubmariner}
           author={'Thanh Tran'}
           date={', 20 Novembre 2020'}
+          slug={''}
         />
         <PostCard
           appearance={ComponentAppearance.PRIMARY}
@@ -45,6 +48,7 @@ const RecentPostsSection: FC = () => {
           image={RolexSubmariner}
           author={'Thanh Tran'}
           date={', 20 Novembre 2020'}
+          slug={''}
         />
       </RecentPosts>
     </Layout>
