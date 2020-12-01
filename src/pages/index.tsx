@@ -41,11 +41,10 @@ export const getServerSideProps: GetServerSideProps = async (
         pageSize: 4
       }
     );
-    const postsResults: PrismicBlogPost[] = response.results.map(
-      (result: Document) => result.data as PrismicBlogPost
+    const postsResults = response.results.map(
+      result => result.data as PrismicBlogPost
     );
 
-    console.log(postsResults);
     return {
       props: {
         posts: postsResults
