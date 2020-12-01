@@ -8,6 +8,8 @@ export const Layout = styled.div`
   background: ${colors.mainDark};
   padding: ${spaces[100]} 0;
   text-align: center;
+  display: flex;
+  flex-direction: column;
   color: ${colors.mainLight};
 
   @media (max-width: ${breakpoints[1050]}) {
@@ -29,6 +31,10 @@ export const Title = styled.div`
   @media (max-width: ${breakpoints[480]}) {
     ${paragraphs.h3};
   }
+`;
+
+export const ButtonWrapper = styled.div`
+  margin: ${spaces[12]} auto;
 `;
 
 export const Subtitle = styled.div`

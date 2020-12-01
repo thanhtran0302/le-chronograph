@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import breakpoints from '../../constants/breakpoints';
+import colors from '../../constants/colors';
 import paragraphs from '../../constants/paragraphs';
 import spaces from '../../constants/spaces';
 
@@ -36,4 +37,8 @@ export const FooterItem = styled.div`
 export const Title = styled.div`
   ${paragraphs.h3};
   margin-bottom: ${spaces[12]};
+`;
+
+export const ALink = styled.a`
+  color: ${colors.mainDark};
 `;

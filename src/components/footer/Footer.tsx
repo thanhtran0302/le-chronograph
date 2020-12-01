@@ -5,7 +5,8 @@ import {
   Title,
   FooterColumn,
   FooterContent,
-  FooterItem
+  FooterItem,
+  ALink
 } from './Footer.styles';
 import ApplePodcast from '../../assets/icons/apple_podcast.svg';
 import Spotify from '../../assets/icons/spotify.svg';
@@ -14,6 +15,12 @@ import Youtube from '../../assets/icons/youtube.svg';
 import NewsletterContent from '../newsletterContent/NewsletterContent';
 import { ComponentAppearance } from '../button/Button';
 import Link from 'next/link';
+import {
+  APPLE_PODCAST,
+  INSTAGRAM,
+  SPOTIFY_PODCAST,
+  YOUTUBE
+} from '../../constants/common';
 
 const Footer: FC = () => {
   const { t }: UseTranslationResponse = useTranslation();
@@ -53,22 +60,30 @@ const Footer: FC = () => {
       <FooterColumn>
         <Title>{t('followUs')}</Title>
         <FooterContent>
-          <FooterItem>
-            <ApplePodcast />
-            {t('applePodcast')}
-          </FooterItem>
-          <FooterItem>
-            <Spotify />
-            {t('spotify')}
-          </FooterItem>
-          <FooterItem>
-            <Instagram />
-            {t('instagram')}
-          </FooterItem>
-          <FooterItem>
-            <Youtube />
-            {t('youtube')}
-          </FooterItem>
+          <ALink href={APPLE_PODCAST} target="_blank">
+            <FooterItem>
+              <ApplePodcast />
+              {t('applePodcast')}
+            </FooterItem>
+          </ALink>
+          <ALink href={SPOTIFY_PODCAST} target="_blank">
+            <FooterItem>
+              <Spotify />
+              {t('spotify')}
+            </FooterItem>
+          </ALink>
+          <ALink href={INSTAGRAM} target="_blank">
+            <FooterItem>
+              <Instagram />
+              {t('instagram')}
+            </FooterItem>
+          </ALink>
+          <ALink href={YOUTUBE} target="_blank">
+            <FooterItem>
+              <Youtube />
+              {t('youtube')}
+            </FooterItem>
+          </ALink>
         </FooterContent>
       </FooterColumn>
       <FooterColumn>

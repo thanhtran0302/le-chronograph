@@ -1,7 +1,9 @@
 import { FC } from 'react';
 import { PrismicBlogPost } from '../../interfaces/prismic';
+import { ComponentAppearance } from '../button/Button';
 import { Layout } from './Blog.styles';
 import BlogCardWrapper from './blogCardWrapper/BlogCardWrapper';
+import BlogCategories from './blogCategories/BlogCategories';
 import BlogHeader from './blogHeader/BlogHeader';
 
 interface BlogProps {
@@ -11,7 +13,8 @@ interface BlogProps {
 const Blog: FC<BlogProps> = ({ posts }) => (
   <Layout>
     <BlogHeader />
-    <BlogCardWrapper posts={posts} />
+    <BlogCategories />
+    <BlogCardWrapper appearance={ComponentAppearance.SECONDARY} posts={posts} />
   </Layout>
 );
 

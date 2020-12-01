@@ -6,13 +6,13 @@ import { PrismicBlogPost } from '../../../interfaces/prismic';
 import { RichText } from 'prismic-reactjs';
 import { format } from 'date-fns';
 import { fr } from 'date-fns/locale';
-import Link from 'next/link';
 
 interface BlogCardWrapper {
   posts: PrismicBlogPost[];
+  appearance: ComponentAppearance;
 }
 
-const BlogCardWrapper: FC<BlogCardWrapper> = ({ posts }) => (
+const BlogCardWrapper: FC<BlogCardWrapper> = ({ posts, appearance }) => (
   <Layout>
     {posts.map((post: PrismicBlogPost, key: number) => {
       const creationDate: string = format(
@@ -24,7 +24,7 @@ const BlogCardWrapper: FC<BlogCardWrapper> = ({ posts }) => (
       return (
         <PostCard
           key={key}
-          appearance={ComponentAppearance.SECONDARY}
+          appearance={appearance}
           title={RichText.asText(post.title)}
           image={post.cover_image.url}
           author={post.author.data.name}
