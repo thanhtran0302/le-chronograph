@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { PrismicBlogPost } from '../../interfaces/prismic';
 import { Layout } from './Blog.styles';
-import BlogCardWrapper from './blogCardWrapper/blogCardWrapper';
+import BlogCardWrapper from './blogCardWrapper/BlogCardWrapper';
 import BlogHeader from './blogHeader/BlogHeader';
 
 interface BlogProps {
