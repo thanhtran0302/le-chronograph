@@ -2,6 +2,7 @@ import { createGlobalStyle } from 'styled-components';
 import colors from '../constants/colors';
 import fonts from '../constants/fonts';
 import paragraphs from '../constants/paragraphs';
+import spaces from '../constants/spaces';
 
 export const GlobalStyle = createGlobalStyle`
   html,
@@ -11,6 +12,7 @@ export const GlobalStyle = createGlobalStyle`
     font-family: Source Sans Pro, Anton, Roboto, sans-serif;
     color: ${colors.dark[100]};
     font-size: ${fonts[16]};
+    line-height: ${spaces[24]};
   }
 
   html {

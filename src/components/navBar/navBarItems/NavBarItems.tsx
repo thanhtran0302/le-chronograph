@@ -10,6 +10,7 @@ import Micro from '../../../assets/icons/micro.svg';
 import breakpoints from '../../../constants/breakpoints';
 import { useMediaQuery } from '../../../constants/responsive';
 import Link from 'next/link';
+import { APPLE_PODCAST } from '../../../constants/common';
 
 const NavBarItems: FC = () => {
   const { t }: UseTranslationResponse = useTranslation();
@@ -24,17 +25,19 @@ const NavBarItems: FC = () => {
       </Link>
       <NavigationItem>{t('about')}</NavigationItem>
       <NavigationItem>
-        {!isMobile ? (
-          <Button
-            label={t('listenToPodcast')}
-            type={ButtonTypes.BUTTON}
-            appearance={ComponentAppearance.PRIMARY}
-            icon={<Micro />}
-            iconPosition={ButtonIconPosition.LEFT}
-          />
-        ) : (
-          t('listenToPodcast')
-        )}
+        <a href={APPLE_PODCAST} target="_blank">
+          {!isMobile ? (
+            <Button
+              label={t('listenToPodcast')}
+              type={ButtonTypes.BUTTON}
+              appearance={ComponentAppearance.PRIMARY}
+              icon={<Micro />}
+              iconPosition={ButtonIconPosition.LEFT}
+            />
+          ) : (
+            t('listenToPodcast')
+          )}
+        </a>
       </NavigationItem>
     </Layout>
   );

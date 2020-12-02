@@ -7,6 +7,7 @@ import { PrimsicTypes, PrismicBlogPost } from '../../../interfaces/prismic';
 import { useRouter } from 'next/router';
 import { RichText } from 'prismic-reactjs';
 import * as gtag from '../../../utils/ga';
+import SingleBlogPost from '../../../components/singleBlogPost/SingleBlogPost';
 
 interface SlugProps {
   post: PrismicBlogPost;
@@ -28,7 +29,11 @@ const SinglePostPage: FC<SlugProps> = ({ post }) => {
     router.events.on('routeChangeComplete', handleRouteChange);
   }, [router.events]);
 
-  return <Fragment>single post</Fragment>;
+  return (
+    <Fragment>
+      <SingleBlogPost post={post} />
+    </Fragment>
+  );
 };
 
 export const getServerSideProps: GetServerSideProps = async (

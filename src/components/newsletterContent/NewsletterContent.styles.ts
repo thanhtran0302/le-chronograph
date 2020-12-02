@@ -39,7 +39,7 @@ export const InputButtonWrapper = styled.div`
 
 export const CheckboxesWrapper = styled.div`
   display: flex;
-  margin-top: ${spaces[4]};
+  margin-top: ${spaces[8]};
 `;
 
 export const NewsletterSubtitle = styled.div`
