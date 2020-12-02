@@ -45,16 +45,3 @@ export const Subtitle = styled.div`
     ${paragraphs.subtitle};
   }
 `;
-
-export const RecentPosts = styled.div`
-  padding-top: ${spaces[48]};
-  margin: auto;
-
-  @media (min-width: ${breakpoints.tablet.iPadPro11}) {
-    display: grid;
-    width: 100%;
-    grid-template-columns: repeat(4, 1fr);
-    grid-column-gap: ${spaces[80]};
-    max-width: ${breakpoints.desktop.macBookPro};
-  }
-`;

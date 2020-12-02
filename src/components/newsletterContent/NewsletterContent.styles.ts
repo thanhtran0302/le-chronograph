@@ -1,9 +1,10 @@
 import styled from 'styled-components';
-import breakpoints from '../../constants/breakpoints';
 import colors from '../../constants/colors';
 import spaces from '../../constants/spaces';
 
-export const Layout = styled.form``;
+export const Layout = styled.form`
+  position: relative;
+`;
 
 export const EmailError = styled.div`
   margin-top: ${spaces[8]};
@@ -39,4 +40,8 @@ export const InputButtonWrapper = styled.div`
 export const CheckboxesWrapper = styled.div`
   display: flex;
   margin-top: ${spaces[4]};
+`;
+
+export const NewsletterSubtitle = styled.div`
+  margin-bottom: ${spaces[12]};
 `;

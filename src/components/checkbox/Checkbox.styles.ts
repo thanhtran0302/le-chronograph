@@ -46,9 +46,7 @@ export const CheckboxLayout = styled.div<Partial<CheckboxProps>>`
   ${({ appearance }: Partial<CheckboxProps>) => pickCheckboxStyle(appearance)}
 
   svg {
-    height: ${spaces[16]};
-    width: ${spaces[16]};
-    transform: translate(2px, -6px);
+    transform: translate(1px, 1px);
   }
 `;
 

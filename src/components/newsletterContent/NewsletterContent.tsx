@@ -16,8 +16,10 @@ import {
   ButtonWrapper,
   CheckboxesWrapper,
   InputButtonWrapper,
-  Layout
+  Layout,
+  NewsletterSubtitle
 } from './NewsletterContent.styles';
+import Loader from '../loader/Loader';
 
 enum QuantumState {
   TRUE,
@@ -27,9 +29,13 @@ enum QuantumState {
 
 interface NewsletterContentProps {
   appearance: ComponentAppearance;
+  hasSubtitle?: boolean;
 }
 
-const NewsletterContent: FC<NewsletterContentProps> = ({ appearance }) => {
+const NewsletterContent: FC<NewsletterContentProps> = ({
+  appearance,
+  hasSubtitle = false
+}) => {
   const { t }: UseTranslationResponse = useTranslation();
   const [isEnougWidth, setEnougWidth] = useState<boolean>(false);
   const [email, setEmail] = useState<string>('');
@@ -51,9 +57,16 @@ const NewsletterContent: FC<NewsletterContentProps> = ({ appearance }) => {
     event.preventDefault();
     setLoading(true);
 
-    if (isEmail(email)) {
+    if (isEmail(email) && (isNewsletterChecked || isInvestmentChecked)) {
       try {
-        await fetch(`/api/airtable/${email}`);
+        await fetch(`/api/airtable`, {
+          method: 'POST',
+          body: JSON.stringify({
+            email,
+            newsletter: isNewsletterChecked,
+            investment: isInvestmentChecked
+          })
+        });
         setLoading(false);
         setEmailSubmit(QuantumState.TRUE);
         gtag.event({
@@ -79,6 +92,10 @@ const NewsletterContent: FC<NewsletterContentProps> = ({ appearance }) => {
 
   return (
     <Layout onSubmit={onSubmit} ref={currentRef}>
+      {isLoading && <Loader />}
+      {hasSubtitle && (
+        <NewsletterSubtitle>{t('newsletterFooter')}</NewsletterSubtitle>
+      )}
       <InputButtonWrapper>
         <Input
           label={t('inputEmailLabel')}
@@ -92,7 +109,7 @@ const NewsletterContent: FC<NewsletterContentProps> = ({ appearance }) => {
         {!isEnougWidth && (
           <Button
             appearance={appearance}
-            type={ButtonTypes.BUTTON}
+            type={ButtonTypes.SUBMIT}
             label={t('newsletterSignUp')}
           />
         )}
@@ -101,7 +118,7 @@ const NewsletterContent: FC<NewsletterContentProps> = ({ appearance }) => {
         <ButtonWrapper>
           <Button
             appearance={appearance}
-            type={ButtonTypes.BUTTON}
+            type={ButtonTypes.SUBMIT}
             label={t('newsletterSignUp')}
           />
         </ButtonWrapper>
