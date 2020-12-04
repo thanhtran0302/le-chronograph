@@ -86,7 +86,9 @@ export const PostContent = styled.div`
     object-fit: cover;
   }
 
-  p {
+  p,
+  ul,
+  span {
     ${paragraphs.body1};
   }
 `;

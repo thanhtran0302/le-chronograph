@@ -15,6 +15,8 @@ import Checkbox from '../checkbox/Checkbox';
 import {
   ButtonWrapper,
   CheckboxesWrapper,
+  EmailError,
+  EmailSuccess,
   InputButtonWrapper,
   Layout,
   NewsletterSubtitle
@@ -45,6 +47,9 @@ const NewsletterContent: FC<NewsletterContentProps> = ({
   const [emailSubmit, setEmailSubmit] = useState<QuantumState>(
     QuantumState.BOTH
   );
+  const [atLeastOneBoxChecked, setOneBoxCheck] = useState<boolean>(
+    isNewsletterChecked || isInvestmentChecked
+  );
   const currentRef = useRef<HTMLFormElement | null>(null);
 
   const onChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -57,28 +62,34 @@ const NewsletterContent: FC<NewsletterContentProps> = ({
     event.preventDefault();
     setLoading(true);
 
-    if (isEmail(email) && (isNewsletterChecked || isInvestmentChecked)) {
-      try {
-        await fetch(`/api/airtable`, {
-          method: 'POST',
-          body: JSON.stringify({
-            email,
-            newsletter: isNewsletterChecked,
-            investment: isInvestmentChecked
-          })
-        });
+    if (isEmail(email)) {
+      if (atLeastOneBoxChecked) {
+        console.log({ atLeastOneBoxChecked });
+        try {
+          await fetch(`/api/airtable`, {
+            method: 'POST',
+            body: JSON.stringify({
+              email,
+              newsletter: isNewsletterChecked,
+              investment: isInvestmentChecked
+            })
+          });
+          setLoading(false);
+          setEmailSubmit(QuantumState.TRUE);
+          gtag.event({
+            action: 'NEWSLETTER_SIGN_UP',
+            category: 'CLICK',
+            label: email,
+            value: 2
+          });
+        } catch (error) {
+          setLoading(false);
+          setEmailSubmit(QuantumState.FALSE);
+          throw error;
+        }
+      } else {
+        setOneBoxCheck(false);
         setLoading(false);
-        setEmailSubmit(QuantumState.TRUE);
-        gtag.event({
-          action: 'NEWSLETTER_SIGN_UP',
-          category: 'CLICK',
-          label: email,
-          value: 2
-        });
-      } catch (error) {
-        setLoading(false);
-        setEmailSubmit(QuantumState.FALSE);
-        throw error;
       }
     } else {
       setEmailSubmit(QuantumState.FALSE);
@@ -126,17 +137,34 @@ const NewsletterContent: FC<NewsletterContentProps> = ({
       <CheckboxesWrapper>
         <Checkbox
           label={t('newsletter')}
-          onClick={check => setNewsletterCheck(check)}
+          onClick={check => {
+            setNewsletterCheck(check);
+            setOneBoxCheck(isInvestmentChecked || check);
+          }}
           appearance={appearance}
           check={isNewsletterChecked}
         />
         <Checkbox
           label={t('investment')}
-          onClick={check => setInvestmentCheck(check)}
+          onClick={check => {
+            setInvestmentCheck(check);
+            setOneBoxCheck(isNewsletterChecked || check);
+          }}
           appearance={appearance}
           check={isInvestmentChecked}
         />
       </CheckboxesWrapper>
+      <div>
+        {emailSubmit === QuantumState.TRUE && (
+          <EmailSuccess>{t('successEmail')}</EmailSuccess>
+        )}
+        {emailSubmit === QuantumState.FALSE && (
+          <EmailError>{t('invalidEmail')}</EmailError>
+        )}
+        {!atLeastOneBoxChecked && (
+          <EmailError>{t('atLeastOneBoxCheck')}</EmailError>
+        )}
+      </div>
     </Layout>
   );
 };

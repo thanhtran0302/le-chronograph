@@ -53,8 +53,7 @@ export const getServerSideProps: GetServerSideProps = async (
   } catch {
     return {
       props: {
-        posts: [],
-        categories: []
+        posts: []
       }
     };
   }

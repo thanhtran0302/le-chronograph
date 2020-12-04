@@ -89,7 +89,10 @@ const Footer: FC = () => {
       <FooterColumn>
         <Title>{t('signUpToOurNewsletter')}</Title>
         <FooterContent>
-          <NewsletterContent appearance={ComponentAppearance.SECONDARY} />
+          <NewsletterContent
+            appearance={ComponentAppearance.SECONDARY}
+            hasSubtitle
+          />
         </FooterContent>
       </FooterColumn>
     </Layout>

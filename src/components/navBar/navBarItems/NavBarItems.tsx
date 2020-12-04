@@ -18,7 +18,6 @@ const NavBarItems: FC = () => {
 
   return (
     <Layout>
-      <NavigationItem>{t('newsletter')}</NavigationItem>
       <NavigationItem>{t('investment')}</NavigationItem>
       <Link href={'/blog'}>
         <NavigationItem>{t('blog')}</NavigationItem>

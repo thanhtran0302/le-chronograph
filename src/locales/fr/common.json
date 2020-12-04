@@ -1,4 +1,5 @@
 {
+  "atLeastOneBoxCheck": "L'une des cases doit être cochée",
   "readMore": "Lire plus",
   "about": "À propos",
   "acceptCookies": "Accepter les cookies",
@@ -20,8 +21,8 @@
   "legalMentions": "Mention légales",
   "listenToPodcast": "Écouter le podcast",
   "marketing": "Marketing",
-  "newsletter": "Newsletter",
-  "newsletterFooter": "Vous receverez les e-mails autours de l’actualité du monde de l’horlogerie, ainsi que les e-mails conernants le marché financier horlogère.",
+  "newsletter": "Actualités",
+  "newsletterFooter": "Vous receverez les e-mails concernant les actualités horlogère, ainsi que les e-mails conernants le marché financier horlogère.",
   "newsletterSignUp": "Je m'inscris à la newsletter",
   "noPosts": "Il n'y a pas d'article. Revenez plus tard.",
   "personalData": "Données personnelles",
