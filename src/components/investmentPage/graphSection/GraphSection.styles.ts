@@ -12,6 +12,10 @@ export const Title = styled.div`
   display: flex;
   justify-content: center;
   margin-bottom: ${spaces[24]};
+
+  @media (max-width: ${breakpoints.tablet.iPadMini}) {
+    ${paragraphs.h3};
+  }
 `;
 
 export const Paragraph = styled.div`

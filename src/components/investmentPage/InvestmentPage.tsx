@@ -4,7 +4,11 @@ import NewsletterContent from '../newsletterContent/NewsletterContent';
 import GraphSection from './graphSection/GraphSection';
 import HeaderSection from './headerSection/HeaderSection';
 import WatchPerformanceSection from './watchPerformanceSection/WatchPerformanceSection';
-import { NewsletterLayout, NewsletterWrapper } from './Investment.styles';
+import {
+  NewsletterLayout,
+  NewsletterWrapper,
+  Title
+} from './InvestmentPage.styles';
 import { useTranslation, UseTranslationResponse } from 'react-i18next';
 import EnjoySection from './enjoySection/EnjoySection';
 
@@ -17,7 +21,7 @@ const InvestmentPage: FC = () => {
       <GraphSection />
       <WatchPerformanceSection />
       <NewsletterLayout>
-        <h1>{t('signUpToOurNewsletter')}</h1>
+        <Title>{t('signUpToOurNewsletter')}</Title>
         <NewsletterWrapper>
           <NewsletterContent
             appearance={ComponentAppearance.SECONDARY}
