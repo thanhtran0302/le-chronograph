@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import colors from '../../constants/colors';
+import paragraphs from '../../constants/paragraphs';
 import spaces from '../../constants/spaces';
 
 export const Layout = styled.form`
@@ -43,5 +44,6 @@ export const CheckboxesWrapper = styled.div`
 `;
 
 export const NewsletterSubtitle = styled.div`
+  ${paragraphs.body1};
   margin-bottom: ${spaces[12]};
 `;
