@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
-import Investment from '../components/investment/Investment';
+import InvestmentPage from '../components/investmentPage/InvestmentPage';
 
-const Investissement: FC = () => <Investment />;
+const Investissement: FC = () => <InvestmentPage />;
 
 export default Investissement;

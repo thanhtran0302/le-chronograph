@@ -1,17 +1,17 @@
 import React, { FC } from 'react';
-import { Paragraph } from '../homePage/headerSection/HeaderSection.styles';
-import Section from '../section/Section';
-import { Layout } from './Investment.styles';
-import PatekPhilippeInvestment from '../../assets/images/patek-philippe-investment.png';
+import { Paragraph } from '../../homePage/headerSection/HeaderSection.styles';
+import Section from '../../section/Section';
+import { Layout } from './HeaderSection.styles';
+import PatekPhilippeInvestment from '../../../assets/images/patek-philippe-investment.png';
 import { UseTranslationResponse, useTranslation } from 'react-i18next';
 import Button, {
   ButtonIconPosition,
   ButtonTypes,
   ComponentAppearance
-} from '../button/Button';
-import ArrowRight from '../../assets/icons/arrow-right.svg';
+} from '../../button/Button';
+import ArrowRight from '../../../assets/icons/arrow-right.svg';
 
-const Investment: FC = () => {
+const HeaderSection: FC = () => {
   const { t }: UseTranslationResponse = useTranslation();
 
   return (
@@ -36,4 +36,4 @@ const Investment: FC = () => {
   );
 };
 
-export default Investment;
+export default HeaderSection;
