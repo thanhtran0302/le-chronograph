@@ -28,23 +28,6 @@ const Footer: FC = () => {
   return (
     <Layout>
       <FooterColumn>
-        <Title>{t('recentPosts')}</Title>
-        <FooterContent>
-          <FooterItem>
-            La Rolex Daytonay est-elle la montre la plus belle ?
-          </FooterItem>
-          <FooterItem>
-            La Rolex Daytonay est-elle la montre la plus belle ?
-          </FooterItem>
-          <FooterItem>
-            La Rolex Daytonay est-elle la montre la plus belle ?
-          </FooterItem>
-          <FooterItem>
-            La Rolex Daytonay est-elle la montre la plus belle ?
-          </FooterItem>
-        </FooterContent>
-      </FooterColumn>
-      <FooterColumn>
         <Title>{t('entreprise')}</Title>
         <FooterContent>
           <FooterItem>{t('about')}</FooterItem>
@@ -52,8 +35,9 @@ const Footer: FC = () => {
           <Link href={'/blog'}>
             <FooterItem>{t('blog')}</FooterItem>
           </Link>
-          <FooterItem>{t('legalMentions')}</FooterItem>
-          <FooterItem>{t('personalData')}</FooterItem>
+          <Link href={'/mentions-legales'}>
+            <FooterItem>{t('legalMentions')}</FooterItem>
+          </Link>
           <FooterItem>{t('leChronographInside')}</FooterItem>
         </FooterContent>
       </FooterColumn>
