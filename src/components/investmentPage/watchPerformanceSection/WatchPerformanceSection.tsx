@@ -7,6 +7,7 @@ import Money from '../../../assets/icons/money.svg';
 import Culture from '../../../assets/icons/culture.svg';
 import Heritage from '../../../assets/icons/heritage.svg';
 import StockGrow from '../../../assets/icons/stock-grow.svg';
+import Paper from '../../../assets/icons/paper.svg';
 
 const WatchPerformanceSection: FC = () => {
   const { t }: UseTranslationResponse = useTranslation();
@@ -30,6 +31,10 @@ const WatchPerformanceSection: FC = () => {
         <ItemWrapper>
           <Heritage />
           <Message>{t('sameHeritageAsRealEstate')}</Message>
+        </ItemWrapper>
+        <ItemWrapper>
+          <Paper />
+          <Message>{t('noPaper')}</Message>
         </ItemWrapper>
         <ItemWrapper>
           <Culture />
