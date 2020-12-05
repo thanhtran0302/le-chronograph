@@ -22,9 +22,10 @@ const InvestmentPage: FC = () => {
       <WatchPerformanceSection />
       <NewsletterLayout>
         <Title>{t('signUpToOurNewsletter')}</Title>
-        <NewsletterWrapper>
+        <NewsletterWrapper id="investment-newsletter">
           <NewsletterContent
             appearance={ComponentAppearance.SECONDARY}
+            shouldCheckNewsletter={false}
             hasSubtitle
           />
         </NewsletterWrapper>

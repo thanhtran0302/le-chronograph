@@ -32,18 +32,26 @@ enum QuantumState {
 interface NewsletterContentProps {
   appearance: ComponentAppearance;
   hasSubtitle?: boolean;
+  shouldCheckNewsletter?: boolean;
+  shouldCheckInvestment?: boolean;
 }
 
 const NewsletterContent: FC<NewsletterContentProps> = ({
   appearance,
-  hasSubtitle = false
+  hasSubtitle = false,
+  shouldCheckInvestment = true,
+  shouldCheckNewsletter = true
 }) => {
   const { t }: UseTranslationResponse = useTranslation();
   const [isEnougWidth, setEnougWidth] = useState<boolean>(false);
   const [email, setEmail] = useState<string>('');
   const [isLoading, setLoading] = useState<boolean>(false);
-  const [isNewsletterChecked, setNewsletterCheck] = useState<boolean>(true);
-  const [isInvestmentChecked, setInvestmentCheck] = useState<boolean>(true);
+  const [isNewsletterChecked, setNewsletterCheck] = useState<boolean>(
+    shouldCheckNewsletter
+  );
+  const [isInvestmentChecked, setInvestmentCheck] = useState<boolean>(
+    shouldCheckInvestment
+  );
   const [emailSubmit, setEmailSubmit] = useState<QuantumState>(
     QuantumState.BOTH
   );

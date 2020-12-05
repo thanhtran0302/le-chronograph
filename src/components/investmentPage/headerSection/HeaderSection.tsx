@@ -10,6 +10,7 @@ import Button, {
   ComponentAppearance
 } from '../../button/Button';
 import ArrowRight from '../../../assets/icons/arrow-right.svg';
+import Link from 'next/link';
 
 const HeaderSection: FC = () => {
   const { t }: UseTranslationResponse = useTranslation();
@@ -25,13 +26,15 @@ const HeaderSection: FC = () => {
       <Paragraph
         dangerouslySetInnerHTML={{ __html: t('investmentDescription') }}
       />
-      <Button
-        appearance={ComponentAppearance.PRIMARY}
-        type={ButtonTypes.BUTTON}
-        label={"Commencer l'investissement"}
-        icon={<ArrowRight />}
-        iconPosition={ButtonIconPosition.RIGHT}
-      />
+      <Link href={'#investment-newsletter'}>
+        <Button
+          appearance={ComponentAppearance.PRIMARY}
+          type={ButtonTypes.BUTTON}
+          label={"Commencer l'investissement"}
+          icon={<ArrowRight />}
+          iconPosition={ButtonIconPosition.RIGHT}
+        />
+      </Link>
     </Section>
   );
 };
