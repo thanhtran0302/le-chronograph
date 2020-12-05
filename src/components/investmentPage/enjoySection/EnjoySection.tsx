@@ -10,6 +10,7 @@ import { useTranslation, UseTranslationResponse } from 'react-i18next';
 import Party from '../../../assets/icons/party.svg';
 import Password from '../../../assets/icons/password.svg';
 import Storage from '../../../assets/icons/storage.svg';
+import Culture from '../../../assets/icons/culture.svg';
 
 const EnjoySection: FC = () => {
   const { t }: UseTranslationResponse = useTranslation();
@@ -31,8 +32,12 @@ const EnjoySection: FC = () => {
           <Message>{t('easyToStore')}</Message>
         </ItemWrapper>
         <ItemWrapper>
-          <Password />
+          <Party />
           <Message>{t('wearForParties')}</Message>
+        </ItemWrapper>
+        <ItemWrapper>
+          <Culture />
+          <Message>{t('culturalPatrimony')}</Message>
         </ItemWrapper>
       </Layout>
     </Section>
