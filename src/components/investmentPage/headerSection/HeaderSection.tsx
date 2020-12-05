@@ -1,7 +1,6 @@
 import React, { FC } from 'react';
 import { Paragraph } from '../../homePage/headerSection/HeaderSection.styles';
 import Section from '../../section/Section';
-import { Layout } from './HeaderSection.styles';
 import PatekPhilippeInvestment from '../../../assets/images/patek-philippe-investment.png';
 import { UseTranslationResponse, useTranslation } from 'react-i18next';
 import Button, {
@@ -27,13 +26,15 @@ const HeaderSection: FC = () => {
         dangerouslySetInnerHTML={{ __html: t('investmentDescription') }}
       />
       <Link href={'#investment-newsletter'}>
-        <Button
-          appearance={ComponentAppearance.PRIMARY}
-          type={ButtonTypes.BUTTON}
-          label={"Commencer l'investissement"}
-          icon={<ArrowRight />}
-          iconPosition={ButtonIconPosition.RIGHT}
-        />
+        <a href="#investment-newsletter">
+          <Button
+            appearance={ComponentAppearance.PRIMARY}
+            type={ButtonTypes.BUTTON}
+            label={t('startToInvest')}
+            icon={<ArrowRight />}
+            iconPosition={ButtonIconPosition.RIGHT}
+          />
+        </a>
       </Link>
     </Section>
   );

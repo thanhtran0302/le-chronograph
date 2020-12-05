@@ -20,9 +20,9 @@ const InvestmentPage: FC = () => {
       <HeaderSection />
       <GraphSection />
       <WatchPerformanceSection />
-      <NewsletterLayout>
+      <NewsletterLayout id="investment-newsletter">
         <Title>{t('signUpToOurNewsletter')}</Title>
-        <NewsletterWrapper id="investment-newsletter">
+        <NewsletterWrapper>
           <NewsletterContent
             appearance={ComponentAppearance.SECONDARY}
             shouldCheckNewsletter={false}
