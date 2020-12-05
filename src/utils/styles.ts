@@ -38,6 +38,7 @@ export const GlobalStyle = createGlobalStyle`
 
   html,
   body {
+    scroll-behavior: smooth !important;
     padding: 0;
     margin: 0;
     font-family: Source Sans Pro, Anton, Roboto, sans-serif;

@@ -30,7 +30,6 @@ const Home: FC<HomeProps> = ({ posts, categories }) => {
     router.events.on('routeChangeComplete', handleRouteChange);
   }, [router.events]);
 
-  console.log(posts);
   return (
     <Fragment>
       <Blog posts={posts} />
