@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import Section from '../section/Section';
 import RolexSubmariner from '../../assets/images/rolex-submariner.png';
 import { useTranslation, UseTranslationResponse } from 'react-i18next';
-import { Layout } from './HeaderSection.styles';
+import { Paragraph } from './HeaderSection.styles';
 import NewsletterContent from '../newsletterContent/NewsletterContent';
 import { ComponentAppearance } from '../button/Button';
 
@@ -17,13 +17,11 @@ const HeaderSection: FC = () => {
       title={t('tagline')}
       hasImageOnMobile={false}
     >
-      <Layout>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        </p>
-        <NewsletterContent appearance={ComponentAppearance.PRIMARY} />
-      </Layout>
+      <Paragraph>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua.
+      </Paragraph>
+      <NewsletterContent appearance={ComponentAppearance.PRIMARY} />
     </Section>
   );
 };
