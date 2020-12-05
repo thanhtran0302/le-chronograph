@@ -1,17 +1,16 @@
 import React, { FC } from 'react';
 import { useTranslation, UseTranslationResponse } from 'react-i18next';
-import Button, { ButtonTypes, ComponentAppearance } from '../button/Button';
+import Button, { ButtonTypes, ComponentAppearance } from '../../button/Button';
 import {
   Layout,
   Title,
   Subtitle,
   ButtonWrapper
 } from './RecentPostsSection.styles';
-import ArrowRight from '../../assets/icons/arrow-right.svg';
+import ArrowRight from '../../../assets/icons/arrow-right.svg';
 import Link from 'next/link';
-import { PrismicBlogPost } from '../../interfaces/prismic';
-import BlogCardWrapper from '../blog/blogCardWrapper/BlogCardWrapper';
-import Checkbox from '../checkbox/Checkbox';
+import { PrismicBlogPost } from '../../../interfaces/prismic';
+import BlogCardWrapper from '../../blog/blogCardWrapper/BlogCardWrapper';
 
 interface RecentPostsSectionProps {
   posts: PrismicBlogPost[];

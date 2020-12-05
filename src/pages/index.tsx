@@ -1,28 +1,16 @@
 import { GetServerSideProps, GetServerSidePropsContext } from 'next';
-import React, { FC, Fragment } from 'react';
+import React, { FC } from 'react';
 import Prismic from 'prismic-javascript';
-import HeaderSection from '../components/headerSection/HeaderSection';
-import HistorySection from '../components/historySection/HistorySection';
-import InvestmentSection from '../components/investmentSection/InvestmentSection';
-import MarketingSection from '../components/marketingSection/MarketingSection';
-import RecentPostsSection from '../components/recentPostsSection/RecentPostsSection';
 import ApiSearchResponse from 'prismic-javascript/types/ApiSearchResponse';
 import { PrimsicTypes, PrismicBlogPost } from '../interfaces/prismic';
 import { PrismicClient } from '../utils/prismic';
+import HomePage from '../components/homePage/HomePage';
 
 interface HomeProps {
   posts: PrismicBlogPost[];
 }
 
-const Home: FC<HomeProps> = ({ posts }) => (
-  <Fragment>
-    <HeaderSection />
-    <InvestmentSection />
-    <MarketingSection />
-    <HistorySection />
-    <RecentPostsSection posts={posts} />
-  </Fragment>
-);
+const Home: FC<HomeProps> = ({ posts }) => <HomePage posts={posts} />;
 
 export const getServerSideProps: GetServerSideProps = async (
   ctx: GetServerSidePropsContext

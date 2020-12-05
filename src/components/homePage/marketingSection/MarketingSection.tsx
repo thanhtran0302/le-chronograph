@@ -1,21 +1,21 @@
 import React, { FC } from 'react';
 import { useTranslation, UseTranslationResponse } from 'react-i18next';
-import CommonSection from '../commonSection/CommonSection';
-import Section from '../section/Section';
-import PatekPhilippe from '../../assets/images/patek-philippe.png';
+import CommonSection from '../../commonSection/CommonSection';
+import Section from '../../section/Section';
+import MarketingRolex from '../../../assets/images/marketing-rolex.png';
 
-const InvestmentSection: FC = () => {
+const MarketingSection: FC = () => {
   const { t }: UseTranslationResponse = useTranslation();
 
   return (
     <Section
-      image={PatekPhilippe}
-      backgroundColor={'light'}
-      backgroundPosition={'right'}
-      subtitle={t('investment')}
+      image={MarketingRolex}
+      backgroundColor={'dark'}
+      backgroundPosition={'left'}
+      subtitle={t('marketing')}
     >
       <CommonSection
-        sectionColor={'light'}
+        sectionColor={'dark'}
         text={`Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
     tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
     veniam Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
@@ -30,4 +30,4 @@ const InvestmentSection: FC = () => {
   );
 };
 
-export default InvestmentSection;
+export default MarketingSection;

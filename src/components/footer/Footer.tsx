@@ -31,7 +31,9 @@ const Footer: FC = () => {
         <Title>{t('entreprise')}</Title>
         <FooterContent>
           <FooterItem>{t('about')}</FooterItem>
-          <FooterItem>{t('investment')}</FooterItem>
+          <Link href={'/investissement'}>
+            <FooterItem>{t('investment')}</FooterItem>
+          </Link>
           <Link href={'/blog'}>
             <FooterItem>{t('blog')}</FooterItem>
           </Link>
