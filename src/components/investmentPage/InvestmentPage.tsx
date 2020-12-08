@@ -11,12 +11,18 @@ import {
 } from './InvestmentPage.styles';
 import { useTranslation, UseTranslationResponse } from 'react-i18next';
 import EnjoySection from './enjoySection/EnjoySection';
+import Head from 'next/head';
+import { BlogName } from '../../constants/common';
 
 const InvestmentPage: FC = () => {
   const { t }: UseTranslationResponse = useTranslation();
 
   return (
     <Fragment>
+      <Head>
+        <title>{`${BlogName} | ${t('investment')}`}</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
       <HeaderSection />
       <GraphSection />
       <WatchPerformanceSection />

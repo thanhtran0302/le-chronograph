@@ -23,7 +23,7 @@ Router.events.on('routeChangeError', () => NProgress.done());
 const CustomApp: FC<AppProps> = ({ Component, pageProps }) => (
   <Fragment>
     <Head>
-      <title>{`${BlogName} ${BlogLabel}`}</title>
+      <title>{`${BlogName}`}</title>
       <meta name="viewport" content="initial-scale=1.0, width=device-width" />
     </Head>
     <NavBar />

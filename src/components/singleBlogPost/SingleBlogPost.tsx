@@ -22,7 +22,6 @@ import { ComponentAppearance } from '../button/Button';
 import Head from 'next/head';
 import { Title } from '../footer/Footer.styles';
 import { useTranslation, UseTranslationResponse } from 'react-i18next';
-import Section from '../section/Section';
 
 export interface SingleBlogPostProps {
   post: PrismicBlogPost;

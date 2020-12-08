@@ -12,6 +12,8 @@ import { Document } from 'prismic-javascript/types/documents';
 import { useRouter } from 'next/router';
 import * as gtag from '../../utils/ga';
 import Blog from '../../components/blog/Blog';
+import Head from 'next/head';
+import { BlogLabel, BlogName } from '../../constants/common';
 
 interface HomeProps {
   posts: PrismicBlogPost[];
@@ -36,6 +38,10 @@ const Home: FC<HomeProps> = ({ posts, categories }) => {
 
   return (
     <Fragment>
+      <Head>
+        <title>{`${BlogName} ${BlogLabel}`}</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
       <Blog posts={posts} categories={categories} />
     </Fragment>
   );

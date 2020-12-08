@@ -12,12 +12,18 @@ import {
 } from '../investmentPage/InvestmentPage.styles';
 import NewsletterContent from '../newsletterContent/NewsletterContent';
 import { useTranslation, UseTranslationResponse } from 'react-i18next';
+import Head from 'next/head';
+import { BlogName, BlogLabel } from '../../constants/common';
 
 const HistoryPage: FC = () => {
   const { t }: UseTranslationResponse = useTranslation();
 
   return (
     <Fragment>
+      <Head>
+        <title>{`${BlogName} | ${t('history')}`}</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
       <Section
         image={HansWilsdorf}
         backgroundColor={'dark'}
