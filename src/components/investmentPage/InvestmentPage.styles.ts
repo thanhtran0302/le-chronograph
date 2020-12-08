@@ -5,8 +5,10 @@ import paragraphs from '../../constants/paragraphs';
 import spaces from '../../constants/spaces';
 
 export const NewsletterLayout = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   color: ${colors.mainDark};
-  text-align: center;
   padding: ${spaces[32]} ${spaces[24]};
 `;
 
@@ -18,6 +20,7 @@ export const NewsletterWrapper = styled.div`
 
 export const Title = styled.div`
   ${paragraphs.h1};
+  margin: auto;
 
   @media (max-width: ${breakpoints.smartphone.iPhone11ProMax}) {
     ${paragraphs.h3};
