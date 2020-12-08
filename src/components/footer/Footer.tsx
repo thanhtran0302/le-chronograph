@@ -28,15 +28,26 @@ const Footer: FC = () => {
   return (
     <Layout>
       <FooterColumn>
-        <Title>{t('entreprise')}</Title>
+        <Title>Navigation</Title>
         <FooterContent>
-          <FooterItem>{t('about')}</FooterItem>
           <Link href={'/investissement'}>
             <FooterItem>{t('investment')}</FooterItem>
+          </Link>
+          <Link href={'/histoire'}>
+            <FooterItem>{t('history')}</FooterItem>
+          </Link>
+          <Link href={'/marketing'}>
+            <FooterItem>{t('marketing')}</FooterItem>
           </Link>
           <Link href={'/blog'}>
             <FooterItem>{t('blog')}</FooterItem>
           </Link>
+        </FooterContent>
+      </FooterColumn>
+      <FooterColumn>
+        <Title>{t('entreprise')}</Title>
+        <FooterContent>
+          <FooterItem>{t('about')}</FooterItem>
           <Link href={'/mentions-legales'}>
             <FooterItem>{t('legalMentions')}</FooterItem>
           </Link>

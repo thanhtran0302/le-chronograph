@@ -24,6 +24,9 @@ const NavBarItems: FC = () => {
       <Link href={'/histoire'}>
         <NavigationItem>{t('history')}</NavigationItem>
       </Link>
+      <Link href={'/marketing'}>
+        <NavigationItem>{t('marketing')}</NavigationItem>
+      </Link>
       <Link href={'/blog'}>
         <NavigationItem>{t('blog')}</NavigationItem>
       </Link>

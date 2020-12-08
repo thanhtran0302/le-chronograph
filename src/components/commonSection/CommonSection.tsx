@@ -20,7 +20,7 @@ const CommonSection: FC<CommonSectionProps> = ({
 
   return (
     <Layout>
-      <Text>{text}</Text>
+      <Text dangerouslySetInnerHTML={{ __html: text }} />
       <Link href={link}>
         <KnowMore sectionColor={sectionColor}>
           {t('knowMore')} <ArrowRight />

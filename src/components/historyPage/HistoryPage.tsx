@@ -22,7 +22,7 @@ const HistoryPage: FC = () => {
         image={HansWilsdorf}
         backgroundColor={'dark'}
         backgroundPosition={'right'}
-        subtitle={"Entreprise emblématique d'horlogerie"}
+        subtitle={t('historyOfRolex')}
       >
         <CommonSection
           sectionColor={'light'}
@@ -51,27 +51,19 @@ const HistoryPage: FC = () => {
         image={Apollo13}
         backgroundColor={'light'}
         backgroundPosition={'left'}
-        subtitle={'Omega Speedmaster, une montre qui sauve des vies.'}
+        subtitle={t('omegaApollo13Title')}
       >
         <CommonSection
           sectionColor={'dark'}
           link={'/histoire'}
-          text={`Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-  tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-  veniam Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-  eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-  minim veniam Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-  do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-  minim veniam Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-  do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-  minim veniam`}
+          text={t('omegaApollo13Content')}
         />
       </Section>
       <Section
         image={DaytonaPaulNewman}
         backgroundColor={'dark'}
         backgroundPosition={'right'}
-        subtitle={"La Rolex la plus chère de l'histoire"}
+        subtitle={t('mostExpensiveRolexWatch')}
       >
         <CommonSection
           sectionColor={'light'}
