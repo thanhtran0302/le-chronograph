@@ -62,6 +62,10 @@ export default class CustomDocument extends Document<Props> {
             name="description"
             content="Actualité sur le monde de l'horlogerie, investissement, histoire, marketing, et bien d'autres."
           />
+          <link
+            href="https://fonts.googleapis.com/css2?family=Anton&family=Source+Sans+Pro:wght@300;400;600;700&display=swap"
+            rel="stylesheet"
+          />
           <link rel="preconnect" href="https://fonts.gstatic.com" />
           <link rel="shortcut icon" href="/favicon.png" />
           <link rel="preconnect" href="https://fonts.gstatic.com" />
