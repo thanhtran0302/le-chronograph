@@ -3,36 +3,35 @@ import colors from '../constants/colors';
 import fonts from '../constants/fonts';
 import paragraphs from '../constants/paragraphs';
 import spaces from '../constants/spaces';
-import { generateUrlPath } from './global';
 
 export const GlobalStyle = createGlobalStyle`
   @font-face {
     font-family: 'Source Sans Pro';
-    src: url('${generateUrlPath()}/fonts/Source_Sans_Pro/SourceSansPro-Regular.ttf');
+    src: url('./fonts/Source_Sans_Pro/SourceSansPro-Regular.ttf');
     font-weight: 400;
   }
 
   @font-face {
     font-family: 'Source Sans Pro';
-    src: url('${generateUrlPath()}/fonts/Source_Sans_Pro/SourceSansPro-Light.ttf');
+    src: url('./fonts/Source_Sans_Pro/SourceSansPro-Light.ttf');
     font-weight: 300;
   }
 
   @font-face {
     font-family: 'Source Sans Pro';
-    src: url('${generateUrlPath()}/fonts/Source_Sans_Pro/SourceSansPro-SemiBold.ttf');
+    src: url('./fonts/Source_Sans_Pro/SourceSansPro-SemiBold.ttf');
     font-weight: 600;
   }
 
   @font-face {
     font-family: 'Source Sans Pro';
-    src: url('${generateUrlPath()}/fonts/Source_Sans_Pro/SourceSansPro-Bold.ttf');
+    src: url('./fonts/Source_Sans_Pro/SourceSansPro-Bold.ttf');
     font-weight: 700;
   }
 
   @font-face {
     font-family: 'Anton';
-    src: url('${generateUrlPath()}/fonts/Anton/Anton-Regular.ttf');
+    src: url('./fonts/Anton/Anton-Regular.ttf');
     font-weight: 400;
   }
 
