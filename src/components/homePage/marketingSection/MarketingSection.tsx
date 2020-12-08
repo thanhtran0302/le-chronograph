@@ -10,12 +10,13 @@ const MarketingSection: FC = () => {
   return (
     <Section
       image={MarketingRolex}
-      backgroundColor={'dark'}
-      backgroundPosition={'left'}
+      backgroundColor={'light'}
+      backgroundPosition={'right'}
       subtitle={t('marketing')}
     >
       <CommonSection
-        sectionColor={'dark'}
+        sectionColor={'light'}
+        link={'/'}
         text={`Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
     tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
     veniam Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do

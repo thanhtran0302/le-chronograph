@@ -14,8 +14,8 @@ const HomePage: FC<HomePageProps> = ({ posts }) => (
   <Fragment>
     <HeaderSection />
     <InvestmentSection />
-    <MarketingSection />
     <HistorySection />
+    <MarketingSection />
     <RecentPostsSection posts={posts} />
   </Fragment>
 );

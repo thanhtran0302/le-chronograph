@@ -16,12 +16,38 @@ export const Text = styled.div`
 `;
 
 export const KnowMore = styled.div<Partial<CommonSectionProps>>`
-  display: flex;
-  align-items: center;
+  display: inline-block;
   font-weight: 600;
+  position: relative;
   margin-top: ${spaces[24]};
+  cursor: pointer;
+
+  ::after {
+    display: block;
+    content: '';
+    border-bottom: 2px solid
+      ${({ sectionColor }: Partial<CommonSectionProps>) =>
+        sectionColor === 'dark'
+          ? css`
+              ${colors.mainLight}
+            `
+          : css`
+              ${colors.mainDark}
+            `};
+    transform: scaleX(0);
+    transition: transform 250ms ease-in-out;
+  }
+
+  :hover {
+    ::after {
+      transform: scaleX(1);
+    }
+  }
 
   svg {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
     path {
       ${({ sectionColor }: Partial<CommonSectionProps>) =>
         sectionColor === 'dark'

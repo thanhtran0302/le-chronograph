@@ -25,21 +25,19 @@ const NavBarItems: FC = () => {
         <NavigationItem>{t('blog')}</NavigationItem>
       </Link>
       <NavigationItem>{t('about')}</NavigationItem>
-      <NavigationItem>
-        <a href={APPLE_PODCAST} target="_blank">
-          {!isMobile ? (
-            <Button
-              label={t('listenToPodcast')}
-              type={ButtonTypes.BUTTON}
-              appearance={ComponentAppearance.PRIMARY}
-              icon={<Micro />}
-              iconPosition={ButtonIconPosition.LEFT}
-            />
-          ) : (
-            t('listenToPodcast')
-          )}
-        </a>
-      </NavigationItem>
+      <a href={APPLE_PODCAST} target="_blank">
+        {!isMobile ? (
+          <Button
+            label={t('listenToPodcast')}
+            type={ButtonTypes.BUTTON}
+            appearance={ComponentAppearance.PRIMARY}
+            icon={<Micro />}
+            iconPosition={ButtonIconPosition.LEFT}
+          />
+        ) : (
+          t('listenToPodcast')
+        )}
+      </a>
     </Layout>
   );
 };
