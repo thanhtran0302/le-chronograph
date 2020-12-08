@@ -1,13 +1,13 @@
 import Link from 'next/link';
 import { NextRouter, useRouter } from 'next/router';
-import { Document } from 'prismic-javascript/types/documents';
 import React, { FC } from 'react';
 import { useTranslation, UseTranslationResponse } from 'react-i18next';
 import { useMobileDevice } from '../../../constants/responsive';
+import { PrismicBlogPostCategory } from '../../../interfaces/prismic';
 import { Layout, Category } from './BlogCategories.styles';
 
 interface BlogCategoriesProps {
-  categories: Document[];
+  categories: PrismicBlogPostCategory[];
 }
 
 enum CategoriesEnum {
@@ -33,13 +33,16 @@ const BlogCategories: FC<BlogCategoriesProps> = ({ categories }) => {
           {t(CategoriesEnum.ALL)}
         </Category>
       </Link>
-      {categories.map((category: Document, key: number) => (
-        <Link key={`category-${key}`} href={`/blog/?category=${category.name}`}>
+      {categories.map((category: PrismicBlogPostCategory, key: number) => (
+        <Link
+          key={`category-${key}`}
+          href={`/blog/?category=${category.data.name}`}
+        >
           <Category
-            isSelected={selectedCategory === category.name}
+            isSelected={selectedCategory === category.data.name}
             isMobile={isMobile}
           >
-            {category.name}
+            {category.data.name}
           </Category>
         </Link>
       ))}

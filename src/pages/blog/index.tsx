@@ -2,7 +2,11 @@ import { GetServerSideProps, GetServerSidePropsContext } from 'next';
 import React, { FC, Fragment, useEffect } from 'react';
 import { PrismicClient } from '../../utils/prismic';
 import Prismic from 'prismic-javascript';
-import { PrimsicTypes, PrismicBlogPost } from '../../interfaces/prismic';
+import {
+  PrimsicTypes,
+  PrismicBlogPost,
+  PrismicBlogPostCategory
+} from '../../interfaces/prismic';
 import ApiSearchResponse from 'prismic-javascript/types/ApiSearchResponse';
 import { Document } from 'prismic-javascript/types/documents';
 import { useRouter } from 'next/router';
@@ -11,7 +15,7 @@ import Blog from '../../components/blog/Blog';
 
 interface HomeProps {
   posts: PrismicBlogPost[];
-  categories: Document[];
+  categories: PrismicBlogPostCategory[];
 }
 
 const Home: FC<HomeProps> = ({ posts, categories }) => {
@@ -71,9 +75,9 @@ export const getServerSideProps: GetServerSideProps = async (
     const postsResults = response.results.map(
       (result: Document) => result.data
     );
-    const categoriesResults = responseCategories.results.map(
-      (result: Document) => result.data
-    );
+    const categoriesResults = (responseCategories.results.map(
+      (result: Document) => result
+    ) as unknown) as PrismicBlogPostCategory[];
 
     return {
       props: {

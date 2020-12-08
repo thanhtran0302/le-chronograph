@@ -1,6 +1,8 @@
 import { FC } from 'react';
-import { Document } from 'prismic-javascript/types/documents';
-import { PrismicBlogPost } from '../../interfaces/prismic';
+import {
+  PrismicBlogPost,
+  PrismicBlogPostCategory
+} from '../../interfaces/prismic';
 import { ComponentAppearance } from '../button/Button';
 import { Layout } from './Blog.styles';
 import BlogCardWrapper from './blogCardWrapper/BlogCardWrapper';
@@ -9,7 +11,7 @@ import BlogHeader from './blogHeader/BlogHeader';
 
 interface BlogProps {
   posts: PrismicBlogPost[];
-  categories: Document[];
+  categories: PrismicBlogPostCategory[];
 }
 
 const Blog: FC<BlogProps> = ({ posts, categories }) => (
