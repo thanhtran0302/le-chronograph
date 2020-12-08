@@ -112,7 +112,7 @@ const NewsletterContent: FC<NewsletterContentProps> = ({
     <Layout onSubmit={onSubmit} ref={currentRef}>
       {isLoading && <Loader />}
       {hasSubtitle && (
-        <NewsletterSubtitle>{t('newsletterFooter')}</NewsletterSubtitle>
+        <NewsletterSubtitle>{t('newsletterSubtitle')}</NewsletterSubtitle>
       )}
       <InputButtonWrapper>
         <Input

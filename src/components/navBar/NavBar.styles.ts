@@ -2,8 +2,6 @@ import styled from 'styled-components';
 import breakpoints from '../../constants/breakpoints';
 import colors from '../../constants/colors';
 import paragraphs from '../../constants/paragraphs';
-import radius from '../../constants/radius';
-import shadows from '../../constants/shadows';
 import spaces from '../../constants/spaces';
 
 export const MasterLayout = styled.div``;

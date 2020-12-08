@@ -32,7 +32,7 @@ const Home: FC<HomeProps> = ({ posts, categories }) => {
 
   return (
     <Fragment>
-      <Blog posts={posts} />
+      <Blog posts={posts} categories={categories} />
     </Fragment>
   );
 };
@@ -64,7 +64,8 @@ export const getServerSideProps: GetServerSideProps = async (
     const response: ApiSearchResponse = await PrismicClient(req).query(
       prismicQuery,
       {
-        fetchLinks: ['authors.name', 'categories.name']
+        fetchLinks: ['authors.name', 'categories.name'],
+        orderings: ['[document.last_publication_date desc]']
       }
     );
     const postsResults = response.results.map(

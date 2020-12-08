@@ -1,4 +1,5 @@
 import { FC } from 'react';
+import { Document } from 'prismic-javascript/types/documents';
 import { PrismicBlogPost } from '../../interfaces/prismic';
 import { ComponentAppearance } from '../button/Button';
 import { Layout } from './Blog.styles';
@@ -8,12 +9,13 @@ import BlogHeader from './blogHeader/BlogHeader';
 
 interface BlogProps {
   posts: PrismicBlogPost[];
+  categories: Document[];
 }
 
-const Blog: FC<BlogProps> = ({ posts }) => (
+const Blog: FC<BlogProps> = ({ posts, categories }) => (
   <Layout>
     <BlogHeader />
-    <BlogCategories />
+    <BlogCategories categories={categories} />
     <BlogCardWrapper appearance={ComponentAppearance.SECONDARY} posts={posts} />
   </Layout>
 );
