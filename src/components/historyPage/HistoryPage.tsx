@@ -22,7 +22,6 @@ const HistoryPage: FC = () => {
     <Fragment>
       <Head>
         <title>{`${BlogName} | ${t('history')}`}</title>
-        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
       <Section
         image={HansWilsdorf}
@@ -33,15 +32,7 @@ const HistoryPage: FC = () => {
         <CommonSection
           sectionColor={'light'}
           link={'/histoire'}
-          text={`Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-  tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-  veniam Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-  eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-  minim veniam Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-  do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-  minim veniam Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-  do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-  minim veniam`}
+          text={t('rolexHistoryPreview')}
         />
       </Section>
       <NewsletterLayout>
@@ -61,7 +52,9 @@ const HistoryPage: FC = () => {
       >
         <CommonSection
           sectionColor={'dark'}
-          link={'/histoire'}
+          link={
+            'https://chronograph.vercel.app/blog/articles/omega-speedmaster-sauver-vie-astronautes-mission-apollo-13'
+          }
           text={t('omegaApollo13Content')}
         />
       </Section>
