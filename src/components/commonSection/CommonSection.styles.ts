@@ -16,9 +16,8 @@ export const Text = styled.div`
 `;
 
 export const KnowMore = styled.div<Partial<CommonSectionProps>>`
-  display: inline-block;
   font-weight: 600;
-  position: relative;
+  display: inline-block;
   margin-top: ${spaces[24]};
   cursor: pointer;
 
@@ -41,22 +40,6 @@ export const KnowMore = styled.div<Partial<CommonSectionProps>>`
   :hover {
     ::after {
       transform: scaleX(1);
-    }
-  }
-
-  svg {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    path {
-      ${({ sectionColor }: Partial<CommonSectionProps>) =>
-        sectionColor === 'dark'
-          ? css`
-              fill: ${colors.mainLight};
-            `
-          : css`
-              fill: ${colors.mainDark};
-            `}
     }
   }
 `;

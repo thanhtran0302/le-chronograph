@@ -1,7 +1,6 @@
 import React, { FC } from 'react';
 import { useTranslation, UseTranslationResponse } from 'react-i18next';
 import { KnowMore, Layout, Text } from './CommonSection.styles';
-import ArrowRight from '../../assets/icons/arrow-right.svg';
 import { sectionBgColor } from '../section/Section';
 import Link from 'next/link';
 
@@ -22,9 +21,7 @@ const CommonSection: FC<CommonSectionProps> = ({
     <Layout>
       <Text dangerouslySetInnerHTML={{ __html: text }} />
       <Link href={link}>
-        <KnowMore sectionColor={sectionColor}>
-          {t('knowMore')} <ArrowRight />
-        </KnowMore>
+        <KnowMore sectionColor={sectionColor}>{t('knowMore')}</KnowMore>
       </Link>
     </Layout>
   );

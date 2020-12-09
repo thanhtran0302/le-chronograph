@@ -13,9 +13,11 @@ import { useTranslation, UseTranslationResponse } from 'react-i18next';
 import EnjoySection from './enjoySection/EnjoySection';
 import Head from 'next/head';
 import { BlogName } from '../../constants/common';
+import { useSmartphoneDevice } from '../../constants/responsive';
 
 const InvestmentPage: FC = () => {
   const { t }: UseTranslationResponse = useTranslation();
+  const isSmartphone: boolean = useSmartphoneDevice();
 
   return (
     <Fragment>
@@ -26,16 +28,18 @@ const InvestmentPage: FC = () => {
       <HeaderSection />
       <GraphSection />
       <WatchPerformanceSection />
-      <NewsletterLayout id="investment-newsletter">
-        <Title>{t('signUpToOurNewsletter')}</Title>
-        <NewsletterWrapper>
-          <NewsletterContent
-            appearance={ComponentAppearance.SECONDARY}
-            shouldCheckNewsletter={false}
-            hasSubtitle
-          />
-        </NewsletterWrapper>
-      </NewsletterLayout>
+      {!isSmartphone && (
+        <NewsletterLayout id="investment-newsletter">
+          <Title>{t('signUpToOurNewsletter')}</Title>
+          <NewsletterWrapper>
+            <NewsletterContent
+              appearance={ComponentAppearance.SECONDARY}
+              shouldCheckNewsletter={false}
+              hasSubtitle
+            />
+          </NewsletterWrapper>
+        </NewsletterLayout>
+      )}
       <EnjoySection />
     </Fragment>
   );
