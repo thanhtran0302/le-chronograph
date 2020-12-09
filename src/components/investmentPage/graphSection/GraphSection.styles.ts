@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import breakpoints from '../../../constants/breakpoints';
+import colors from '../../../constants/colors';
 import paragraphs from '../../../constants/paragraphs';
 import spaces from '../../../constants/spaces';
 
@@ -9,6 +10,7 @@ export const Layout = styled.div`
 
 export const Title = styled.div`
   ${paragraphs.h1};
+  color: ${colors.mainDark};
   display: flex;
   justify-content: center;
   margin-bottom: ${spaces[24]};
