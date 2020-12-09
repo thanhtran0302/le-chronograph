@@ -63,6 +63,7 @@ export const PostContentWrapper = styled.div`
   display: grid;
   grid-template-columns: 780px 1fr;
   grid-column-gap: ${spaces[32]};
+  margin-top: ${spaces[32]};
 
   @media (max-width: ${breakpoints.smartphone.iPhone11ProMax}) {
     grid-template-columns: 1fr;

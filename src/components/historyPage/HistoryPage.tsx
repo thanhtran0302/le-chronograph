@@ -13,7 +13,7 @@ import {
 import NewsletterContent from '../newsletterContent/NewsletterContent';
 import { useTranslation, UseTranslationResponse } from 'react-i18next';
 import Head from 'next/head';
-import { BlogName, BlogLabel } from '../../constants/common';
+import { BlogName } from '../../constants/common';
 
 const HistoryPage: FC = () => {
   const { t }: UseTranslationResponse = useTranslation();

@@ -16,3 +16,7 @@ export const YOUTUBE: string =
   'https://www.youtube.com/channel/UCsz8i9x-xK0ruQw3SKj2A6A';
 export const COPY_RIGHT: string = '© 2020';
 export const GA_TRACKING_ID: string = 'G-PQD9T40RBB';
+export const CARTIER_TANK_POST_URL: string =
+  'blog/articles/Tank-Cartier-Montre-Luxe-Horlogerie-Marque-Bijoux';
+export const TUDOR_POST_URL: string =
+  'blog/articles/tudor-image-marque-low-cost-maison-horlogere-luxe';

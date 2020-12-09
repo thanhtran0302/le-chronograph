@@ -26,7 +26,7 @@ export const getServerSideProps: GetServerSideProps = async (
       {
         fetchLinks: ['authors.name', 'categories.name'],
         orderings: ['[document.last_publication_date desc]'],
-        pageSize: 4
+        pageSize: 3
       }
     );
     const postsResults = response.results.map(
