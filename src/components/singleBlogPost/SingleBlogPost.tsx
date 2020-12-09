@@ -35,6 +35,7 @@ const SingleBlogPost: FC<SingleBlogPostProps> = ({ post }) => {
     locale: fr
   });
 
+  console.log(preview);
   return (
     <Fragment>
       <Head>

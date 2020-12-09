@@ -67,7 +67,7 @@ export default class CustomDocument extends Document<Props> {
             rel="stylesheet"
           />
           <link rel="preconnect" href="https://fonts.gstatic.com" />
-          <link rel="shortcut icon" href="/favicon.png" />
+          <link rel="shortcut icon" href="/favicon-dark.png" />
           <link rel="preconnect" href="https://fonts.gstatic.com" />
           <script
             async

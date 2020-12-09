@@ -100,7 +100,6 @@ export const Layout = styled.div<Partial<PostCardProps>>`
   cursor: pointer;
 
   @media (min-width: ${breakpoints.tablet.iPadPro11}) {
-    max-width: 300px;
     padding: ${spaces[24]} ${spaces[20]};
   }
 
