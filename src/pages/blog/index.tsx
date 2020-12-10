@@ -18,9 +18,16 @@ import { BlogLabel, BlogName } from '../../constants/common';
 interface HomeProps {
   posts: PrismicBlogPost[];
   categories: PrismicBlogPostCategory[];
+  totalPages: number;
+  totalResultsSize: number;
 }
 
-const Home: FC<HomeProps> = ({ posts, categories }) => {
+const Home: FC<HomeProps> = ({
+  posts,
+  categories,
+  totalPages,
+  totalResultsSize
+}) => {
   const router = useRouter();
 
   useEffect(() => {
@@ -42,7 +49,12 @@ const Home: FC<HomeProps> = ({ posts, categories }) => {
         <title>{`${BlogName} ${BlogLabel}`}</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
-      <Blog posts={posts} categories={categories} />
+      <Blog
+        posts={posts}
+        categories={categories}
+        totalPages={totalPages}
+        totalResultsSize={totalResultsSize}
+      />
     </Fragment>
   );
 };
@@ -53,6 +65,7 @@ export const getServerSideProps: GetServerSideProps = async (
   try {
     const { req, query }: GetServerSidePropsContext = ctx;
     const queryCategory: string = (query.category as string) || 'all';
+    const page: string = (query.page as string) || '1';
     const prismicQuery: string[] = [
       Prismic.Predicates.at('document.type', PrimsicTypes.BLOG_POSTS)
     ];
@@ -71,17 +84,18 @@ export const getServerSideProps: GetServerSideProps = async (
         )
       );
     }
-    const response: ApiSearchResponse = await PrismicClient(req).query(
-      prismicQuery,
-      {
-        fetchLinks: ['authors.name', 'categories.name'],
-        orderings: ['[document.last_publication_date desc]']
-      }
-    );
+    const {
+      results,
+      total_pages,
+      total_results_size
+    }: ApiSearchResponse = await PrismicClient(req).query(prismicQuery, {
+      fetchLinks: ['authors.name', 'categories.name'],
+      orderings: ['[document.last_publication_date desc]'],
+      pageSize: 9,
+      page
+    });
 
-    const postsResults = response.results.map(
-      (result: Document) => result.data
-    );
+    const postsResults = results.map((result: Document) => result.data);
     const categoriesResults = (responseCategories.results.map(
       (result: Document) => result
     ) as unknown) as PrismicBlogPostCategory[];
@@ -89,7 +103,9 @@ export const getServerSideProps: GetServerSideProps = async (
     return {
       props: {
         posts: postsResults,
-        categories: categoriesResults
+        categories: categoriesResults,
+        totalPages: total_pages,
+        totalResultsSize: total_results_size
       }
     };
   } catch {

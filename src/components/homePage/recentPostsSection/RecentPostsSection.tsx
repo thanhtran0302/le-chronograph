@@ -11,6 +11,7 @@ import ArrowRight from '../../../assets/icons/arrow-right.svg';
 import Link from 'next/link';
 import { PrismicBlogPost } from '../../../interfaces/prismic';
 import BlogCardWrapper from '../../blog/blogCardWrapper/BlogCardWrapper';
+import { BlogPostsContainer } from '../../blog/Blog.styles';
 
 interface RecentPostsSectionProps {
   posts: PrismicBlogPost[];
@@ -33,7 +34,12 @@ const RecentPostsSection: FC<RecentPostsSectionProps> = ({ posts }) => {
           />
         </ButtonWrapper>
       </Link>
-      <BlogCardWrapper appearance={ComponentAppearance.PRIMARY} posts={posts} />
+      <BlogPostsContainer>
+        <BlogCardWrapper
+          appearance={ComponentAppearance.PRIMARY}
+          posts={posts}
+        />
+      </BlogPostsContainer>
     </Layout>
   );
 };

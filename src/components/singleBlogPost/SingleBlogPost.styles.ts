@@ -87,6 +87,13 @@ export const PostContent = styled.div`
     object-fit: cover;
   }
 
+  .embed {
+    iframe {
+      display: block;
+      margin: auto;
+    }
+  }
+
   p,
   ul,
   span {

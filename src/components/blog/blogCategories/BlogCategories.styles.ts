@@ -11,8 +11,6 @@ interface CategoryProps {
 
 export const Layout = styled.div`
   padding: ${spaces[12]} 0;
-  max-width: ${breakpoints[1200]};
-  margin: auto;
 `;
 
 export const Category = styled.div<CategoryProps>`

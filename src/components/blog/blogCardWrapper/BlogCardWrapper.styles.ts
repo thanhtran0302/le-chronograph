@@ -4,7 +4,6 @@ import spaces from '../../../constants/spaces';
 
 export const Layout = styled.div`
   padding-top: ${spaces[48]};
-  margin: auto;
 
   @media (max-width: ${breakpoints.smartphone.iPhone11ProMax}) {
     padding: ${spaces[24]} 0;
@@ -16,6 +15,5 @@ export const Layout = styled.div`
     grid-template-columns: repeat(3, 1fr);
     grid-row-gap: ${spaces[24]};
     grid-column-gap: ${spaces[80]};
-    max-width: ${breakpoints.desktop.macBookPro};
   }
 `;
