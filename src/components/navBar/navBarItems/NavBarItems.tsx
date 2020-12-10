@@ -5,16 +5,17 @@ import Button, {
   ComponentAppearance,
   ButtonIconPosition
 } from '../../button/Button';
-import { Layout, NavigationItem } from './NavBarItems.styles';
+import {
+  Layout,
+  NavigationItem,
+  ListenPodcastButtonWrapper
+} from './NavBarItems.styles';
 import Micro from '../../../assets/icons/micro.svg';
-import breakpoints from '../../../constants/breakpoints';
-import { useMediaQuery } from '../../../constants/responsive';
 import Link from 'next/link';
 import { APPLE_PODCAST } from '../../../constants/common';
 
 const NavBarItems: FC = () => {
   const { t }: UseTranslationResponse = useTranslation();
-  const isMobile: boolean = useMediaQuery(`(max-width: ${breakpoints[960]})`);
 
   return (
     <Layout>
@@ -31,8 +32,8 @@ const NavBarItems: FC = () => {
         <NavigationItem>{t('blog')}</NavigationItem>
       </Link>
       <NavigationItem>{t('about')}</NavigationItem>
-      <a href={APPLE_PODCAST} target="_blank">
-        {!isMobile ? (
+      <ListenPodcastButtonWrapper>
+        <a href={APPLE_PODCAST} target="_blank">
           <Button
             label={t('listenToPodcast')}
             type={ButtonTypes.BUTTON}
@@ -40,10 +41,8 @@ const NavBarItems: FC = () => {
             icon={<Micro />}
             iconPosition={ButtonIconPosition.LEFT}
           />
-        ) : (
-          t('listenToPodcast')
-        )}
-      </a>
+        </a>
+      </ListenPodcastButtonWrapper>
     </Layout>
   );
 };

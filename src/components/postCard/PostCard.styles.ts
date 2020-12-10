@@ -24,7 +24,7 @@ export const Title = styled.div<Partial<PostCardProps>>`
 
   @media (max-width: ${breakpoints.tablet.iPadPro11}) {
     ${paragraphs.h4};
-    margin-bottom: ${spaces[4]};
+    margin: ${spaces[12]} 0;
   }
 `;
 

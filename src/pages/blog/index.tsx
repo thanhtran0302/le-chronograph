@@ -78,6 +78,7 @@ export const getServerSideProps: GetServerSideProps = async (
         orderings: ['[document.last_publication_date desc]']
       }
     );
+
     const postsResults = response.results.map(
       (result: Document) => result.data
     );

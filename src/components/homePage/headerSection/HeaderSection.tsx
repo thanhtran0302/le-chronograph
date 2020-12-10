@@ -17,10 +17,7 @@ const HeaderSection: FC = () => {
       title={t('tagline')}
       hasImageOnMobile={false}
     >
-      <Paragraph>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua.
-      </Paragraph>
+      <Paragraph>{t('headerSection')}</Paragraph>
       <NewsletterContent appearance={ComponentAppearance.PRIMARY} />
     </Section>
   );

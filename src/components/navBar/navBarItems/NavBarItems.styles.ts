@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import breakpoints from '../../../constants/breakpoints';
 import colors from '../../../constants/colors';
 import paragraphs from '../../../constants/paragraphs';
@@ -43,5 +43,12 @@ export const NavigationItem = styled.div`
     ::after {
       transform: scaleX(1);
     }
+  }
+`;
+
+export const ListenPodcastButtonWrapper = styled.div`
+  @media (max-width: ${breakpoints[960]}) {
+    padding-left: ${spaces[8]};
+    margin-bottom: ${spaces[24]};
   }
 `;

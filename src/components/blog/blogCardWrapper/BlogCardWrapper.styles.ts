@@ -6,7 +6,7 @@ export const Layout = styled.div`
   padding-top: ${spaces[48]};
   margin: auto;
 
-  @media (max-width: ${breakpoints.tablet.iPadPro11}) {
+  @media (max-width: ${breakpoints.smartphone.iPhone11ProMax}) {
     padding: ${spaces[24]} 0;
   }
 
