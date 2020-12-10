@@ -23,28 +23,25 @@ const Blog: FC<BlogProps> = ({
   categories,
   totalPages,
   totalResultsSize
-}) => {
-  const { query }: NextRouter = useRouter();
-
-  console.log(query);
-  return (
-    <Layout>
-      <BlogHeader />
-      <BlogPostsContainer>
-        <BlogCategories categories={categories} />
-        <BlogContentWrapper>
-          <BlogCardWrapper
-            appearance={ComponentAppearance.SECONDARY}
-            posts={posts}
-          />
-        </BlogContentWrapper>
+}) => (
+  <Layout>
+    <BlogHeader />
+    <BlogPostsContainer>
+      <BlogCategories categories={categories} />
+      <BlogContentWrapper>
+        <BlogCardWrapper
+          appearance={ComponentAppearance.SECONDARY}
+          posts={posts}
+        />
+      </BlogContentWrapper>
+      {totalPages !== 1 && (
         <BlogPagination
           totalPages={totalPages}
           totalResultsSize={totalResultsSize}
         />
-      </BlogPostsContainer>
-    </Layout>
-  );
-};
+      )}
+    </BlogPostsContainer>
+  </Layout>
+);
 
 export default Blog;
