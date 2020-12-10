@@ -28,18 +28,16 @@ const InvestmentPage: FC = () => {
       <HeaderSection />
       <GraphSection />
       <WatchPerformanceSection />
-      {!isSmartphone && (
-        <NewsletterLayout id="investment-newsletter">
-          <Title>{t('signUpToOurNewsletter')}</Title>
-          <NewsletterWrapper>
-            <NewsletterContent
-              appearance={ComponentAppearance.SECONDARY}
-              shouldCheckNewsletter={false}
-              hasSubtitle
-            />
-          </NewsletterWrapper>
-        </NewsletterLayout>
-      )}
+      <NewsletterLayout id="investment-newsletter">
+        <Title>{t('signUpToOurNewsletter')}</Title>
+        <NewsletterWrapper>
+          <NewsletterContent
+            appearance={ComponentAppearance.SECONDARY}
+            shouldCheckNewsletter={false}
+            hasSubtitle
+          />
+        </NewsletterWrapper>
+      </NewsletterLayout>
       <EnjoySection />
     </Fragment>
   );

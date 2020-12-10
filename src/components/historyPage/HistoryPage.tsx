@@ -30,7 +30,7 @@ const HistoryPage: FC = () => {
         subtitle={t('historyOfRolex')}
       >
         <CommonSection
-          sectionColor={'light'}
+          sectionColor={'dark'}
           link={'/histoire'}
           text={t('rolexHistoryPreview')}
         />
@@ -51,7 +51,7 @@ const HistoryPage: FC = () => {
         subtitle={t('omegaApollo13Title')}
       >
         <CommonSection
-          sectionColor={'dark'}
+          sectionColor={'light'}
           link={
             'https://chronograph.vercel.app/blog/articles/omega-speedmaster-sauver-vie-astronautes-mission-apollo-13'
           }
@@ -65,7 +65,7 @@ const HistoryPage: FC = () => {
         subtitle={t('mostExpensiveRolexWatch')}
       >
         <CommonSection
-          sectionColor={'light'}
+          sectionColor={'dark'}
           link={'/histoire'}
           text={`Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
   tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
