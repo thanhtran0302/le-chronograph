@@ -8,7 +8,7 @@ interface PageItemProps {
 }
 
 export const Layout = styled.div`
-  padding: ${spaces[24]};
+  padding: 0 ${spaces[24]};
   display: flex;
 `;
 

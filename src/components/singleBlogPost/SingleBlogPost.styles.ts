@@ -89,8 +89,7 @@ export const PostContent = styled.div`
 
   .embed {
     iframe {
-      display: block;
-      margin: auto;
+      width: 100%;
     }
   }
 

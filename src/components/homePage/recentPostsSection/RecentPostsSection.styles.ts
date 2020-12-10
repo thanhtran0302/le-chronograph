@@ -35,6 +35,7 @@ export const Title = styled.div`
 
 export const ButtonWrapper = styled.div`
   margin: ${spaces[12]} auto;
+  padding-bottom: ${spaces[32]};
 `;
 
 export const Subtitle = styled.div`

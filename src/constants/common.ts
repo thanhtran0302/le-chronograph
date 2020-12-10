@@ -1,6 +1,7 @@
 export const BlogName: string = 'Le Chronograph';
 export const BlogLabel: string = 'Blog';
 export const BLOG_PAGE_SIZE: number = 9;
+export const BLOG_PAGE_MOBILE: number = 3;
 export const PRISMIC_ENDPOINT: string =
   (process.env.PRISMIC_ENDPOINT as string) || '';
 export const PRISMIC_KEY: string = (process.env.PRISMIC_KEY as string) || '';
