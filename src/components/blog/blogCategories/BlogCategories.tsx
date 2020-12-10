@@ -5,6 +5,7 @@ import { useTranslation, UseTranslationResponse } from 'react-i18next';
 import { useMobileDevice } from '../../../constants/responsive';
 import { PrismicBlogPostCategory } from '../../../interfaces/prismic';
 import { Layout, Category } from './BlogCategories.styles';
+import qs from 'qs';
 
 interface BlogCategoriesProps {
   categories: PrismicBlogPostCategory[];
@@ -18,6 +19,7 @@ enum CategoriesEnum {
 
 const BlogCategories: FC<BlogCategoriesProps> = ({ categories }) => {
   const { query }: NextRouter = useRouter();
+  const queries = { ...query };
   const { t }: UseTranslationResponse = useTranslation();
   const isMobile: boolean = useMobileDevice();
   const selectedCategory: string =
@@ -25,7 +27,12 @@ const BlogCategories: FC<BlogCategoriesProps> = ({ categories }) => {
 
   return (
     <Layout>
-      <Link href={`/blog/?category=${CategoriesEnum.ALL}`}>
+      <Link
+        href={`/blog/?${qs.stringify({
+          category: CategoriesEnum.ALL,
+          page: 1
+        })}`}
+      >
         <Category
           isSelected={selectedCategory === CategoriesEnum.ALL}
           isMobile={isMobile}
@@ -36,7 +43,10 @@ const BlogCategories: FC<BlogCategoriesProps> = ({ categories }) => {
       {categories.map((category: PrismicBlogPostCategory, key: number) => (
         <Link
           key={`category-${key}`}
-          href={`/blog/?category=${category.data.name}`}
+          href={`/blog/?${qs.stringify({
+            category: category.data.name,
+            page: 1
+          })}`}
         >
           <Category
             isSelected={selectedCategory === category.data.name}

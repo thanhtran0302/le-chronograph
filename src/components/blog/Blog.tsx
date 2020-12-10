@@ -1,5 +1,5 @@
+import { NextRouter, useRouter } from 'next/router';
 import { FC } from 'react';
-import breakpoints from '../../constants/breakpoints';
 import {
   PrismicBlogPost,
   PrismicBlogPostCategory
@@ -23,23 +23,28 @@ const Blog: FC<BlogProps> = ({
   categories,
   totalPages,
   totalResultsSize
-}) => (
-  <Layout>
-    <BlogHeader />
-    <BlogPostsContainer>
-      <BlogCategories categories={categories} />
-      <BlogContentWrapper>
-        <BlogCardWrapper
-          appearance={ComponentAppearance.SECONDARY}
-          posts={posts}
+}) => {
+  const { query }: NextRouter = useRouter();
+
+  console.log(query);
+  return (
+    <Layout>
+      <BlogHeader />
+      <BlogPostsContainer>
+        <BlogCategories categories={categories} />
+        <BlogContentWrapper>
+          <BlogCardWrapper
+            appearance={ComponentAppearance.SECONDARY}
+            posts={posts}
+          />
+        </BlogContentWrapper>
+        <BlogPagination
+          totalPages={totalPages}
+          totalResultsSize={totalResultsSize}
         />
-      </BlogContentWrapper>
-      <BlogPagination
-        totalPages={totalPages}
-        totalResultsSize={totalResultsSize}
-      />
-    </BlogPostsContainer>
-  </Layout>
-);
+      </BlogPostsContainer>
+    </Layout>
+  );
+};
 
 export default Blog;

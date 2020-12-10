@@ -9,6 +9,7 @@ import { PostCardProps } from './PostCard';
 
 export const Image = styled.img`
   width: 100%;
+  height: 200px;
   object-fit: cover;
   border-radius: ${radius[3]};
 `;

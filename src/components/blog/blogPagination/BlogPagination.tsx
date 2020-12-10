@@ -6,6 +6,8 @@ import ArrowFirst from '../../../assets/icons/arrow-first.svg';
 import ArrowLast from '../../../assets/icons/arrow-last.svg';
 import ArrowPrev from '../../../assets/icons/arrow-prev.svg';
 import ArrowNext from '../../../assets/icons/arrow-next.svg';
+import { pagination } from '../../../utils/global';
+import qs from 'qs';
 
 interface BlogPaginationProps {
   totalPages: number;
@@ -17,12 +19,16 @@ const BlogPagination: FC<BlogPaginationProps> = ({
   totalPages
 }) => {
   const { query }: NextRouter = useRouter();
+  const category: string = (query.category as string) || 'all';
   const currentPage: number = Number(query.page || 1);
   const pages: ReactNode[] = [];
 
   for (let i: number = 1; i <= totalPages; ++i) {
     pages.push(
-      <Link key={`page-${i}`} href={`/blog?page=${i}`}>
+      <Link
+        key={`page-${i}`}
+        href={{ pathname: 'blog', query: { category, page: i } }}
+      >
         <PageItem isSelected={i === currentPage}>{i}</PageItem>
       </Link>
     );
@@ -30,27 +36,39 @@ const BlogPagination: FC<BlogPaginationProps> = ({
 
   return (
     <Layout>
-      <Link href={`/blog?page=1`}>
+      <Link href={{ pathname: 'blog', query: { category, page: 1 } }}>
         <PageItem isSelected={false}>
           <ArrowFirst />
         </PageItem>
       </Link>
-      <Link href={`/blog?page=${currentPage === 1 ? 1 : currentPage - 1}`}>
+      <Link
+        href={{
+          pathname: 'blog',
+          query: {
+            category,
+            page: pagination(totalPages, currentPage, currentPage - 1)
+          }
+        }}
+      >
         <PageItem isSelected={false}>
           <ArrowPrev />
         </PageItem>
       </Link>
       <Fragment>{pages}</Fragment>
       <Link
-        href={`/blog?page=${
-          currentPage !== totalPages ? currentPage + 1 : currentPage
-        }`}
+        href={{
+          pathname: 'blog',
+          query: {
+            category,
+            page: pagination(totalPages, currentPage, currentPage + 1)
+          }
+        }}
       >
         <PageItem isSelected={false}>
           <ArrowNext />
         </PageItem>
       </Link>
-      <Link href={`/blog?page=${totalPages}`}>
+      <Link href={{ pathname: 'blog', query: { category, page: totalPages } }}>
         <PageItem isSelected={false}>
           <ArrowLast />
         </PageItem>

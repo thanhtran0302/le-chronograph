@@ -13,7 +13,7 @@ import { useRouter } from 'next/router';
 import * as gtag from '../../utils/ga';
 import Blog from '../../components/blog/Blog';
 import Head from 'next/head';
-import { BlogLabel, BlogName } from '../../constants/common';
+import { BlogLabel, BlogName, BLOG_PAGE_SIZE } from '../../constants/common';
 
 interface HomeProps {
   posts: PrismicBlogPost[];
@@ -91,7 +91,7 @@ export const getServerSideProps: GetServerSideProps = async (
     }: ApiSearchResponse = await PrismicClient(req).query(prismicQuery, {
       fetchLinks: ['authors.name', 'categories.name'],
       orderings: ['[document.last_publication_date desc]'],
-      pageSize: 9,
+      pageSize: BLOG_PAGE_SIZE,
       page
     });
 
