@@ -51,7 +51,9 @@ const Footer: FC = () => {
           <Link href={'/mentions-legales'}>
             <FooterItem>{t('legalMentions')}</FooterItem>
           </Link>
-          <FooterItem>{t('leChronographInside')}</FooterItem>
+          <Link href={'/lechronograph-inside'}>
+            <FooterItem>{t('leChronographInside')}</FooterItem>
+          </Link>
         </FooterContent>
       </FooterColumn>
       <FooterColumn>

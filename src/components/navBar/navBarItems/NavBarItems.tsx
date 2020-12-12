@@ -31,7 +31,9 @@ const NavBarItems: FC = () => {
       <Link href={'/blog'}>
         <NavigationItem>{t('blog')}</NavigationItem>
       </Link>
-      <NavigationItem>{t('about')}</NavigationItem>
+      <Link href={'/lechronograph-inside'}>
+        <NavigationItem>{t('leChronographInside')}</NavigationItem>
+      </Link>
       <ListenPodcastButtonWrapper>
         <a href={APPLE_PODCAST} target="_blank">
           <Button
