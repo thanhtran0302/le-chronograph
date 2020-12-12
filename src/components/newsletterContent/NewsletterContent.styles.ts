@@ -11,6 +11,7 @@ export const EmailError = styled.div`
   margin-top: ${spaces[8]};
   color: ${colors.red};
   font-weight: bold;
+  text-align: left;
 `;
 
 export const EmailSuccess = styled.div`

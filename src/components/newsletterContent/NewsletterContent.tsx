@@ -23,7 +23,7 @@ import {
 } from './NewsletterContent.styles';
 import Loader from '../loader/Loader';
 
-enum QuantumState {
+export enum QuantumState {
   TRUE,
   FALSE,
   BOTH
@@ -43,7 +43,7 @@ const NewsletterContent: FC<NewsletterContentProps> = ({
   shouldCheckNewsletter = true
 }) => {
   const { t }: UseTranslationResponse = useTranslation();
-  const [isEnougWidth, setEnougWidth] = useState<boolean>(false);
+  const [isEnoughWidth, setEnoughWidth] = useState<boolean>(false);
   const [email, setEmail] = useState<string>('');
   const [isLoading, setLoading] = useState<boolean>(false);
   const [isNewsletterChecked, setNewsletterCheck] = useState<boolean>(
@@ -105,7 +105,7 @@ const NewsletterContent: FC<NewsletterContentProps> = ({
   };
 
   useEffect(() => {
-    setEnougWidth(currentRef.current.offsetWidth < 414);
+    setEnoughWidth(currentRef.current.offsetWidth < 414);
   }, []);
 
   return (
@@ -124,7 +124,7 @@ const NewsletterContent: FC<NewsletterContentProps> = ({
           appearance={appearance}
           required
         />
-        {!isEnougWidth && (
+        {!isEnoughWidth && (
           <Button
             appearance={appearance}
             type={ButtonTypes.SUBMIT}
@@ -132,7 +132,7 @@ const NewsletterContent: FC<NewsletterContentProps> = ({
           />
         )}
       </InputButtonWrapper>
-      {isEnougWidth && (
+      {isEnoughWidth && (
         <ButtonWrapper>
           <Button
             appearance={appearance}
