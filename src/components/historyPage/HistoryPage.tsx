@@ -31,11 +31,11 @@ const HistoryPage: FC = () => {
       >
         <CommonSection
           sectionColor={'dark'}
-          link={'/histoire'}
+          link={'#newsletter'}
           text={t('rolexHistoryPreview')}
         />
       </Section>
-      <NewsletterLayout>
+      <NewsletterLayout id="#newsletter">
         <Title>{t('signUpToOurNewsletter')}</Title>
         <NewsletterWrapper>
           <NewsletterContent
@@ -53,7 +53,7 @@ const HistoryPage: FC = () => {
         <CommonSection
           sectionColor={'light'}
           link={
-            'https://chronograph.vercel.app/blog/articles/omega-speedmaster-sauver-vie-astronautes-mission-apollo-13'
+            '/blog/articles/omega-speedmaster-sauver-vie-astronautes-mission-apollo-13'
           }
           text={t('omegaApollo13Content')}
         />
@@ -66,16 +66,10 @@ const HistoryPage: FC = () => {
       >
         <CommonSection
           sectionColor={'dark'}
-          link={'/histoire'}
-          text={`Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-  tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-  veniam Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-  eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-  minim veniam Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-  do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-  minim veniam Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-  do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-  minim veniam`}
+          link={
+            '/blog/articles/rolex-dayto-na-paul-newman-comment-a-elle-ete-retrouvee'
+          }
+          text={t('historySectionPaulNewmanDescription')}
         />
       </Section>
     </Fragment>
