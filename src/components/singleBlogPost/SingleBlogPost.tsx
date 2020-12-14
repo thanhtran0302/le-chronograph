@@ -63,10 +63,7 @@ const SingleBlogPost: FC<SingleBlogPostProps> = ({ post }) => {
             <PostPublishDate>{`, ${creationDate}`}</PostPublishDate>
           </PostMetaData>
           <PostContentWrapper>
-            <PostContent
-              ref={postContentRef}
-              postContentWidth={postContentWidth}
-            >
+            <PostContent ref={postContentRef} contentWidth={postContentWidth}>
               {RichText.render(content)}
             </PostContent>
 
