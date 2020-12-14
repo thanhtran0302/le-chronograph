@@ -25,7 +25,7 @@ export const getServerSideProps: GetServerSideProps = async (
       prismicQuery,
       {
         fetchLinks: ['authors.name', 'categories.name'],
-        orderings: ['[document.last_publication_date desc]'],
+        orderings: [`[my.${PrimsicTypes.BLOG_POSTS}.creation_date desc]`],
         pageSize: 3
       }
     );

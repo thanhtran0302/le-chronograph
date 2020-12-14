@@ -96,7 +96,7 @@ export const getServerSideProps: GetServerSideProps = async (
       total_results_size
     }: ApiSearchResponse = await PrismicClient(req).query(prismicQuery, {
       fetchLinks: ['authors.name', 'categories.name'],
-      orderings: ['[document.last_publication_date desc]'],
+      orderings: [`[my.${PrimsicTypes.BLOG_POSTS}.creation_date desc]`],
       pageSize: serverDetectIsMobile(ctx) ? BLOG_PAGE_MOBILE : BLOG_PAGE_SIZE,
       page
     });
