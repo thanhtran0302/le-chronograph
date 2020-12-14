@@ -67,7 +67,7 @@ const HistoryPage: FC = () => {
         <CommonSection
           sectionColor={'dark'}
           link={
-            '/blog/articles/rolex-dayto-na-paul-newman-comment-a-elle-ete-retrouvee'
+            '/blog/articles/rolex-daytona-paul-newman-comment-a-elle-ete-retrouvee'
           }
           text={t('historySectionPaulNewmanDescription')}
         />
