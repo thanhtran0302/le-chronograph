@@ -42,9 +42,6 @@ const SingleBlogPost: FC<SingleBlogPostProps> = ({ post }) => {
   const postContentRef = useRef<HTMLDivElement | null>(null);
   const [sidePostContentWidth, setSidePostContentWidth] = useState<number>(0);
   const sidePostContentRef = useRef<HTMLDivElement | null>(null);
-  const isMobileContent: boolean = useMediaQuery(
-    `(max-width: ${breakpoints.tablet.iPadPro11})`
-  );
 
   useEffect(() => {
     setPostContentWidth(postContentRef.current.offsetWidth);
@@ -70,16 +67,14 @@ const SingleBlogPost: FC<SingleBlogPostProps> = ({ post }) => {
           <PostContentWrapper>
             <PostContent ref={postContentRef} contentWidth={postContentWidth}>
               {RichText.render(content)}
-            </PostContent>
-            {isMobileContent && (
               <ApplePodcastIframe
-                contentWidth={sidePostContentWidth}
+                contentWidth={postContentWidth}
                 src="https://embed.podcasts.apple.com/us/podcast/le-chronograph/id1539187268?itsct=podcast_box&amp;itscg=30200&amp;theme=light"
                 frameBorder="0"
                 sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation-by-user-activation"
                 allow="autoplay *; encrypted-media *;"
               />
-            )}
+            </PostContent>
             <div ref={sidePostContentRef}>
               <PostSideContent>
                 <PostNewsletterContent>
