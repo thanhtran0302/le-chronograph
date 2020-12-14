@@ -1,10 +1,14 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import breakpoints from '../../constants/breakpoints';
 import colors from '../../constants/colors';
 import fonts from '../../constants/fonts';
 import paragraphs from '../../constants/paragraphs';
 import radius from '../../constants/radius';
 import spaces from '../../constants/spaces';
+
+interface PostContentProps {
+  postContentWidth: number;
+}
 
 export const Layout = styled.div`
   width: 100%;
@@ -70,7 +74,7 @@ export const PostContentWrapper = styled.div`
   }
 `;
 
-export const PostContent = styled.div`
+export const PostContent = styled.div<PostContentProps>`
   @media (max-width: ${breakpoints.smartphone.iPhone11ProMax}) {
     padding: 0 ${spaces[24]};
 
@@ -89,7 +93,11 @@ export const PostContent = styled.div`
 
   .embed {
     iframe {
-      width: 100%;
+      ${({ postContentWidth }: PostContentProps) =>
+        css`
+          width: calc(${postContentWidth}px - ${spaces[48]});
+          height: calc((${postContentWidth}px - ${spaces[48]}) / 1.78);
+        `}
     }
   }
 

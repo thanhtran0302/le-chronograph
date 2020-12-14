@@ -1,5 +1,5 @@
 import { RichText } from 'prismic-reactjs';
-import React, { FC, Fragment, useEffect } from 'react';
+import React, { FC, Fragment, useEffect, useRef, useState } from 'react';
 import { PrismicBlogPost } from '../../interfaces/prismic';
 import {
   Image,
@@ -34,6 +34,12 @@ const SingleBlogPost: FC<SingleBlogPostProps> = ({ post }) => {
   const creationDate: string = format(new Date(creation_date), 'dd LLLL yyyy', {
     locale: fr
   });
+  const [postContentWidth, setPostContentWidth] = useState<number>(0);
+  const postContentRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    setPostContentWidth(postContentRef.current.offsetWidth);
+  }, []);
 
   return (
     <Fragment>
@@ -52,7 +58,12 @@ const SingleBlogPost: FC<SingleBlogPostProps> = ({ post }) => {
             <PostPublishDate>{`, ${creationDate}`}</PostPublishDate>
           </PostMetaData>
           <PostContentWrapper>
-            <PostContent>{RichText.render(content)}</PostContent>
+            <PostContent
+              ref={postContentRef}
+              postContentWidth={postContentWidth}
+            >
+              {RichText.render(content)}
+            </PostContent>
             <PostNewsletter>
               <PostNewsletterContent>
                 <Title>{t('signUpToOurNewsletter')}</Title>
