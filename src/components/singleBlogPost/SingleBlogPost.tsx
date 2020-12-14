@@ -10,10 +10,12 @@ import {
   PostContent,
   PostContentWrapper,
   PostMetaData,
-  PostNewsletter,
+  PostSideContent,
   PostNewsletterContent,
   PostPublishDate,
-  PostTitle
+  PostTitle,
+  PostSidePodcast,
+  ApplePodcastIframe
 } from './SingleBlogPost.styles';
 import { format } from 'date-fns';
 import { fr } from 'date-fns/locale';
@@ -36,9 +38,12 @@ const SingleBlogPost: FC<SingleBlogPostProps> = ({ post }) => {
   });
   const [postContentWidth, setPostContentWidth] = useState<number>(0);
   const postContentRef = useRef<HTMLDivElement | null>(null);
+  const [sidePostContentWidth, setSidePostContentWidth] = useState<number>(0);
+  const sidePostContentRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     setPostContentWidth(postContentRef.current.offsetWidth);
+    setSidePostContentWidth(sidePostContentRef.current.offsetWidth);
   }, []);
 
   return (
@@ -64,15 +69,28 @@ const SingleBlogPost: FC<SingleBlogPostProps> = ({ post }) => {
             >
               {RichText.render(content)}
             </PostContent>
-            <PostNewsletter>
-              <PostNewsletterContent>
-                <Title>{t('signUpToOurNewsletter')}</Title>
-                <NewsletterContent
-                  appearance={ComponentAppearance.SECONDARY}
-                  hasSubtitle
-                />
-              </PostNewsletterContent>
-            </PostNewsletter>
+
+            <div ref={sidePostContentRef}>
+              <PostSideContent>
+                <PostNewsletterContent>
+                  <Title>{t('signUpToOurNewsletter')}</Title>
+                  <NewsletterContent
+                    appearance={ComponentAppearance.SECONDARY}
+                    hasSubtitle
+                  />
+                </PostNewsletterContent>
+                <PostSidePodcast>
+                  <Title>{t('listenOurLatestEpisode')}</Title>
+                  <ApplePodcastIframe
+                    contentWidth={sidePostContentWidth}
+                    src="https://embed.podcasts.apple.com/us/podcast/le-chronograph/id1539187268?itsct=podcast_box&amp;itscg=30200&amp;theme=light"
+                    frameBorder="0"
+                    sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation-by-user-activation"
+                    allow="autoplay *; encrypted-media *;"
+                  />
+                </PostSidePodcast>
+              </PostSideContent>
+            </div>
           </PostContentWrapper>
         </PostContainer>
       </Layout>

@@ -6,8 +6,8 @@ import paragraphs from '../../constants/paragraphs';
 import radius from '../../constants/radius';
 import spaces from '../../constants/spaces';
 
-interface PostContentProps {
-  postContentWidth: number;
+interface ContentProps {
+  contentWidth: number;
 }
 
 export const Layout = styled.div`
@@ -93,10 +93,10 @@ export const PostContent = styled.div<PostContentProps>`
 
   .embed {
     iframe {
-      ${({ postContentWidth }: PostContentProps) =>
+      ${({ contentWidth }: ContentProps) =>
         css`
-          width: calc(${postContentWidth}px - ${spaces[48]});
-          height: calc((${postContentWidth}px - ${spaces[48]}) / 1.78);
+          width: calc(${contentWidth}px - ${spaces[48]});
+          height: calc((${contentWidth}px - ${spaces[48]}) / 1.78);
         `}
     }
   }
@@ -108,16 +108,20 @@ export const PostContent = styled.div<PostContentProps>`
   }
 `;
 
-export const PostNewsletter = styled.div`
+export const PostSideContent = styled.div`
+  position: sticky;
+  top: ${spaces[24]};
   @media (max-width: ${breakpoints.tablet.iPadPro11}) {
     display: none;
   }
   max-width: ${breakpoints.smartphone.iPhone11ProMax};
 `;
 
+export const PostSidePodcast = styled.div`
+  margin-top: ${spaces[24]};
+`;
+
 export const PostNewsletterContent = styled.div`
-  position: sticky;
-  top: ${spaces[24]};
   border: 2px solid ${colors.mainDark};
   border-radius: ${radius[3]};
   padding: ${spaces[24]};
@@ -125,4 +129,15 @@ export const PostNewsletterContent = styled.div`
   @media (max-width: ${breakpoints.tablet.iPadPro11}) {
     display: none;
   }
+`;
+
+export const ApplePodcastIframe = styled.iframe<ContentProps>`
+  ${({ contentWidth }: ContentProps) =>
+    css`
+      width: calc(${contentWidth}px - ${spaces[48]});
+      height: calc(${contentWidth}px * 1.12);
+    `}
+  overflow: auto;
+  border-radius: ${radius[3]};
+  background: transparent;
 `;
