@@ -74,7 +74,7 @@ export const PostContentWrapper = styled.div`
   }
 `;
 
-export const PostContent = styled.div<PostContentProps>`
+export const PostContent = styled.div<ContentProps>`
   @media (max-width: ${breakpoints.smartphone.iPhone11ProMax}) {
     padding: 0 ${spaces[24]};
 
