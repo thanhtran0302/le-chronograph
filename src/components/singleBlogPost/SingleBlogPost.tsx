@@ -24,6 +24,8 @@ import { ComponentAppearance } from '../button/Button';
 import Head from 'next/head';
 import { Title } from '../footer/Footer.styles';
 import { useTranslation, UseTranslationResponse } from 'react-i18next';
+import { useMediaQuery } from '../../constants/responsive';
+import breakpoints from '../../constants/breakpoints';
 
 export interface SingleBlogPostProps {
   post: PrismicBlogPost;
@@ -40,6 +42,9 @@ const SingleBlogPost: FC<SingleBlogPostProps> = ({ post }) => {
   const postContentRef = useRef<HTMLDivElement | null>(null);
   const [sidePostContentWidth, setSidePostContentWidth] = useState<number>(0);
   const sidePostContentRef = useRef<HTMLDivElement | null>(null);
+  const isMobileContent: boolean = useMediaQuery(
+    `(max-width: ${breakpoints.tablet.iPadPro11})`
+  );
 
   useEffect(() => {
     setPostContentWidth(postContentRef.current.offsetWidth);
@@ -66,7 +71,15 @@ const SingleBlogPost: FC<SingleBlogPostProps> = ({ post }) => {
             <PostContent ref={postContentRef} contentWidth={postContentWidth}>
               {RichText.render(content)}
             </PostContent>
-
+            {isMobileContent && (
+              <ApplePodcastIframe
+                contentWidth={sidePostContentWidth}
+                src="https://embed.podcasts.apple.com/us/podcast/le-chronograph/id1539187268?itsct=podcast_box&amp;itscg=30200&amp;theme=light"
+                frameBorder="0"
+                sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation-by-user-activation"
+                allow="autoplay *; encrypted-media *;"
+              />
+            )}
             <div ref={sidePostContentRef}>
               <PostSideContent>
                 <PostNewsletterContent>

@@ -137,6 +137,7 @@ export const ApplePodcastIframe = styled.iframe<ContentProps>`
       width: calc(${contentWidth}px - ${spaces[48]});
       height: calc(${contentWidth}px * 1.12);
     `}
+  margin: auto;
   overflow: auto;
   border-radius: ${radius[3]};
   background: transparent;
