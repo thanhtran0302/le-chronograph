@@ -31,7 +31,7 @@ const HistoryPage: FC = () => {
       >
         <CommonSection
           sectionColor={'dark'}
-          link={'#newsletter'}
+          link={'/blog/articles/rolex-roi-garde-toujours-sa-couronne'}
           text={t('rolexHistoryPreview')}
         />
       </Section>
