@@ -32,13 +32,13 @@ const CookieConsentBanner: FC = () => {
       }}
       expires={150}
     >
-      <Title>Avant que vous continuez.</Title>
+      <Title>Avant de continuer.</Title>
       <p>
-        Ce site utilise des cookies, pour vous assurer un bon fonctionnement du
-        site, établir des statistiques de fréquentation, vous permettre des
-        partages sur les réseaux et vous proposer des services et des offres
-        adaptés à vos centres d'intérêts. Ces cookies ne sont déposés que si
-        vous y consentez en cliquant sur le bouton "<b>J'accepte les cookies</b>
+        Ce site utilise des cookies, pour vous garantir son bon fonctionnement,
+        établir des statistiques de fréquentation, vous permettre des partages
+        sur les réseaux et vous proposer des services et des offres adaptés à
+        vos centres d'intérêts. Ces cookies ne sont déposés que si vous y
+        consentez en cliquant sur le bouton "<b>J'accepte les cookies</b>
         ". Pour en savoir plus sur les cookies. Rendez-vous{' '}
         <Link href="/mentions-legales">ici</Link>
       </p>
