@@ -5,10 +5,11 @@ import React, { FC, Fragment } from 'react';
 import { AppProps } from 'next/app';
 import NavBar from '../components/navBar/NavBar';
 import Head from 'next/head';
-import { BlogLabel, BlogName } from '../constants/common';
+import { BlogName } from '../constants/common';
 import Router from 'next/router';
 import NProgress from 'nprogress';
 import Footer from '../components/footer/Footer';
+import CookieConsentBanner from '../components/cookieConsentBanner/CookieConsentBanner';
 
 NProgress.configure({ showSpinner: false, trickleSpeed: 100, minimum: 0.2 });
 Router.events.on('routeChangeStart', () => NProgress.start());
@@ -29,6 +30,7 @@ const CustomApp: FC<AppProps> = ({ Component, pageProps }) => (
     <NavBar />
     <Component {...pageProps} />
     <Footer />
+    <CookieConsentBanner />
   </Fragment>
 );
 

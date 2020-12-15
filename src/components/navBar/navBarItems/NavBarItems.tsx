@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, Dispatch, SetStateAction } from 'react';
 import { useTranslation, UseTranslationResponse } from 'react-i18next';
 import Button, {
   ButtonTypes,
@@ -14,27 +14,41 @@ import Micro from '../../../assets/icons/micro.svg';
 import Link from 'next/link';
 import { APPLE_PODCAST } from '../../../constants/common';
 
-const NavBarItems: FC = () => {
+interface NavBarItemsProps {
+  setOpen: Dispatch<SetStateAction<boolean>>;
+}
+
+const NavBarItems: FC<NavBarItemsProps> = ({ setOpen }) => {
   const { t }: UseTranslationResponse = useTranslation();
 
   return (
     <Layout>
       <Link href={'/investissement'}>
-        <NavigationItem>{t('investment')}</NavigationItem>
+        <NavigationItem onClick={() => setOpen(false)}>
+          {t('investment')}
+        </NavigationItem>
       </Link>
       <Link href={'/histoire'}>
-        <NavigationItem>{t('history')}</NavigationItem>
+        <NavigationItem onClick={() => setOpen(false)}>
+          {t('history')}
+        </NavigationItem>
       </Link>
       <Link href={'/marketing'}>
-        <NavigationItem>{t('marketing')}</NavigationItem>
+        <NavigationItem onClick={() => setOpen(false)}>
+          {t('marketing')}
+        </NavigationItem>
       </Link>
       <Link href={'/blog'}>
-        <NavigationItem>{t('blog')}</NavigationItem>
+        <NavigationItem onClick={() => setOpen(false)}>
+          {t('blog')}
+        </NavigationItem>
       </Link>
       <Link href={'/lechronograph-inside'}>
-        <NavigationItem>{t('leChronographInside')}</NavigationItem>
+        <NavigationItem onClick={() => setOpen(false)}>
+          {t('leChronographInside')}
+        </NavigationItem>
       </Link>
-      <ListenPodcastButtonWrapper>
+      <ListenPodcastButtonWrapper onClick={() => setOpen(false)}>
         <a href={APPLE_PODCAST} target="_blank">
           <Button
             label={t('listenToPodcast')}

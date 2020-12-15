@@ -22,3 +22,4 @@ export const CARTIER_TANK_POST_URL: string =
   'blog/articles/Tank-Cartier-Montre-Luxe-Horlogerie-Marque-Bijoux';
 export const TUDOR_POST_URL: string =
   'blog/articles/tudor-image-marque-low-cost-maison-horlogere-luxe';
+export const COOKIE_CONSENT: string = 'ead40ea4-3ecb-11eb-b378-0242ac130002';

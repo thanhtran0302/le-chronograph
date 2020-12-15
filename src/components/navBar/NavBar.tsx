@@ -24,9 +24,9 @@ const NavBar: FC = () => {
           ) : (
             <BurgerMenu onClick={() => setOpen(!isOpen)} />
           ))}
-        {!isMobile && <NavBarItems />}
+        {!isMobile && <NavBarItems setOpen={setOpen} />}
       </Layout>
-      {isMobile && isOpen && <NavBarItems />}
+      {isMobile && isOpen && <NavBarItems setOpen={setOpen} />}
     </MasterLayout>
   );
 };

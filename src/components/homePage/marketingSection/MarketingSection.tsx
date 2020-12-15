@@ -16,7 +16,7 @@ const MarketingSection: FC = () => {
     >
       <CommonSection
         sectionColor={'light'}
-        link={'/'}
+        link={'/marketing'}
         text={t('marketingSection')}
       />
     </Section>
