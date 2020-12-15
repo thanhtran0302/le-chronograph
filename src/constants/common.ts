@@ -23,3 +23,5 @@ export const CARTIER_TANK_POST_URL: string =
 export const TUDOR_POST_URL: string =
   'blog/articles/tudor-image-marque-low-cost-maison-horlogere-luxe';
 export const COOKIE_CONSENT: string = 'ead40ea4-3ecb-11eb-b378-0242ac130002';
+export const GREY_MARKET_POST: string =
+  'blog/articles/montre-luxe-revente-marche-gris-rentable-prix';

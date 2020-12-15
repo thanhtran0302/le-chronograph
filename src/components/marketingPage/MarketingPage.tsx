@@ -4,11 +4,13 @@ import { useTranslation, UseTranslationResponse } from 'react-i18next';
 import {
   BlogName,
   CARTIER_TANK_POST_URL,
+  GREY_MARKET_POST,
   TUDOR_POST_URL
 } from '../../constants/common';
 import Section from '../section/Section';
 import CartierTank from '../../assets/images/cartier-tank.jpg';
 import TudorBlackBay from '../../assets/images/tudor.jpg';
+import GreyMarket from '../../assets/images/marche-gris.jpg';
 import CommonSection from '../commonSection/CommonSection';
 import { ComponentAppearance } from '../button/Button';
 import {
@@ -30,13 +32,25 @@ const MarketingPage: FC = () => {
       <Section
         backgroundColor={'dark'}
         backgroundPosition={'right'}
+        image={GreyMarket}
+        subtitle={t('greyMarketTitle')}
+      >
+        <CommonSection
+          text={t('greyMarketDescription')}
+          link={GREY_MARKET_POST}
+          sectionColor={'dark'}
+        />
+      </Section>
+      <Section
+        backgroundColor={'light'}
+        backgroundPosition={'left'}
         image={CartierTank}
         subtitle={t('cartierTank')}
       >
         <CommonSection
           text={t('cartierTankSection')}
           link={CARTIER_TANK_POST_URL}
-          sectionColor={'dark'}
+          sectionColor={'light'}
         />
       </Section>
       <NewsletterLayout>
