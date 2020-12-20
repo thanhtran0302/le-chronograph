@@ -5,7 +5,7 @@ import CommonSection from '../../commonSection/CommonSection';
 import { useTranslation, UseTranslationResponse } from 'react-i18next';
 
 const HistorySection: FC = () => {
-  const { t }: UseTranslationResponse = useTranslation();
+  const { t }: UseTranslationResponse<string> = useTranslation();
 
   return (
     <Section

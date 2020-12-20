@@ -32,7 +32,7 @@ export interface SingleBlogPostProps {
 }
 
 const SingleBlogPost: FC<SingleBlogPostProps> = ({ post }) => {
-  const { t }: UseTranslationResponse = useTranslation();
+  const { t }: UseTranslationResponse<string> = useTranslation();
   const { cover_image, title, author, creation_date, content, preview } = post;
   const formatTitle: string = RichText.asText(title);
   const creationDate: string = format(new Date(creation_date), 'dd LLLL yyyy', {

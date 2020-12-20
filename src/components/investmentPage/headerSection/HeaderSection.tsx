@@ -12,7 +12,7 @@ import ArrowRight from '../../../assets/icons/arrow-right.svg';
 import Link from 'next/link';
 
 const HeaderSection: FC = () => {
-  const { t }: UseTranslationResponse = useTranslation();
+  const { t }: UseTranslationResponse<string> = useTranslation();
 
   return (
     <Section

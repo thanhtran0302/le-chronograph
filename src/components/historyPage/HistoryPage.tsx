@@ -16,7 +16,7 @@ import Head from 'next/head';
 import { BlogName } from '../../constants/common';
 
 const HistoryPage: FC = () => {
-  const { t }: UseTranslationResponse = useTranslation();
+  const { t }: UseTranslationResponse<string> = useTranslation();
 
   return (
     <Fragment>

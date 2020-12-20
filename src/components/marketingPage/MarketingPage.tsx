@@ -21,7 +21,7 @@ import {
 import NewsletterContent from '../newsletterContent/NewsletterContent';
 
 const MarketingPage: FC = () => {
-  const { t }: UseTranslationResponse = useTranslation();
+  const { t }: UseTranslationResponse<string> = useTranslation();
 
   return (
     <Fragment>

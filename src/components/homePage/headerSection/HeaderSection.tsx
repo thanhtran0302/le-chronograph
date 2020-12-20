@@ -7,7 +7,7 @@ import NewsletterContent from '../../newsletterContent/NewsletterContent';
 import { ComponentAppearance } from '../../button/Button';
 
 const HeaderSection: FC = () => {
-  const { t }: UseTranslationResponse = useTranslation();
+  const { t }: UseTranslationResponse<string> = useTranslation();
 
   return (
     <Section

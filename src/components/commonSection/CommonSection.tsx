@@ -15,7 +15,7 @@ const CommonSection: FC<CommonSectionProps> = ({
   sectionColor,
   link
 }) => {
-  const { t }: UseTranslationResponse = useTranslation();
+  const { t }: UseTranslationResponse<string> = useTranslation();
 
   return (
     <Layout>

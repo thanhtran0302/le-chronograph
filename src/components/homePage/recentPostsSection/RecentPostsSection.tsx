@@ -18,7 +18,7 @@ interface RecentPostsSectionProps {
 }
 
 const RecentPostsSection: FC<RecentPostsSectionProps> = ({ posts }) => {
-  const { t }: UseTranslationResponse = useTranslation();
+  const { t }: UseTranslationResponse<string> = useTranslation();
 
   return (
     <Layout>

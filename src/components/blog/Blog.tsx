@@ -26,7 +26,7 @@ const Blog: FC<BlogProps> = ({
   totalPages,
   totalResultsSize
 }) => {
-  const { t }: UseTranslationResponse = useTranslation();
+  const { t }: UseTranslationResponse<string> = useTranslation();
 
   return (
     <Layout>

@@ -13,7 +13,7 @@ import Storage from '../../../assets/icons/storage.svg';
 import Culture from '../../../assets/icons/culture.svg';
 
 const EnjoySection: FC = () => {
-  const { t }: UseTranslationResponse = useTranslation();
+  const { t }: UseTranslationResponse<string> = useTranslation();
 
   return (
     <Section

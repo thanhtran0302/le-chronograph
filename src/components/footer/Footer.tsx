@@ -23,7 +23,7 @@ import {
 } from '../../constants/common';
 
 const Footer: FC = () => {
-  const { t }: UseTranslationResponse = useTranslation();
+  const { t }: UseTranslationResponse<string> = useTranslation();
 
   return (
     <Layout>

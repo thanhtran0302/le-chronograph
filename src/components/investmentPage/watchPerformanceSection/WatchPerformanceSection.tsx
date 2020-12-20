@@ -9,7 +9,7 @@ import StockGrow from '../../../assets/icons/stock-grow.svg';
 import Paper from '../../../assets/icons/paper.svg';
 
 const WatchPerformanceSection: FC = () => {
-  const { t }: UseTranslationResponse = useTranslation();
+  const { t }: UseTranslationResponse<string> = useTranslation();
 
   return (
     <Section

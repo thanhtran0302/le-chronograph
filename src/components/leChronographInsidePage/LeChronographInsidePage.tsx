@@ -8,7 +8,7 @@ import {
 } from './LeChronographInsidePage.styles';
 
 const LeChronographInsidePage: FC = () => {
-  const { t }: UseTranslationResponse = useTranslation();
+  const { t }: UseTranslationResponse<string> = useTranslation();
 
   return (
     <Fragment>

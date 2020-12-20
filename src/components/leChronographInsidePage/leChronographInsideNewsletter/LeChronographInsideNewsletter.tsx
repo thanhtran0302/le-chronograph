@@ -21,7 +21,7 @@ import {
 } from './LeChronographInsideNewsletter.styles';
 
 const LeChronographInsideNewsletter: FC = () => {
-  const { t }: UseTranslationResponse = useTranslation();
+  const { t }: UseTranslationResponse<string> = useTranslation();
   const [email, setEmail] = useState<string>('');
   const [isEnoughWidth, setEnoughWidth] = useState<boolean>(false);
   const currentRef = useRef<HTMLFormElement | null>(null);

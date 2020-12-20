@@ -19,7 +19,7 @@ interface NavBarItemsProps {
 }
 
 const NavBarItems: FC<NavBarItemsProps> = ({ setOpen }) => {
-  const { t }: UseTranslationResponse = useTranslation();
+  const { t }: UseTranslationResponse<string> = useTranslation();
 
   return (
     <Layout>

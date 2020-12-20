@@ -5,7 +5,7 @@ import Section from '../../section/Section';
 import PatekPhilippe from '../../../assets/images/patek-philippe.png';
 
 const InvestmentSection: FC = () => {
-  const { t }: UseTranslationResponse = useTranslation();
+  const { t }: UseTranslationResponse<string> = useTranslation();
 
   return (
     <Section

@@ -20,7 +20,7 @@ enum CategoriesEnum {
 const BlogCategories: FC<BlogCategoriesProps> = ({ categories }) => {
   const { query }: NextRouter = useRouter();
   const queries = { ...query };
-  const { t }: UseTranslationResponse = useTranslation();
+  const { t }: UseTranslationResponse<string> = useTranslation();
   const isMobile: boolean = useMobileDevice();
   const selectedCategory: string =
     (query.category as string) || CategoriesEnum.ALL;

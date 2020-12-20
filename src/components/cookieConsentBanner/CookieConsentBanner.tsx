@@ -10,7 +10,7 @@ import spaces from '../../constants/spaces';
 import { Title } from './CookieConsentBanner.styles';
 
 const CookieConsentBanner: FC = () => {
-  const { t }: UseTranslationResponse = useTranslation();
+  const { t }: UseTranslationResponse<string> = useTranslation();
 
   return (
     <CookieConsent

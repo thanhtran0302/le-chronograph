@@ -6,7 +6,7 @@ import InvestmentGraphMobile from '../../../assets/icons/investment-graph-mobile
 import { useSmartphoneDevice } from '../../../constants/responsive';
 
 const GraphSection: FC = () => {
-  const { t }: UseTranslationResponse = useTranslation();
+  const { t }: UseTranslationResponse<string> = useTranslation();
   const isMobile: boolean = useSmartphoneDevice();
 
   return (
