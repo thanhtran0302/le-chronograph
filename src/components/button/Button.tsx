@@ -14,7 +14,8 @@ export enum ButtonTypes {
 
 export enum ComponentAppearance {
   PRIMARY = 'primary',
-  SECONDARY = 'secondary'
+  SECONDARY = 'secondary',
+  CTA = 'cta'
 }
 
 export enum ButtonIconPosition {

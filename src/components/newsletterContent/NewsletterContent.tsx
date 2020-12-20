@@ -126,7 +126,7 @@ const NewsletterContent: FC<NewsletterContentProps> = ({
         />
         {!isEnoughWidth && (
           <Button
-            appearance={appearance}
+            appearance={ComponentAppearance.CTA}
             type={ButtonTypes.SUBMIT}
             label={t('newsletterSignUp')}
           />
@@ -135,7 +135,7 @@ const NewsletterContent: FC<NewsletterContentProps> = ({
       {isEnoughWidth && (
         <ButtonWrapper>
           <Button
-            appearance={appearance}
+            appearance={ComponentAppearance.CTA}
             type={ButtonTypes.SUBMIT}
             label={t('newsletterSignUp')}
           />
