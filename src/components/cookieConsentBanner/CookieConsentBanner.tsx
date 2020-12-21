@@ -24,8 +24,9 @@ const CookieConsentBanner: FC = () => {
         padding: spaces[12]
       }}
       buttonStyle={{
-        background: colors.mainLight,
+        background: colors.salmon[100],
         color: colors.mainDark,
+        fontWeight: 600,
         fontSize: fonts[16],
         borderRadius: radius[3],
         padding: spaces[12]

@@ -39,18 +39,18 @@ interface NewsletterContentProps {
 const NewsletterContent: FC<NewsletterContentProps> = ({
   appearance,
   hasSubtitle = false,
-  shouldCheckInvestment = true,
-  shouldCheckNewsletter = true
+  shouldCheckInvestment,
+  shouldCheckNewsletter
 }) => {
   const { t }: UseTranslationResponse<string> = useTranslation();
   const [isEnoughWidth, setEnoughWidth] = useState<boolean>(false);
   const [email, setEmail] = useState<string>('');
   const [isLoading, setLoading] = useState<boolean>(false);
   const [isNewsletterChecked, setNewsletterCheck] = useState<boolean>(
-    shouldCheckNewsletter
+    shouldCheckNewsletter !== undefined ? shouldCheckNewsletter : true
   );
   const [isInvestmentChecked, setInvestmentCheck] = useState<boolean>(
-    shouldCheckInvestment
+    shouldCheckInvestment !== undefined ? shouldCheckInvestment : true
   );
   const [emailSubmit, setEmailSubmit] = useState<QuantumState>(
     QuantumState.BOTH

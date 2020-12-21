@@ -28,7 +28,7 @@ const HeaderSection: FC = () => {
       <Link href={'#investment-newsletter'}>
         <a href="#investment-newsletter">
           <Button
-            appearance={ComponentAppearance.PRIMARY}
+            appearance={ComponentAppearance.CTA}
             type={ButtonTypes.BUTTON}
             label={t('startToInvest')}
             icon={<ArrowRight />}
