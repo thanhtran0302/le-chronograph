@@ -80,7 +80,7 @@ const LeChronographInsideNewsletter: FC = () => {
           required
         />
         <Button
-          appearance={ComponentAppearance.PRIMARY}
+          appearance={ComponentAppearance.CTA}
           type={ButtonTypes.SUBMIT}
           label={t('newsletterSignUp')}
         />
