@@ -1,4 +1,6 @@
 export default {
+  mainDark: '#1C1C1C',
+  mainLight: '#F1F1F1',
   dark: {
     100: '#2E4053',
     80: '#586675',
@@ -12,6 +14,10 @@ export default {
     60: '#D7DBDD',
     40: '#E5E7E9',
     20: '#F2F3F4'
+  },
+  salmon: {
+    100: '#fa8072',
+    60: '#f2a9a0'
   },
   green: {
     100: '#00D49C',

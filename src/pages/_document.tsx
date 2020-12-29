@@ -60,14 +60,15 @@ export default class CustomDocument extends Document<Props> {
           <meta charSet="utf-8" />
           <meta
             name="description"
-            content="Actualité sur le monde de l'horlogerie, histoire, marketing, investissement, et bien d'autres."
+            content="Actualité sur le monde de l'horlogerie, investissement, histoire, marketing, et bien d'autres."
           />
-          <link rel="preconnect" href="https://fonts.gstatic.com" />
-          <link rel="shortcut icon" href="/favicon.png" />
           <link
-            href="https://fonts.googleapis.com/css2?family=Qwigley&family=Source+Sans+Pro:wght@300;400;600;700&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Anton&family=Source+Sans+Pro:wght@300;400;600;700&display=swap"
             rel="stylesheet"
           />
+          <link rel="preconnect" href="https://fonts.gstatic.com" />
+          <link rel="shortcut icon" href="/favicon-dark.png" />
+          <link rel="preconnect" href="https://fonts.gstatic.com" />
           <script
             async
             src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}

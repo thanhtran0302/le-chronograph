@@ -12,9 +12,10 @@ export enum ButtonTypes {
   BUTTON = 'button'
 }
 
-export enum ButtonAppearance {
+export enum ComponentAppearance {
   PRIMARY = 'primary',
-  SECONDARY = 'secondary'
+  SECONDARY = 'secondary',
+  CTA = 'cta'
 }
 
 export enum ButtonIconPosition {
@@ -24,7 +25,7 @@ export enum ButtonIconPosition {
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   type: ButtonTypes;
-  appearance: ButtonAppearance;
+  appearance: ComponentAppearance;
   onClick?(event: MouseEvent<HTMLButtonElement>): void;
   label?: string;
   icon?: ReactElement<Element>;
@@ -40,7 +41,7 @@ const Button: FC<ButtonProps> = ({ icon, label, type, onClick, ...rest }) => (
     {...rest}
   >
     {icon && icon}
-    {label && label}
+    {label && <span>{label}</span>}
   </ButtonLayout>
 );
 

@@ -1,66 +1,47 @@
 import styled from 'styled-components';
+import breakpoints from '../../constants/breakpoints';
 import colors from '../../constants/colors';
-import fonts from '../../constants/fonts';
-import radius from '../../constants/radius';
-import shadows from '../../constants/shadows';
+import paragraphs from '../../constants/paragraphs';
 import spaces from '../../constants/spaces';
 
+export const MasterLayout = styled.div``;
+
 export const Layout = styled.div`
+  color: ${colors.mainDark};
+  background: ${colors.mainLight};
   display: flex;
+  flex-direction: row;
   align-items: center;
-  justify-content: space-between;
-  margin-bottom: ${spaces[32]};
+
+  @media (min-width: ${breakpoints[960]}) {
+    justify-content: space-between;
+    margin: auto;
+    width: 100%;
+    padding: ${spaces[24]};
+  }
+
+  @media (max-width: ${breakpoints[960]}) {
+    padding: ${spaces[16]} ${spaces[16]};
+    justify-content: space-between;
+  }
 `;
 
-export const BlogTitle = styled.div`
-  display: flex;
-  font-size: ${fonts[48]};
-  align-items: center;
+export const WebsiteName = styled.div`
+  ${paragraphs.h3};
   cursor: pointer;
 `;
 
-export const UnitedFor = styled.div`
+export const NavigationContainer = styled.div`
+  @media (min-width: ${breakpoints[960]}) {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+`;
+
+export const NavigationItem = styled.div`
+  ${paragraphs.subtitle};
   font-weight: 700;
-`;
-
-export const Blog = styled.div`
-  margin-left: ${spaces[4]};
-  font-family: Qwigley;
-`;
-
-export const ButtonsContainer = styled.div`
-  display: flex;
-
-  button:first-child {
-    margin-right: ${spaces[4]};
-  }
-`;
-
-export const Logo = styled.img`
-  max-width: ${spaces[48]};
-  max-height: ${spaces[48]};
-`;
-
-export const MobileMeneContainer = styled.div`
-  background: white;
-  position: absolute;
-  right: 0;
-  width: 200px;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  box-shadow: ${shadows.level2};
-  padding: ${spaces[12]};
-  border-radius: ${radius[6]};
-  color: ${colors.dark[100]};
-  font-weight: normal;
-`;
-
-export const MenuMobileItem = styled.div`
-  padding: ${spaces[12]};
-
-  a {
-    color: ${colors.dark[100]};
-    font-weight: normal;
-  }
+  margin-left: ${spaces[12]};
+  cursor: pointer;
 `;

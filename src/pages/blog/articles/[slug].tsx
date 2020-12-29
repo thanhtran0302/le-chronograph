@@ -1,13 +1,13 @@
 import { GetServerSideProps, GetServerSidePropsContext } from 'next';
 import { Document } from 'prismic-javascript/types/documents';
-import React, { FC, useEffect } from 'react';
+import React, { FC, Fragment, useEffect } from 'react';
 import { PrismicClient } from '../../../utils/prismic';
 import Prismic from 'prismic-javascript';
 import { PrimsicTypes, PrismicBlogPost } from '../../../interfaces/prismic';
-import SinglePost from '../../../components/singlePost/SinglePost';
 import { useRouter } from 'next/router';
 import { RichText } from 'prismic-reactjs';
 import * as gtag from '../../../utils/ga';
+import SingleBlogPost from '../../../components/singleBlogPost/SingleBlogPost';
 
 interface SlugProps {
   post: PrismicBlogPost;
@@ -29,7 +29,11 @@ const SinglePostPage: FC<SlugProps> = ({ post }) => {
     router.events.on('routeChangeComplete', handleRouteChange);
   }, [router.events]);
 
-  return <SinglePost post={post} />;
+  return (
+    <Fragment>
+      <SingleBlogPost post={post} />
+    </Fragment>
+  );
 };
 
 export const getServerSideProps: GetServerSideProps = async (

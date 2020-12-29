@@ -1,88 +1,99 @@
 import React, { FC } from 'react';
-import { Col, Container } from 'react-grid-system';
+import { useTranslation, UseTranslationResponse } from 'react-i18next';
+import {
+  Layout,
+  Title,
+  FooterColumn,
+  FooterContent,
+  FooterItem,
+  ALink
+} from './Footer.styles';
+import ApplePodcast from '../../assets/icons/apple_podcast.svg';
+import Spotify from '../../assets/icons/spotify.svg';
+import Instagram from '../../assets/icons/instagram.svg';
+import Youtube from '../../assets/icons/youtube.svg';
+import NewsletterContent from '../newsletterContent/NewsletterContent';
+import { ComponentAppearance } from '../button/Button';
+import Link from 'next/link';
 import {
   APPLE_PODCAST,
-  BlogName,
-  COPY_RIGHT,
   INSTAGRAM,
   SPOTIFY_PODCAST,
   YOUTUBE
 } from '../../constants/common';
-import { useMobileDevice } from '../../constants/responsive';
-import AHref from '../aHref/AHref';
-import {
-  Layout,
-  FooterColumn,
-  SocialNetwork,
-  SocialNetworks,
-  FooterSitename
-} from './Footer.styles';
-import * as gtag from '../../utils/ga';
 
 const Footer: FC = () => {
-  const isMobile: boolean = useMobileDevice();
+  const { t }: UseTranslationResponse<string> = useTranslation();
 
   return (
     <Layout>
-      <Container>
-        <Col style={{ width: '100%', maxWidth: 'auto' }} sm={8}>
-          <FooterColumn isMobile={isMobile}>
-            <FooterSitename isMobile={isMobile}>
-              {BlogName} {COPY_RIGHT}
-            </FooterSitename>
-            <SocialNetworks>
-              <SocialNetwork
-                onClick={() => {
-                  gtag.event({
-                    action: 'CLICK_APPLE_PODCAST',
-                    category: 'SOCIAL_MEDIA_CLICK',
-                    label: 'APPLE_PODCAST',
-                    value: 4
-                  });
-                }}
-              >
-                <AHref link={APPLE_PODCAST} label={'Apple Podcast'} target />
-              </SocialNetwork>
-              <SocialNetwork
-                onClick={() => {
-                  gtag.event({
-                    action: 'CLICK_SPOTIFY',
-                    category: 'SOCIAL_MEDIA_CLICK',
-                    label: 'SPOTIFY',
-                    value: 4
-                  });
-                }}
-              >
-                <AHref link={SPOTIFY_PODCAST} label="Spotify" target />
-              </SocialNetwork>
-              <SocialNetwork
-                onClick={() =>
-                  gtag.event({
-                    action: 'CLICK_INSTAGRAM',
-                    category: 'SOCIAL_MEDIA_CLICK',
-                    label: 'INSTAGRAM',
-                    value: 4
-                  })
-                }
-              >
-                <AHref link={INSTAGRAM} label="Instagram" target />
-              </SocialNetwork>
-              <SocialNetwork
-                onClick={() =>
-                  gtag.event({
-                    action: 'CLICK_YOUTUBE',
-                    category: 'SOCIAL_MEDIA_CLICK',
-                    label: 'YOUTUBE',
-                    value: 4
-                  })
-                }
-              >
-                <AHref link={YOUTUBE} label="Youtube" target />
-              </SocialNetwork>
-            </SocialNetworks>
-          </FooterColumn>
-        </Col>
-      </Container>
+      <FooterColumn>
+        <Title>Navigation</Title>
+        <FooterContent>
+          <Link href={'/investissement'}>
+            <FooterItem>{t('investment')}</FooterItem>
+          </Link>
+          <Link href={'/histoire'}>
+            <FooterItem>{t('history')}</FooterItem>
+          </Link>
+          <Link href={'/marketing'}>
+            <FooterItem>{t('marketing')}</FooterItem>
+          </Link>
+          <Link href={'/blog'}>
+            <FooterItem>{t('blog')}</FooterItem>
+          </Link>
+        </FooterContent>
+      </FooterColumn>
+      <FooterColumn>
+        <Title>{t('entreprise')}</Title>
+        <FooterContent>
+          <FooterItem>{t('about')}</FooterItem>
+          <Link href={'/mentions-legales'}>
+            <FooterItem>{t('legalMentions')}</FooterItem>
+          </Link>
+          <Link href={'/lechronograph-inside'}>
+            <FooterItem>{t('leChronographInside')}</FooterItem>
+          </Link>
+        </FooterContent>
+      </FooterColumn>
+      <FooterColumn>
+        <Title>{t('followUs')}</Title>
+        <FooterContent>
+          <ALink href={APPLE_PODCAST} target="_blank">
+            <FooterItem>
+              <ApplePodcast />
+              {t('applePodcast')}
+            </FooterItem>
+          </ALink>
+          <ALink href={SPOTIFY_PODCAST} target="_blank">
+            <FooterItem>
+              <Spotify />
+              {t('spotify')}
+            </FooterItem>
+          </ALink>
+          <ALink href={INSTAGRAM} target="_blank">
+            <FooterItem>
+              <Instagram />
+              {t('instagram')}
+            </FooterItem>
+          </ALink>
+          <ALink href={YOUTUBE} target="_blank">
+            <FooterItem>
+              <Youtube />
+              {t('youtube')}
+            </FooterItem>
+          </ALink>
+        </FooterContent>
+      </FooterColumn>
+      <FooterColumn>
+        <Title>{t('signUpToOurNewsletter')}</Title>
+        <FooterContent>
+          <NewsletterContent
+            appearance={ComponentAppearance.SECONDARY}
+            hasSubtitle
+          />
+        </FooterContent>
+      </FooterColumn>
     </Layout>
   );
 };
