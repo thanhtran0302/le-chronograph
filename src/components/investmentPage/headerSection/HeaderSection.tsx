@@ -3,13 +3,8 @@ import { Paragraph } from '../../homePage/headerSection/HeaderSection.styles';
 import Section from '../../section/Section';
 import PatekPhilippeInvestment from '../../../assets/images/patek-philippe-investment.png';
 import { UseTranslationResponse, useTranslation } from 'react-i18next';
-import Button, {
-  ButtonIconPosition,
-  ButtonTypes,
-  ComponentAppearance
-} from '../../button/Button';
-import ArrowRight from '../../../assets/icons/arrow-right.svg';
-import Link from 'next/link';
+import { ComponentAppearance } from '../../button/Button';
+import NewsletterContent from '../../newsletterContent/NewsletterContent';
 
 const HeaderSection: FC = () => {
   const { t }: UseTranslationResponse<string> = useTranslation();
@@ -25,17 +20,10 @@ const HeaderSection: FC = () => {
       <Paragraph
         dangerouslySetInnerHTML={{ __html: t('investmentDescription') }}
       />
-      <Link href={'#investment-newsletter'}>
-        <a href="#investment-newsletter">
-          <Button
-            appearance={ComponentAppearance.CTA}
-            type={ButtonTypes.BUTTON}
-            label={t('startToInvest')}
-            icon={<ArrowRight />}
-            iconPosition={ButtonIconPosition.RIGHT}
-          />
-        </a>
-      </Link>
+      <NewsletterContent
+        appearance={ComponentAppearance.PRIMARY}
+        shouldCheckNewsletter={false}
+      />
     </Section>
   );
 };
