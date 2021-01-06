@@ -10,15 +10,9 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
       investor = false
     } = JSON.parse(req.body);
 
-    console.log({
-      email,
-      newsletter,
-      investment,
-      investor
-    });
     try {
       if (!investor) {
-        await airtableClient()('marketing-emails').create([
+        await airtableClient()('marketing-newsletter').create([
           {
             fields: {
               email,
@@ -28,7 +22,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
           }
         ]);
       } else {
-        await airtableClient()('investor-emails').create([
+        await airtableClient()('investor-newsletter').create([
           {
             fields: {
               email
