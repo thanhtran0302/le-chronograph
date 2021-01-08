@@ -23,21 +23,6 @@ const NavBarItems: FC<NavBarItemsProps> = ({ setOpen }) => {
 
   return (
     <Layout>
-      <Link href={'/investissement'}>
-        <NavigationItem onClick={() => setOpen(false)}>
-          {t('investment')}
-        </NavigationItem>
-      </Link>
-      <Link href={'/histoire'}>
-        <NavigationItem onClick={() => setOpen(false)}>
-          {t('history')}
-        </NavigationItem>
-      </Link>
-      <Link href={'/marketing'}>
-        <NavigationItem onClick={() => setOpen(false)}>
-          {t('marketing')}
-        </NavigationItem>
-      </Link>
       <Link href={'/blog'}>
         <NavigationItem onClick={() => setOpen(false)}>
           {t('blog')}
