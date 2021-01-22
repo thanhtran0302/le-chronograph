@@ -20,7 +20,7 @@ const InvestmentPage: FC = () => {
   return (
     <Fragment>
       <Head>
-        <title>{`${BlogName} | ${t('investment')}`}</title>
+        <title>{`${BlogName} | ${t('watchInvestment')}`}</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
       <HeaderSection />

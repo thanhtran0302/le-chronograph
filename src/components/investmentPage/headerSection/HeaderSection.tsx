@@ -14,7 +14,7 @@ const HeaderSection: FC = () => {
       backgroundColor={'dark'}
       backgroundPosition={'left'}
       image={PatekPhilippeInvestment}
-      title={t('investment')}
+      title={t('watchInvestment')}
       hasImageOnMobile={false}
     >
       <Paragraph
