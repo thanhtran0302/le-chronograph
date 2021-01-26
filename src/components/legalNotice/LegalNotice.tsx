@@ -33,18 +33,19 @@ const LegalNotice: FC = () => (
       <strong>Créateur</strong> :
       <a href="https://www.lechronograph.com">Le Chronograph</a>
       <br />
-      <strong>Responsable publication</strong> : Thanh Tran –
+      <strong>Responsable publication</strong> : Thanh Tran et Lenny Félicité –
       lechronographlt@gmail.com
       <br />
       Le responsable publication est une personne physique ou une personne
       morale.
       <br />
-      <strong>Webmaster</strong> : Thanh Tran – lechronographlt@gmail.com
+      <strong>Webmaster</strong> : Thanh Tran et Lenny Félicité –
+      lechronographlt@gmail.com
       <br />
       <strong>Hébergeur</strong> : Heroku – 415 Mission Street Suite 300 San
       Francisco, CA 94105
       <br />
-      Crédits : Thanh Tran - Co-fondadteur LeChronograph
+      Crédits : Thanh Tran et Lenny Félicité - Co-fondadteur LeChronograph
       <br />
       Le modèle de mentions légales est offert par Subdelirium.com
       <a
