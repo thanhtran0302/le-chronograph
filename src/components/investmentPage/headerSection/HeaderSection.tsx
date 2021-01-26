@@ -20,10 +20,7 @@ const HeaderSection: FC = () => {
       <Paragraph
         dangerouslySetInnerHTML={{ __html: t('investmentDescription') }}
       />
-      <NewsletterContent
-        appearance={ComponentAppearance.PRIMARY}
-        shouldCheckNewsletter={false}
-      />
+      <NewsletterContent appearance={ComponentAppearance.PRIMARY} />
     </Section>
   );
 };
