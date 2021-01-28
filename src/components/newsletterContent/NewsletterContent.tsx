@@ -13,7 +13,6 @@ import { isEmail } from '../../utils/global';
 import * as gtag from '../../utils/ga';
 import {
   ButtonWrapper,
-  CheckboxesWrapper,
   EmailError,
   EmailSuccess,
   InputButtonWrapper,
@@ -107,7 +106,7 @@ const NewsletterContent: FC<NewsletterContentProps> = ({
         />
         {!isEnoughWidth && (
           <Button
-            appearance={ComponentAppearance.CTA}
+            appearance={ComponentAppearance.SECONDARY}
             type={ButtonTypes.SUBMIT}
             label={t('newsletterSignUp')}
           />
@@ -116,7 +115,7 @@ const NewsletterContent: FC<NewsletterContentProps> = ({
       {isEnoughWidth && (
         <ButtonWrapper>
           <Button
-            appearance={ComponentAppearance.CTA}
+            appearance={ComponentAppearance.SECONDARY}
             type={ButtonTypes.SUBMIT}
             label={t('newsletterSignUp')}
           />

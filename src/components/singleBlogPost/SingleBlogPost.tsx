@@ -24,8 +24,6 @@ import { ComponentAppearance } from '../button/Button';
 import Head from 'next/head';
 import { Title } from '../footer/Footer.styles';
 import { useTranslation, UseTranslationResponse } from 'react-i18next';
-import { useMediaQuery } from '../../constants/responsive';
-import breakpoints from '../../constants/breakpoints';
 
 export interface SingleBlogPostProps {
   post: PrismicBlogPost;
@@ -69,7 +67,7 @@ const SingleBlogPost: FC<SingleBlogPostProps> = ({ post }) => {
               {RichText.render(content)}
               <ApplePodcastIframe
                 contentWidth={postContentWidth}
-                src="https://embed.podcasts.apple.com/us/podcast/le-chronograph/id1539187268?itsct=podcast_box&amp;itscg=30200&amp;theme=light"
+                src="https://embed.podcasts.apple.com/fr/podcast/le-chronograph/id1539187268?itsct=podcast_box&amp;itscg=30200&amp;theme=light"
                 frameBorder="0"
                 sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation-by-user-activation"
                 allow="autoplay *; encrypted-media *;"
@@ -88,7 +86,7 @@ const SingleBlogPost: FC<SingleBlogPostProps> = ({ post }) => {
                   <Title>{t('listenOurLatestEpisode')}</Title>
                   <ApplePodcastIframe
                     contentWidth={sidePostContentWidth}
-                    src="https://embed.podcasts.apple.com/us/podcast/le-chronograph/id1539187268?itsct=podcast_box&amp;itscg=30200&amp;theme=light"
+                    src="https://embed.podcasts.apple.com/fr/podcast/le-chronograph/id1539187268?itsct=podcast_box&amp;itscg=30200&amp;theme=light"
                     frameBorder="0"
                     sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation-by-user-activation"
                     allow="autoplay *; encrypted-media *;"
