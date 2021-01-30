@@ -38,6 +38,7 @@
     "@types/qs": "^6.9.5",
     "@types/react": "^17.0.0",
     "@types/styled-components": "^5.1.4",
+    "@types/victory": "^33.1.4",
     "airtable": "^0.10.1",
     "axios": "^0.21.0",
     "babel-plugin-styled-components": "^1.11.1",
@@ -64,6 +65,7 @@
     "tslint-config-prettier": "^1.18.0",
     "tslint-react": "^5.0.0",
     "tslint-react-hooks": "^2.2.2",
-    "typescript": "^4.0.5"
+    "typescript": "^4.0.5",
+    "victory": "^35.4.7"
   }
 }

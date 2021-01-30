@@ -23,6 +23,9 @@ const NavBarItems: FC<NavBarItemsProps> = ({ setOpen }) => {
 
   return (
     <Layout>
+      <Link href={'/one-wave'}>
+        <NavigationItem onClick={() => setOpen(false)}>One Wave</NavigationItem>
+      </Link>
       <Link href={'/blog'}>
         <NavigationItem onClick={() => setOpen(false)}>
           {t('blog')}

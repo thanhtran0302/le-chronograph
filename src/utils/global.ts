@@ -8,11 +8,6 @@ export const isEmail = (email: string): boolean =>
 export const isProduction = (): boolean =>
   process.env.NODE_ENV === 'production';
 
-export const generateUrlPath = (): string => {
-  const prefix = process.env.URL_PREFIX || process.env.NEXT_PUBLIC_URL_PREFIX;
-  return isProduction() && prefix ? prefix : '';
-};
-
 export const pagination = (
   totalPages: number,
   currentPage: number,
