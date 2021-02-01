@@ -13,11 +13,11 @@ import {
 } from './StockCard.styles';
 import {
   VictoryChart,
-  VictoryArea,
   VictoryAxis,
   VictoryTooltip,
   VictoryGroup,
-  VictoryVoronoiContainer
+  VictoryVoronoiContainer,
+  VictoryLine
 } from 'victory';
 import colors from '../../constants/colors';
 import ArrowStockUp from '../../assets/icons/arrow-stock-up.svg';
@@ -2080,10 +2080,10 @@ const StockCard: FC<OwnProps> = ({
             >
               <VictoryAxis dependentAxis />
               <VictoryGroup
-                color={colors.green[100]}
+                color={colors.mainDark}
                 labelComponent={<VictoryTooltip style={{ fontSize: 10 }} />}
               >
-                <VictoryArea
+                <VictoryLine
                   data={transformData(watchData)}
                   style={{
                     labels: {
