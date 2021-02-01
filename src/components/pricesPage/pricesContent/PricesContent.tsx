@@ -54,6 +54,7 @@ const PricesContent: FC = () => (
     >
       <NewsletterContent
         appearance={ComponentAppearance.SECONDARY}
+        buttonAppearance={ComponentAppearance.PRIMARY}
         hasSubtitle
       />
     </StockCard>

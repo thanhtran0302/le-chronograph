@@ -30,11 +30,13 @@ export enum QuantumState {
 interface NewsletterContentProps {
   appearance: ComponentAppearance;
   hasSubtitle?: boolean;
+  buttonAppearance?: ComponentAppearance;
 }
 
 const NewsletterContent: FC<NewsletterContentProps> = ({
   appearance,
-  hasSubtitle = false
+  hasSubtitle = false,
+  buttonAppearance = ComponentAppearance.SECONDARY
 }) => {
   const { t }: UseTranslationResponse<string> = useTranslation();
   const [isEnoughWidth, setEnoughWidth] = useState<boolean>(false);
@@ -106,7 +108,7 @@ const NewsletterContent: FC<NewsletterContentProps> = ({
         />
         {!isEnoughWidth && (
           <Button
-            appearance={ComponentAppearance.SECONDARY}
+            appearance={buttonAppearance}
             type={ButtonTypes.SUBMIT}
             label={t('newsletterSignUp')}
           />
@@ -115,7 +117,7 @@ const NewsletterContent: FC<NewsletterContentProps> = ({
       {isEnoughWidth && (
         <ButtonWrapper>
           <Button
-            appearance={ComponentAppearance.SECONDARY}
+            appearance={buttonAppearance}
             type={ButtonTypes.SUBMIT}
             label={t('newsletterSignUp')}
           />
