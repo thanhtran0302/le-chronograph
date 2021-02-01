@@ -10,7 +10,6 @@ import {
   RateSpan,
   ChildrenContainer
 } from './StockCard.styles';
-import Rolex from '../../assets/icons/rolex.svg';
 import {
   VictoryChart,
   VictoryArea,
@@ -22,13 +21,12 @@ import {
 import colors from '../../constants/colors';
 import ArrowStockUp from '../../assets/icons/arrow-stock-up.svg';
 import ArrowStockDown from '../../assets/icons/arrow-stock-down.svg';
-import LeChronographLogo from '../../assets/icons/lechronograph-logo.svg';
-import fonts from '../../constants/fonts';
 
 export interface OwnProps {
   brand: string;
   nickname: string;
   variationRate: number;
+  logo: string;
   isGrow: boolean;
   children?: ReactNode;
 }
@@ -2043,56 +2041,60 @@ const StockCard: FC<OwnProps> = ({
   nickname,
   isGrow,
   variationRate,
+  logo,
   children
-}) => (
-  <Layout>
-    <CardHeader>
-      <BrandWrapper>
-        {children ? <LeChronographLogo /> : <Rolex />}
-        <BrandAndNickNameContainer>
-          <BrandName>{brand}</BrandName>
-          <NickName>{nickname}</NickName>
-        </BrandAndNickNameContainer>
-      </BrandWrapper>
-      {!children && (
-        <RateWrapper>
-          <RateSpan isGrow={isGrow}>{variationRate}%</RateSpan>
-          {isGrow ? <ArrowStockUp /> : <ArrowStockDown />}
-        </RateWrapper>
-      )}
-    </CardHeader>
-    <ChildrenContainer>
-      {!children ? (
-        <Fragment>
-          <VictoryChart
-            containerComponent={
-              <VictoryVoronoiContainer
-                labels={d => `Prix: ${d.datum._y}€\nDate: ${d.datum.xName}`}
-              />
-            }
-          >
-            <VictoryAxis dependentAxis />
-            <VictoryGroup
-              color={colors.green[100]}
-              labelComponent={<VictoryTooltip style={{ fontSize: 10 }} />}
+}) => {
+  const Logo = logo;
+  return (
+    <Layout>
+      <CardHeader>
+        <BrandWrapper>
+          <Logo />
+          <BrandAndNickNameContainer>
+            <BrandName>{brand}</BrandName>
+            <NickName>{nickname}</NickName>
+          </BrandAndNickNameContainer>
+        </BrandWrapper>
+        {!children && (
+          <RateWrapper>
+            <RateSpan isGrow={isGrow}>{variationRate}%</RateSpan>
+            {isGrow ? <ArrowStockUp /> : <ArrowStockDown />}
+          </RateWrapper>
+        )}
+      </CardHeader>
+      <ChildrenContainer>
+        {!children ? (
+          <Fragment>
+            <VictoryChart
+              containerComponent={
+                <VictoryVoronoiContainer
+                  labels={d => `Prix: ${d.datum._y}€\nDate: ${d.datum.xName}`}
+                />
+              }
             >
-              <VictoryArea
-                data={transformData(watchData)}
-                style={{
-                  labels: {
-                    fill: colors.red,
-                    fontSize: 20
-                  }
-                }}
-              />
-            </VictoryGroup>
-          </VictoryChart>
-        </Fragment>
-      ) : (
-        children
-      )}
-    </ChildrenContainer>
-  </Layout>
-);
+              <VictoryAxis dependentAxis />
+              <VictoryGroup
+                color={colors.green[100]}
+                labelComponent={<VictoryTooltip style={{ fontSize: 10 }} />}
+              >
+                <VictoryArea
+                  data={transformData(watchData)}
+                  style={{
+                    labels: {
+                      fill: colors.red,
+                      fontSize: 20
+                    }
+                  }}
+                />
+              </VictoryGroup>
+            </VictoryChart>
+          </Fragment>
+        ) : (
+          children
+        )}
+      </ChildrenContainer>
+    </Layout>
+  );
+};
 
 export default StockCard;
