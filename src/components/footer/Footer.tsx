@@ -30,8 +30,8 @@ const Footer: FC = () => {
       <FooterColumn>
         <Title>Navigation</Title>
         <FooterContent>
-          <Link href={'/investissement'}>
-            <FooterItem>{t('investment')}</FooterItem>
+          <Link href={'/one-wave'}>
+            <FooterItem>One Wave</FooterItem>
           </Link>
           <Link href={'/histoire'}>
             <FooterItem>{t('history')}</FooterItem>

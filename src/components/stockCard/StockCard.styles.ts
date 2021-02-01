@@ -1,7 +1,8 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import colors from '../../constants/colors';
 import radius from '../../constants/radius';
 import spaces from '../../constants/spaces';
+import { OwnProps } from './StockCard';
 
 export const Layout = styled.div`
   text-align: center;
@@ -19,6 +20,11 @@ export const Layout = styled.div`
 export const CardHeader = styled.div`
   display: flex;
   align-items: center;
+  justify-content: space-between;
+`;
+
+export const BrandWrapper = styled.div`
+  display: flex;
 `;
 
 export const BrandAndNickNameContainer = styled.div`
@@ -31,3 +37,25 @@ export const BrandName = styled.div`
 `;
 
 export const NickName = styled.div``;
+
+export const RateWrapper = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
+export const RateSpan = styled.span<Pick<OwnProps, 'isGrow'>>`
+  font-weight: 600;
+
+  ${({ isGrow }: Pick<OwnProps, 'isGrow'>) =>
+    isGrow
+      ? css`
+          color: ${colors.green[100]};
+        `
+      : css`
+          color: ${colors.red};
+        `}
+`;
+
+export const ChildrenContainer = styled.div`
+  text-align: left;
+`;

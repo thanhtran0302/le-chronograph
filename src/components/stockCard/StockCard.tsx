@@ -1,10 +1,14 @@
-import React, { FC } from 'react';
+import React, { FC, Fragment, ReactNode } from 'react';
 import {
   Layout,
   CardHeader,
   BrandAndNickNameContainer,
   BrandName,
-  NickName
+  NickName,
+  RateWrapper,
+  BrandWrapper,
+  RateSpan,
+  ChildrenContainer
 } from './StockCard.styles';
 import Rolex from '../../assets/icons/rolex.svg';
 import {
@@ -12,16 +16,46 @@ import {
   VictoryArea,
   VictoryAxis,
   VictoryTooltip,
-  VictoryGroup
+  VictoryGroup,
+  VictoryVoronoiContainer
 } from 'victory';
 import colors from '../../constants/colors';
+import ArrowStockUp from '../../assets/icons/arrow-stock-up.svg';
+import ArrowStockDown from '../../assets/icons/arrow-stock-down.svg';
+import LeChronographLogo from '../../assets/icons/lechronograph-logo.svg';
+import fonts from '../../constants/fonts';
 
-interface OwnProps {
+export interface OwnProps {
   brand: string;
   nickname: string;
+  variationRate: number;
+  isGrow: boolean;
+  children?: ReactNode;
 }
 
-const watchData = [
+interface ChronoData {
+  x: {
+    label: string;
+    value: string;
+  };
+  xAxisLabel: string;
+  y: {
+    max: {
+      label: string;
+      value: number;
+    };
+    mean: {
+      label: string;
+      value: number;
+    };
+    min: {
+      label: string;
+      value: number;
+    };
+  };
+}
+
+const watchData: ChronoData[] = [
   {
     x: {
       label: 'avr. 2013',
@@ -1999,31 +2033,65 @@ const watchData = [
 ];
 
 const transformData = data =>
-  data.map(datum => ({
+  data.map((datum: ChronoData) => ({
     x: datum.xAxisLabel,
     y: datum.y.max.value
   }));
 
-const StockCard: FC<OwnProps> = ({ brand, nickname }) => (
+const StockCard: FC<OwnProps> = ({
+  brand,
+  nickname,
+  isGrow,
+  variationRate,
+  children
+}) => (
   <Layout>
-    <div>
-      <CardHeader>
-        <Rolex />
+    <CardHeader>
+      <BrandWrapper>
+        {children ? <LeChronographLogo /> : <Rolex />}
         <BrandAndNickNameContainer>
           <BrandName>{brand}</BrandName>
           <NickName>{nickname}</NickName>
         </BrandAndNickNameContainer>
-      </CardHeader>
-      <VictoryChart>
-        <VictoryAxis dependentAxis />
-        <VictoryGroup
-          color={colors.green[100]}
-          labelComponent={<VictoryTooltip style={{ fontSize: 10 }} />}
-        >
-          <VictoryArea data={transformData(watchData)} />
-        </VictoryGroup>
-      </VictoryChart>
-    </div>
+      </BrandWrapper>
+      {!children && (
+        <RateWrapper>
+          <RateSpan isGrow={isGrow}>{variationRate}%</RateSpan>
+          {isGrow ? <ArrowStockUp /> : <ArrowStockDown />}
+        </RateWrapper>
+      )}
+    </CardHeader>
+    <ChildrenContainer>
+      {!children ? (
+        <Fragment>
+          <VictoryChart
+            containerComponent={
+              <VictoryVoronoiContainer
+                labels={d => `Prix: ${d.datum._y}€\nDate: ${d.datum.xName}`}
+              />
+            }
+          >
+            <VictoryAxis dependentAxis />
+            <VictoryGroup
+              color={colors.green[100]}
+              labelComponent={<VictoryTooltip style={{ fontSize: 10 }} />}
+            >
+              <VictoryArea
+                data={transformData(watchData)}
+                style={{
+                  labels: {
+                    fill: colors.red,
+                    fontSize: 20
+                  }
+                }}
+              />
+            </VictoryGroup>
+          </VictoryChart>
+        </Fragment>
+      ) : (
+        children
+      )}
+    </ChildrenContainer>
   </Layout>
 );
 
