@@ -11,6 +11,7 @@ import { useTranslation, UseTranslationResponse } from 'react-i18next';
 import Link from 'next/link';
 import { ApplePodcastIframe } from '../../singleBlogPost/SingleBlogPost.styles';
 import { useRouter } from 'next/router';
+import PodcastIframe from '../../podcastIframe/PodcastIframe';
 
 const Sidebar: FC = () => {
   const { t }: UseTranslationResponse<string> = useTranslation();
@@ -35,13 +36,7 @@ const Sidebar: FC = () => {
         </LinkWrapper>
       </SideSection>
       <SideSection title={'Écouter notre podcast'}>
-        <ApplePodcastIframe
-          contentWidth={410}
-          src="https://embed.podcasts.apple.com/fr/podcast/le-chronograph/id1539187268?itsct=podcast_box&amp;itscg=30200&amp;theme=light"
-          frameBorder="0"
-          sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation-by-user-activation"
-          allow="autoplay *; encrypted-media *;"
-        />
+        <PodcastIframe width={410} />
       </SideSection>
     </Layout>
   );

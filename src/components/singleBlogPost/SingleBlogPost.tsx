@@ -24,6 +24,7 @@ import { ComponentAppearance } from '../button/Button';
 import Head from 'next/head';
 import { Title } from '../footer/Footer.styles';
 import { useTranslation, UseTranslationResponse } from 'react-i18next';
+import PodcastIframe from '../podcastIframe/PodcastIframe';
 
 export interface SingleBlogPostProps {
   post: PrismicBlogPost;
@@ -65,13 +66,7 @@ const SingleBlogPost: FC<SingleBlogPostProps> = ({ post }) => {
           <PostContentWrapper>
             <PostContent ref={postContentRef} contentWidth={postContentWidth}>
               {RichText.render(content)}
-              <ApplePodcastIframe
-                contentWidth={postContentWidth}
-                src="https://embed.podcasts.apple.com/fr/podcast/le-chronograph/id1539187268?itsct=podcast_box&amp;itscg=30200&amp;theme=light"
-                frameBorder="0"
-                sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation-by-user-activation"
-                allow="autoplay *; encrypted-media *;"
-              />
+              <PodcastIframe width={postContentWidth} />
             </PostContent>
             <div ref={sidePostContentRef}>
               <PostSideContent>
@@ -84,13 +79,7 @@ const SingleBlogPost: FC<SingleBlogPostProps> = ({ post }) => {
                 </PostNewsletterContent>
                 <PostSidePodcast>
                   <Title>{t('listenOurLatestEpisode')}</Title>
-                  <ApplePodcastIframe
-                    contentWidth={sidePostContentWidth}
-                    src="https://embed.podcasts.apple.com/fr/podcast/le-chronograph/id1539187268?itsct=podcast_box&amp;itscg=30200&amp;theme=light"
-                    frameBorder="0"
-                    sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation-by-user-activation"
-                    allow="autoplay *; encrypted-media *;"
-                  />
+                  <PodcastIframe width={sidePostContentWidth} />
                 </PostSidePodcast>
               </PostSideContent>
             </div>
