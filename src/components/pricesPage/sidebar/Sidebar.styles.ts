@@ -1,12 +1,16 @@
 import styled from 'styled-components';
+import breakpoints from '../../../constants/breakpoints';
 import colors from '../../../constants/colors';
 import radius from '../../../constants/radius';
 import spaces from '../../../constants/spaces';
 
 export const Layout = styled.div`
-  width: 400px;
-  max-width: 400px;
   border-right: 1px solid ${colors.grey[100]};
+
+  @media (min-width: ${breakpoints.smartphone.iPhone11ProMax}) {
+    width: 400px;
+    max-width: 400px;
+  }
 `;
 
 export const BackButtonWrapper = styled.div`

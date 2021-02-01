@@ -9,20 +9,26 @@ import {
 import BackArrow from '../../../assets/icons/back_arrow.svg';
 import { useTranslation, UseTranslationResponse } from 'react-i18next';
 import Link from 'next/link';
-import { ApplePodcastIframe } from '../../singleBlogPost/SingleBlogPost.styles';
 import { useRouter } from 'next/router';
 import PodcastIframe from '../../podcastIframe/PodcastIframe';
+import { useMediaQuery } from '../../../constants/responsive';
+import breakpoints from '../../../constants/breakpoints';
 
 const Sidebar: FC = () => {
   const { t }: UseTranslationResponse<string> = useTranslation();
   const router = useRouter();
+  const isSmartphone: boolean = useMediaQuery(
+    `(max-width: ${breakpoints.smartphone.iPhone11ProMax})`
+  );
 
   return (
     <Layout>
-      <BackButtonWrapper onClick={() => router.back()}>
-        <BackArrow />
-        <RetourText>{t('return')}</RetourText>
-      </BackButtonWrapper>
+      {!isSmartphone && (
+        <BackButtonWrapper onClick={() => router.back()}>
+          <BackArrow />
+          <RetourText>{t('return')}</RetourText>
+        </BackButtonWrapper>
+      )}
       <SideSection title={'Articles investissement'}>
         <LinkWrapper>
           <Link href="/blog/articles/modeles-rolex-prendre-la-valeur-partie-1">
@@ -36,7 +42,7 @@ const Sidebar: FC = () => {
         </LinkWrapper>
       </SideSection>
       <SideSection title={'Écouter notre podcast'}>
-        <PodcastIframe width={410} />
+        <PodcastIframe width={380} />
       </SideSection>
     </Layout>
   );

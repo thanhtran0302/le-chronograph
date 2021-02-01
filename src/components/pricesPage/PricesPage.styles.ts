@@ -1,9 +1,14 @@
 import styled from 'styled-components';
+import breakpoints from '../../constants/breakpoints';
 import colors from '../../constants/colors';
 import spaces from '../../constants/spaces';
 
 export const Layout = styled.div`
   display: flex;
+
+  @media (max-width: ${breakpoints.smartphone.iPhone11ProMax}) {
+    flex-direction: column-reverse;
+  }
 `;
 
 export const Content = styled.div`
@@ -17,9 +22,11 @@ export const RedSpan = styled.span`
 `;
 
 export const WordingContainer = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  @media (min-width: ${breakpoints.smartphone.iPhone11ProMax}) {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
 `;
 
 export const TitleContainer = styled.div``;
