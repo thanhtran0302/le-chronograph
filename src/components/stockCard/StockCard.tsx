@@ -8,7 +8,8 @@ import {
   RateWrapper,
   BrandWrapper,
   RateSpan,
-  ChildrenContainer
+  ChildrenContainer,
+  ButtonWrapper
 } from './StockCard.styles';
 import {
   VictoryChart,
@@ -21,6 +22,9 @@ import {
 import colors from '../../constants/colors';
 import ArrowStockUp from '../../assets/icons/arrow-stock-up.svg';
 import ArrowStockDown from '../../assets/icons/arrow-stock-down.svg';
+import Button, { ButtonTypes, ComponentAppearance } from '../button/Button';
+import { useTranslation, UseTranslationResponse } from 'react-i18next';
+import radius from '../../constants/radius';
 
 export interface OwnProps {
   brand: string;
@@ -2045,6 +2049,8 @@ const StockCard: FC<OwnProps> = ({
   children
 }) => {
   const Logo = logo;
+  const { t }: UseTranslationResponse<string> = useTranslation();
+
   return (
     <Layout>
       <CardHeader>
@@ -2088,6 +2094,14 @@ const StockCard: FC<OwnProps> = ({
                 />
               </VictoryGroup>
             </VictoryChart>
+            <ButtonWrapper>
+              <Button
+                type={ButtonTypes.BUTTON}
+                label={t('detailAnalysis')}
+                form={radius[50]}
+                appearance={ComponentAppearance.PRIMARY}
+              />
+            </ButtonWrapper>
           </Fragment>
         ) : (
           children

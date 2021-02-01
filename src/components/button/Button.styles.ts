@@ -9,7 +9,7 @@ import fonts from '../../constants/fonts';
 
 type ButtonLayoutProps = Pick<
   ButtonProps,
-  'appearance' | 'iconPosition' | 'width'
+  'appearance' | 'iconPosition' | 'width' | 'form'
 >;
 
 export const commonStyle: FlattenSimpleInterpolation = css`
@@ -95,7 +95,7 @@ export const ButtonLayout = styled.button<ButtonLayoutProps>`
   align-items: center;
   border: 0;
   text-align: left;
-  border-radius: ${radius[6]};
+  border-radius: ${({ form }: ButtonLayoutProps) => form};
   font-size: ${fonts[14]};
   line-height: ${spaces[20]};
   font-weight: bold;

@@ -59,3 +59,8 @@ export const RateSpan = styled.span<Pick<OwnProps, 'isGrow'>>`
 export const ChildrenContainer = styled.div`
   text-align: left;
 `;
+
+export const ButtonWrapper = styled.div`
+  display: flex;
+  justify-content: flex-end;
+`;

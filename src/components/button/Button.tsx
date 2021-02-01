@@ -4,6 +4,7 @@ import React, {
   ButtonHTMLAttributes,
   ReactElement
 } from 'react';
+import radius from '../../constants/radius';
 import { ButtonLayout } from './Button.styles';
 
 export enum ButtonTypes {
@@ -26,6 +27,7 @@ export enum ButtonIconPosition {
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   type: ButtonTypes;
   appearance: ComponentAppearance;
+  form?: string;
   onClick?(event: MouseEvent<HTMLButtonElement>): void;
   label?: string;
   icon?: ReactElement<Element>;
@@ -33,11 +35,19 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   width?: string;
 }
 
-const Button: FC<ButtonProps> = ({ icon, label, type, onClick, ...rest }) => (
+const Button: FC<ButtonProps> = ({
+  icon,
+  label,
+  type,
+  onClick,
+  form = radius[6],
+  ...rest
+}) => (
   <ButtonLayout
     data-test={`button-${rest.appearance}`}
     type={type}
     onClick={onClick}
+    form={form}
     {...rest}
   >
     {icon && icon}

@@ -1,4 +1,4 @@
-import React, { FC, Fragment } from 'react';
+import React, { FC } from 'react';
 import { ApplePodcastIframe } from './PodcastIframe.styles';
 
 interface OwnProps {
