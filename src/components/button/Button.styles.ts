@@ -1,5 +1,4 @@
 import styled, { css, FlattenSimpleInterpolation } from 'styled-components';
-import radius from '../../constants/radius';
 import shadows from '../../constants/shadows';
 import colors from '../../constants/colors';
 import spaces from '../../constants/spaces';

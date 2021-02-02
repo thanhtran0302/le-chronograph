@@ -14,7 +14,6 @@ import {
 import {
   VictoryChart,
   VictoryAxis,
-  VictoryTooltip,
   VictoryGroup,
   VictoryVoronoiContainer,
   VictoryLine
@@ -25,6 +24,7 @@ import ArrowStockDown from '../../assets/icons/arrow-stock-down.svg';
 import Button, { ButtonTypes, ComponentAppearance } from '../button/Button';
 import { useTranslation, UseTranslationResponse } from 'react-i18next';
 import radius from '../../constants/radius';
+import Link from 'next/link';
 
 export interface OwnProps {
   brand: string;
@@ -2079,10 +2079,7 @@ const StockCard: FC<OwnProps> = ({
               }
             >
               <VictoryAxis dependentAxis />
-              <VictoryGroup
-                color={colors.mainDark}
-                labelComponent={<VictoryTooltip style={{ fontSize: 10 }} />}
-              >
+              <VictoryGroup color={colors.mainDark}>
                 <VictoryLine
                   data={transformData(watchData)}
                   style={{
@@ -2095,12 +2092,14 @@ const StockCard: FC<OwnProps> = ({
               </VictoryGroup>
             </VictoryChart>
             <ButtonWrapper>
-              <Button
-                type={ButtonTypes.BUTTON}
-                label={t('detailAnalysis')}
-                form={radius[50]}
-                appearance={ComponentAppearance.PRIMARY}
-              />
+              <Link href={'/one-wave/details-analysis/1'}>
+                <Button
+                  type={ButtonTypes.BUTTON}
+                  label={t('detailAnalysis')}
+                  form={radius[50]}
+                  appearance={ComponentAppearance.PRIMARY}
+                />
+              </Link>
             </ButtonWrapper>
           </Fragment>
         ) : (
