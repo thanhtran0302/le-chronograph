@@ -29,8 +29,8 @@ const CustomApp: FC<AppProps> = ({ Component, pageProps }) => (
     </Head>
     <NavBar />
     <Component {...pageProps} />
-    <Footer />
-    <CookieConsentBanner />
+    {/* <Footer />
+    <CookieConsentBanner /> */}
   </Fragment>
 );
 

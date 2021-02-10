@@ -1,6 +1,6 @@
 export default {
   mainDark: '#1C1C1C',
-  mainLight: '#F1F1F1',
+  mainLight: '#FFF',
   dark: {
     100: '#2E4053',
     80: '#586675',
