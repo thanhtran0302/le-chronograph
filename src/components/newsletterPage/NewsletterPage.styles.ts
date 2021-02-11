@@ -10,6 +10,10 @@ export const Layout = styled.div`
   display: flex;
   height: 80%;
   align-items: center;
+
+  @media (max-width: ${breakpoints[480]}) {
+    flex-direction: column;
+  }
 `;
 
 export const Container = styled.div`
@@ -49,7 +53,6 @@ export const TitleContainer = styled.div`
 
 export const Title = styled.div`
   ${paragraphs.h1};
-  margin-left: ${spaces[12]};
 `;
 
 export const Subtitle = styled.div`
@@ -82,6 +85,9 @@ export const SvgContainer = styled.div`
 
 export const Image = styled.div`
   display: flex;
-  margin-left: 250px;
-  padding-top: 50px;
+
+  @media (min-width: ${breakpoints[480]}) {
+    margin-left: 250px;
+    padding-top: 50px;
+  }
 `;

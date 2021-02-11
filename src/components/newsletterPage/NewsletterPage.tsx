@@ -68,7 +68,7 @@ const NewsletterPage: FC = () => {
           <Title>Le Chronograph</Title>
         </TitleContainer>
         <Subtitle>
-          Connaître toutes les actualités sur l'horlogerie
+          Être au courant de toutes les actualités sur l'horlogerie
           <br />
           en seulement <RedSpanText>5 minutes</RedSpanText>
         </Subtitle>
@@ -106,9 +106,11 @@ const NewsletterPage: FC = () => {
         </div>
       </Container>
       <Container>
-        <SvgContainer>
-          <BgRight />
-        </SvgContainer>
+        {!isMobile && (
+          <SvgContainer>
+            <BgRight />
+          </SvgContainer>
+        )}
         <Image>
           <img src={IPhoneNewsletter} />
         </Image>
