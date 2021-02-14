@@ -28,17 +28,12 @@ const NavBarItems: FC<NavBarItemsProps> = ({ setOpen }) => {
           {t('blog')}
         </NavigationItem>
       </Link>
-      <Link href={'/lechronograph-inside'}>
-        <NavigationItem onClick={() => setOpen(false)}>
-          {t('leChronographInside')}
-        </NavigationItem>
-      </Link>
       <ListenPodcastButtonWrapper onClick={() => setOpen(false)}>
         <a href={APPLE_PODCAST} target="_blank">
           <Button
             label={t('listenToPodcast')}
             type={ButtonTypes.BUTTON}
-            appearance={ComponentAppearance.PRIMARY}
+            appearance={ComponentAppearance.CTA}
             icon={<Micro />}
             iconPosition={ButtonIconPosition.LEFT}
           />

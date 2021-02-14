@@ -65,13 +65,18 @@ export const primaryStyle: FlattenSimpleInterpolation = css`
 
 export const ctaStyle: FlattenSimpleInterpolation = css`
   ${commonStyle};
-  background: ${colors.salmon[60]};
-  border: 2px solid ${colors.salmon[60]};
-  color: ${colors.mainDark};
+  background: ${colors.red};
+  border: 2px solid ${colors.red};
+  color: ${colors.mainLight};
 
   :hover {
-    background: ${colors.salmon[100]};
-    border: 2px solid ${colors.salmon[100]};
+    background: ${colors.mainLight};
+    color: ${colors.red};
+    border: 2px solid ${colors.red};
+
+    path {
+      fill: ${colors.red};
+    }
   }
 `;
 
