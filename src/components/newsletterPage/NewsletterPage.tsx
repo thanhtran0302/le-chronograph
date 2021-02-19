@@ -1,5 +1,4 @@
 import React, { ChangeEvent, FC, FormEvent, useState } from 'react';
-import { useSmartphoneDevice } from '../../constants/responsive';
 import { isEmail } from '../../utils/global';
 import Button, { ButtonTypes, ComponentAppearance } from '../button/Button';
 import Input, { InputTypes } from '../input/Input';
@@ -12,20 +11,15 @@ import {
   Layout,
   RedSpanText,
   Subtitle,
-  SvgContainer,
   Title,
-  TitleContainer,
-  Image
+  TitleContainer
 } from './NewsletterPage.styles';
-import IPhoneNewsletter from '../../assets/images/iPhone-newsletter.png';
-import BgRight from '../../assets/icons/bg-right.svg';
 
 const NewsletterPage: FC = () => {
   const [email, setEmail] = useState<string>('');
   const [isLoading, setLoading] = useState<boolean>(false);
   const [isSuccess, setSuccess] = useState<boolean>(false);
   const [isError, setError] = useState<boolean>(false);
-  const isMobile: boolean = useSmartphoneDevice();
 
   const onChange = (event: ChangeEvent<HTMLInputElement>) => {
     event.preventDefault();
@@ -104,16 +98,6 @@ const NewsletterPage: FC = () => {
             </RedSpanText>
           )}
         </div>
-      </Container>
-      <Container>
-        {!isMobile && (
-          <SvgContainer>
-            <BgRight />
-          </SvgContainer>
-        )}
-        <Image>
-          <img src={IPhoneNewsletter} />
-        </Image>
       </Container>
     </Layout>
   );
