@@ -37,13 +37,13 @@ export const PostContainer = styled.div`
   margin: auto;
 `;
 
-export const PostTitle = styled.div`
+export const PostTitle = styled.h1`
   ${paragraphs.h1};
-  margin: ${spaces[24]} 0 ${spaces[12]} 0;
+  margin: ${spaces[24]} 0 ${spaces[12]} 0 !important;
 
   @media (max-width: ${breakpoints.smartphone.iPhone11ProMax}) {
     ${paragraphs.h2};
-    margin: ${spaces[24]} ${spaces[24]} ${spaces[12]} ${spaces[24]};
+    margin: ${spaces[24]} ${spaces[24]} ${spaces[12]} ${spaces[24]} !important;
   }
 `;
 
