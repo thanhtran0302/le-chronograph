@@ -36,7 +36,7 @@ const NewsletterPage: FC = () => {
     setLoading(true);
     if (isEmail(email)) {
       try {
-        await fetch(`/api/airtable`, {
+        await fetch(`/api/newsletter-registration`, {
           method: 'POST',
           body: JSON.stringify({
             email

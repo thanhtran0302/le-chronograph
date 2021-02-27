@@ -73,12 +73,10 @@ const NewsletterContent: FC<NewsletterContentProps> = ({
     if (isEmail(email)) {
       if (atLeastOneBoxChecked) {
         try {
-          await fetch(`/api/airtable`, {
+          await fetch(`/api/newsletter-registration`, {
             method: 'POST',
             body: JSON.stringify({
-              email,
-              newsletter: isNewsletterChecked,
-              investment: isInvestmentChecked
+              email
             })
           });
           setLoading(false);
