@@ -1,5 +1,5 @@
 import { GetServerSideProps, GetServerSidePropsContext } from 'next';
-import React, { FC, Fragment, useEffect } from 'react';
+import React, { FC, Fragment } from 'react';
 import { PrismicClient } from '../../utils/prismic';
 import Prismic from 'prismic-javascript';
 import {
@@ -10,7 +10,6 @@ import {
 import ApiSearchResponse from 'prismic-javascript/types/ApiSearchResponse';
 import { Document } from 'prismic-javascript/types/documents';
 import { useRouter } from 'next/router';
-import * as gtag from '../../utils/ga';
 import Blog from '../../components/blog/Blog';
 import Head from 'next/head';
 import {
@@ -35,19 +34,6 @@ const Home: FC<HomeProps> = ({
   totalResultsSize
 }) => {
   const router = useRouter();
-
-  useEffect(() => {
-    const handleRouteChange = (url: URL) => {
-      gtag.pageview(url);
-      gtag.event({
-        action: 'INDEX_VISITING',
-        category: 'VISIT',
-        label: 'BLOG_HOMEPAGE',
-        value: 1
-      });
-    };
-    router.events.on('routeChangeComplete', handleRouteChange);
-  }, [router.events]);
 
   return (
     <Fragment>
