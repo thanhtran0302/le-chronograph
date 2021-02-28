@@ -24,8 +24,6 @@ import { ComponentAppearance } from '../button/Button';
 import Head from 'next/head';
 import { Title } from '../footer/Footer.styles';
 import { useTranslation, UseTranslationResponse } from 'react-i18next';
-import { useMediaQuery } from '../../constants/responsive';
-import breakpoints from '../../constants/breakpoints';
 
 export interface SingleBlogPostProps {
   post: PrismicBlogPost;
