@@ -10,7 +10,6 @@ import { useTranslation, UseTranslationResponse } from 'react-i18next';
 import Button, { ButtonTypes, ComponentAppearance } from '../button/Button';
 import Input, { InputTypes } from '../input/Input';
 import { isEmail } from '../../utils/global';
-import * as gtag from '../../utils/ga';
 import Checkbox from '../checkbox/Checkbox';
 import {
   ButtonWrapper,
@@ -73,22 +72,14 @@ const NewsletterContent: FC<NewsletterContentProps> = ({
     if (isEmail(email)) {
       if (atLeastOneBoxChecked) {
         try {
-          await fetch(`/api/airtable`, {
+          await fetch(`/api/newsletter-registration`, {
             method: 'POST',
             body: JSON.stringify({
-              email,
-              newsletter: isNewsletterChecked,
-              investment: isInvestmentChecked
+              email
             })
           });
           setLoading(false);
           setEmailSubmit(QuantumState.TRUE);
-          gtag.event({
-            action: 'NEWSLETTER_SIGN_UP',
-            category: 'CLICK',
-            label: email,
-            value: 2
-          });
         } catch (error) {
           setLoading(false);
           setEmailSubmit(QuantumState.FALSE);
