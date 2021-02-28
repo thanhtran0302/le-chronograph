@@ -31,7 +31,6 @@ const InvestmentPage: FC = () => {
         <NewsletterWrapper>
           <NewsletterContent
             appearance={ComponentAppearance.SECONDARY}
-            shouldCheckNewsletter={false}
             hasSubtitle
           />
         </NewsletterWrapper>
