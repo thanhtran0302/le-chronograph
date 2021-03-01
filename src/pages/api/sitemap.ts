@@ -94,7 +94,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
       ${urls.map((url: string) => url)}
     </urlset>
-  `.replaceAll(',', '');
+  `;
 
   res.setHeader('Content-Type', 'application/xml');
   res.send(xmlTemplate);
