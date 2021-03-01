@@ -21,14 +21,15 @@ const generateXMLURL = (
   date: string,
   frequence: URLFrequence,
   priority: number = 0.5
-) => `
+) =>
+  `
   <url>
     <loc>${url}</loc>
     <lastmod>${date}</lastmod>
     <changefreq>${frequence}</changefreq>
     <priority>${priority}</priority>
   </url>
-`;
+`.replace(/\n|\s/g, '');
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   const prismicQuery: string[] = [
@@ -92,7 +93,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 
   const xmlTemplate: string = `
     <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-      ${urls.map((url: string) => url)}
+      ${urls.join('')}
     </urlset>
   `;
 
