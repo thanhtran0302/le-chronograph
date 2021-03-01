@@ -1,4 +1,4 @@
-Sitemap: https://wwww.lechronograph.com/api/sitemap
+Sitemap: https://www.lechronograph.com/api/sitemap
 
 User-agent: *
 Allow: /*

@@ -34,15 +34,14 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   const prismicQuery: string[] = [
     Prismic.Predicates.at('document.type', PrimsicTypes.BLOG_POSTS)
   ];
-  const {
-    results,
-    total_pages,
-    total_results_size
-  }: ApiSearchResponse = await PrismicClient(req).query(prismicQuery, {
-    fetchLinks: ['authors.name', 'categories.name'],
-    orderings: [`[my.${PrimsicTypes.BLOG_POSTS}.creation_date desc]`],
-    pageSize: BLOG_PAGE_MAX
-  });
+  const { results }: ApiSearchResponse = await PrismicClient(req).query(
+    prismicQuery,
+    {
+      fetchLinks: ['authors.name', 'categories.name'],
+      orderings: [`[my.${PrimsicTypes.BLOG_POSTS}.creation_date desc]`],
+      pageSize: BLOG_PAGE_MAX
+    }
+  );
 
   const lastWeek: number = new Date().setDate(new Date().getDate() - 7);
   const yesterday: number = new Date().setDate(new Date().getDate() - 1);
@@ -95,7 +94,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
       ${urls.map((url: string) => url)}
     </urlset>
-  `;
+  `.replaceAll(',', '');
 
   res.setHeader('Content-Type', 'application/xml');
   res.send(xmlTemplate);
